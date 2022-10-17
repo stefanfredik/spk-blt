@@ -6,6 +6,7 @@
                 <th>Nama User</th>
                 <th>Jabatan</th>
                 <th>Username</th>
+                <th>Created</th>
                 <th>Last Login</th>
                 <th>Action</th>
             </tr>
@@ -18,6 +19,7 @@
                     <td><?= $dt['nama_user']; ?></td>
                     <td><?= $dt['jabatan']; ?></td>
                     <td><?= $dt['username']; ?></td>
+                    <td><?= $dt['created_at']; ?></td>
                     <td><?= $dt['last_login']; ?></td>
                     <td style="text-align: center" width="120px">
                         <div class="btn-group" role="group" aria-label="Basic example">

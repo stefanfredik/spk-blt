@@ -9,7 +9,7 @@
                 <div class="modal-body">
                     <div class="mb-3">
                         <label class="form-label">Nama User</label>
-                        <input name="nama_user" type="text" class="form-control" required>
+                        <input value="<?= $user['nama_user'] ?>" name="nama_user" type="text" class="form-control" required>
 
                     </div>
 
@@ -17,15 +17,15 @@
                         <label class="form-label">Jabatan</label>
                         <select class="form-control" name="jabatan" id="" required>
                             <option value="">Pilih Jabatan</option>
-                            <option value="Admin">Admin</option>
-                            <option value="Kepala Sekolah">Kepala Sekolah</option>
+                            <option <?= $user['jabatan'] == 'Admin' ? 'selected' : '' ?> value="Admin">Admin</option>
+                            <option <?= $user['jabatan'] == 'Kepala Sekolah' ? 'selected' : '' ?> value="Kepala Sekolah">Kepala Sekolah</option>
                         </select>
                     </div>
 
                     <hr>
                     <div class="mb-3">
                         <label class="form-label">Username</label>
-                        <input name="username" type="text" class="form-control" required>
+                        <input value="<?= $user['username'] ?>" name="username" type="text" class="form-control" required>
                         <div id="" class="invalid-feedback"></div>
                     </div>
 
