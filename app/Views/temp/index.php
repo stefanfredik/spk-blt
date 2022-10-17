@@ -16,6 +16,7 @@
 
     </div>
     <?= $this->include("/temp/layout/script"); ?>
+    <?= $this->renderSection('script'); ?>
 
 </body>
 

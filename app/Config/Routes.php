@@ -25,7 +25,7 @@ $routes->set404Override();
 // where controller filters or CSRF protection are bypassed.
 // If you don't want to define all routes, please use the Auto Routing (Improved).
 // Set `$autoRoutesImproved` to true in `app/Config/Feature.php` and set the following to true.
-// $routes->setAutoRoute(false);
+$routes->setAutoRoute(true);
 
 /*
  * --------------------------------------------------------------------
@@ -36,7 +36,16 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
+// $routes->get('user/(:num)', 'User::getEdit/$1');
+// $routes->group('user', static function ($routes) {
+//     $routes->get('user/(:num)', 'User::getEdit/$1');
+// });
 
+
+
+// my custom router
+
+// $routes->post('/user', 'User::postUser');
 /*
  * --------------------------------------------------------------------
  * Additional Routing
