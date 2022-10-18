@@ -7,7 +7,7 @@
                 <th>Jabatan</th>
                 <th>Username</th>
                 <th>Created</th>
-                <th>Last Login</th>
+                <th>Login Terakhir</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -23,7 +23,7 @@
                     <td><?= $dt['last_login']; ?></td>
                     <td style="text-align: center" width="120px">
                         <div class="btn-group" role="group" aria-label="Basic example">
-                            <button onclick="remove('<?= $url; ?>', this)" class="btn btn-danger" data-id="<?= $dt['id'] ?>"><i class="bi bi-trash mr-2"></i></button>
+                            <button onclick="remove('<?= $url; ?>', this)" class="btn text-white btn-danger" data-id="<?= $dt['id'] ?>"><i class="bi bi-trash mr-2"></i></button>
                             <button onclick="edit('<?= $url; ?>', this)" class="btn  btn-primary" data-id="<?= $dt['id'] ?>"><i class="bi bi-pencil-square mr-2"></i></button>
                         </div>
                     </td>

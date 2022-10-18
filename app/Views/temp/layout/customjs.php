@@ -55,6 +55,17 @@
             });
     }
 
+
+    async function saveEdit(event) {
+        event.preventDefault();
+        let form = document.querySelector("form");
+        let url = form.getAttribute('action');
+        const data = new FormData(form);
+        const modal = $("#modal");
+
+        axios.put()
+    }
+
     async function getTable(url) {
         await $.get(`/${url}/table`, (data, status) => {
             $('#data').html(data);

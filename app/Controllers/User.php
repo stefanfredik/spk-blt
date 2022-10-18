@@ -98,8 +98,8 @@ class User extends BaseController {
         return $this->respond($res, 200);
     }
 
-    public function putIndex() {
-        return $this->respond();
+    public function putEdit($id) {
+        return $this->respond($id);
     }
 
     public function deleteDelete($id) {
