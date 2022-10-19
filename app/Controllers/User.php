@@ -6,16 +6,19 @@ use App\Controllers\BaseController;
 use App\Models\UserModel;
 use CodeIgniter\API\ResponseTrait;
 
-class User extends BaseController {
+class User extends BaseController
+{
     use ResponseTrait;
 
     var $url = 'user';
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->userModel = new UserModel();
     }
 
-    public function getIndex() {
+    public function getIndex()
+    {
 
         $data = [
             'title' => 'Data User',
@@ -27,7 +30,8 @@ class User extends BaseController {
     }
 
 
-    public function getTambah() {
+    public function getTambah()
+    {
         $data = [
             'title' => 'Tambah Data User',
             'url'   => $this->url
@@ -36,7 +40,8 @@ class User extends BaseController {
         return view('/user/tambah', $data);
     }
 
-    public function getEdit($id) {
+    public function getEdit($id)
+    {
         $data = [
             'title' => 'Edit Data User',
             'user'  => $this->userModel->find($id),
@@ -46,7 +51,8 @@ class User extends BaseController {
         return $this->respond(view('/user/edit', $data), 200);
     }
 
-    public function getTable() {
+    public function getTable()
+    {
         $data = [
             'title' => 'Data User',
             'url'   => $this->url,
@@ -56,7 +62,8 @@ class User extends BaseController {
         return view('/user/table', $data);
     }
 
-    public function postIndex() {
+    public function postIndex()
+    {
         $rules = [
             'username'  => [
                 'rules'  => 'required|is_unique[user.username]',
@@ -98,11 +105,13 @@ class User extends BaseController {
         return $this->respond($res, 200);
     }
 
-    public function putEdit($id) {
+    public function putEdit($id)
+    {
         return $this->respond($id);
     }
 
-    public function deleteDelete($id) {
+    public function deleteDelete($id)
+    {
 
         $this->userModel->delete($id);
 

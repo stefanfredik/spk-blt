@@ -26,12 +26,12 @@
                     <use xlink:href="/core/vendors/@coreui/icons/svg/free.svg#cil-pencil"></use>
                 </svg> Data Penduduk</a></li>
 
-        <li class="nav-item"><a class="nav-link" href="/penduduk">
+        <li class="nav-item"><a class="nav-link" href="/kriteria">
                 <svg class="nav-icon">
                     <use xlink:href="/core/vendors/@coreui/icons/svg/free.svg#cil-pencil"></use>
                 </svg> Data Kriteria</a></li>
 
-        <li class="nav-item"><a class="nav-link" href="/penduduk">
+        <li class="nav-item"><a class="nav-link" href="/subkriteria">
                 <svg class="nav-icon">
                     <use xlink:href="/core/vendors/@coreui/icons/svg/free.svg#cil-pencil"></use>
                 </svg> Perhitungan Kriteria</a></li>
@@ -49,14 +49,14 @@
         </li>
 
 
-        <li class="nav-item"><a class="nav-link" href="/penduduk">
+        <li class="nav-item"><a class="nav-link" href="/laporan">
                 <svg class="nav-icon">
                     <use xlink:href="/core/vendors/@coreui/icons/svg/free.svg#cil-pencil"></use>
                 </svg> Laporan</a></li>
 
         <hr>
 
-        <li class="nav-item"><a class="nav-link" href="/penduduk">
+        <li class="nav-item"><a class="nav-link" href="/logout">
                 <svg class="nav-icon">
                     <use xlink:href="/core/vendors/@coreui/icons/svg/free.svg#cil-pencil"></use>
                 </svg> Logout</a></li>

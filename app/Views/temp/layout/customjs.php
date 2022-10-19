@@ -1,19 +1,28 @@
 <script>
-    const debug = true;
+    const isDebug = true;
 
-
+    function debug(a) {
+        if (isDebug) {
+            console.log(a);
+        }
+    }
 
     async function add(target) {
         let url = target.getAttribute('data-url');
 
         $.get(url, function(data, status) {
             if (status === 'success') {
-                // console.log(data);
+                // debug(data);
                 $("#modalArea").html(data);
                 $("#modal").modal("show");
             }
         }).catch((err) => {
-            console.log(err);
+            debug(err);
+
+            return Toast.fire({
+                icon: 'error',
+                title: 'Tidak dapat menambah data!'
+            })
         });
     }
 
@@ -29,7 +38,7 @@
 
         axios.post(`/${url}/`, data)
             .then((res) => {
-                if (debug) console.log(`Res : ${res.data}`);
+                debug(res);
 
                 if (res.data.status == 'success') {
                     Toast.fire({
@@ -42,7 +51,7 @@
                 }
             })
             .catch((e) => {
-                if (debug) console.log(`Error : ${e}`);
+                debug(e);
 
                 if (!(typeof e.response.data.error == 'undefined')) {
                     return validation(e.response.data.error);
