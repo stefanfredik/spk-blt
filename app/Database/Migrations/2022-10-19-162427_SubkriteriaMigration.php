@@ -21,6 +21,10 @@ class SubkriteriaMigration extends Migration {
             'nilai' => [
                 'type'  => 'FLOAT',
             ],
+            'jenis_bantuan' => [
+                'type' => 'VARCHAR',
+                'constraint' => '64'
+            ]
         ];
 
         $this->forge->addField($data);

@@ -5,14 +5,14 @@
                 <h5 class="modal-title" id="modalLabel"><?= $title; ?></h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="<?= $url; ?>" method="" data-id="<?= $kriteria['id']; ?>" id="formTambah" onsubmit="saveEdit(event)">
+            <form action="<?= $url; ?>" method="" id="formTambah" onsubmit="save(event)">
                 <div class="modal-body">
                     <div class="row mb-2">
                         <div class="col-md-4">
                             <label class="form-label">Kriteria</label>
                         </div>
                         <div class="col-md-8">
-                            <input value="<?= $kriteria['kriteria']; ?>" name="kriteria" type="text" class="form-control" required>
+                            <input name="kriteria" type="text" class="form-control" required>
                         </div>
                     </div>
 
@@ -22,7 +22,7 @@
                             <label class="form-label">Keterangan</label>
                         </div>
                         <div class="col-md-8">
-                            <input value="<?= $kriteria['keterangan']; ?>" name="keterangan" type="text" class="form-control" required>
+                            <input name="keterangan" type="text" class="form-control" required>
                             <div id="" class="invalid-feedback"></div>
                         </div>
                     </div>
@@ -30,10 +30,10 @@
 
                     <div class="row mb-2">
                         <div class="col-md-4">
-                            <label class="form-label">Bobot</label>
+                            <label class="form-label">Nilai</label>
                         </div>
                         <div class="col-md-8">
-                            <input value="<?= $kriteria['nilai']; ?>" name="bobot" type="number" class="form-control" required>
+                            <input name="nilai" type="number" class="form-control" required>
                             <div id="" class="invalid-feedback"></div>
                         </div>
                     </div>
@@ -43,11 +43,11 @@
                             <label class="form-label">Cost/ Benefit</label>
                         </div>
                         <div class="col-md-8">
-                            <input value="cost" <?= ($kriteria['type'] == 'cost') ? 'checked' : ''; ?> class="form-check-input" type="radio" name="type" id="cost">
+                            <input value="cost" class="form-check-input" type="radio" name="type" id="cost" checked>
                             <label class="form-check-label" for="cost">
                                 Cost
                             </label>
-                            <input value="benefit" <?= ($kriteria['type'] == 'benefit') ? 'checked' : ''; ?> class="form-check-input" type="radio" name="type" id="benefit">
+                            <input value="benefit" class="form-check-input" type="radio" name="type" id="benefit" checked>
                             <label class="form-check-label" for="benefit">
                                 Benefit
                             </label>

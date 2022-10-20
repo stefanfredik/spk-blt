@@ -1,25 +1,23 @@
 <?php
 
-namespace App\Controllers\Blt;
+namespace App\Controllers\Bpnt;
 
 use App\Controllers\BaseController;
 use App\Models\KriteriaModel;
-use App\Models\BltModel;
+use App\Models\BpntModel;
 use CodeIgniter\API\ResponseTrait;
 
 class Kriteria extends BaseController
 {
     use ResponseTrait;
 
-    private $url = 'blt/kriteria';
-    private $jenisBantuan = 'blt';
-    private $dir = 'blt';
-    private $table = 'kriteria';
+    private $url = 'bpnt/kriteria';
+    private $jenisBantuan = 'bpnt';
 
     public function __construct()
     {
         $this->kriteriaModel = new KriteriaModel();
-        $this->Peserta = new BltModel();
+        $this->Peserta = new BpntModel();
         $this->forge = \Config\Database::forge();
     }
 
@@ -28,11 +26,10 @@ class Kriteria extends BaseController
         // dd($this->kriteriaModel->orderBy('id', 'desc')->first()['id']);
         $data = [
             'url' => $this->url,
-            'table' => $this->table,
             'title' => 'Data Kriteria'
         ];
 
-        return view('blt/kriteria/index', $data);
+        return view('bpnt/kriteria/index', $data);
     }
 
     public function getTambah()
@@ -42,18 +39,17 @@ class Kriteria extends BaseController
             'url'   => $this->url
         ];
 
-        return view('blt/kriteria/tambah', $data);
+        return view('bpnt/kriteria/tambah', $data);
     }
     public function getTable()
     {
         $data = [
             'title' => 'Data Kriteria',
             'url'   => $this->url,
-            'table' => $this->table,
             'kriteriaData' => $this->kriteriaModel->where('jenis_bantuan',$this->jenisBantuan)->findAll(),
         ];
 
-        return view('blt/kriteria/table', $data);
+        return view('bpnt/kriteria/table', $data);
     }
 
     public function getEdit($id)
@@ -64,7 +60,7 @@ class Kriteria extends BaseController
             'url'   => $this->url
         ];
 
-        return $this->respond(view('blt/kriteria/edit', $data), 200);
+        return $this->respond(view('bpnt/kriteria/edit', $data), 200);
     }
 
     public function postIndex()
@@ -85,7 +81,7 @@ class Kriteria extends BaseController
 
         // return $this->respond($field, 200);
 
-        $this->forge->addColumn('datablt', $field);
+        $this->forge->addColumn('databpnt', $field);
 
         $res = [
             'status' => 'success',
@@ -118,7 +114,7 @@ class Kriteria extends BaseController
         $this->kriteriaModel->delete($id);
 
         $column = "k_" . $id;
-        $this->forge->dropColumn('datablt', $column);
+        $this->forge->dropColumn('databpnt', $column);
 
         $res = [
             'status'    => 'success',

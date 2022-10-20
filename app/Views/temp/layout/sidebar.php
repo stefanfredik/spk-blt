@@ -32,26 +32,28 @@
         <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
                 <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-ui-checks" viewBox="0 0 16 16">
                     <path d="M7 2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-1zM2 1a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H2zm0 8a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2H2zm.854-3.646a.5.5 0 0 1-.708 0l-1-1a.5.5 0 1 1 .708-.708l.646.647 1.646-1.647a.5.5 0 1 1 .708.708l-2 2zm0 8a.5.5 0 0 1-.708 0l-1-1a.5.5 0 0 1 .708-.708l.646.647 1.646-1.647a.5.5 0 0 1 .708.708l-2 2zM7 10.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-1zm0-5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 8a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z" />
-                </svg> BLTN</a>
+                </svg> BPNT</a>
             <ul class="nav-group-items">
-                <li class="nav-item"><a class="nav-link" href="/blt/datapeserta"><span class="nav-icon"></span> <i class="bi bi-list-ol mx-2"></i>Data Penduduk</a></li>
-                <li class="nav-item"><a class="nav-link" href="/blt/kriteria"><span class="nav-icon"></span> <i class="bi bi-list-ol mx-2"></i>Kriteria</a></li>
-                <li class="nav-item"><a class="nav-link" href="/blt/perhitungan"><span class="nav-icon"></span><i class="bi bi-calculator mx-2"></i>Perhitungan Kriteria</a></li>
-                <li class="nav-item"><a class="nav-link" href="/blt/keputusan"><span class="nav-icon"></span><i class="bi bi-clipboard2-check mx-2"></i>Data Keputusan</a></li>
-                <li class="nav-item"><a class="nav-link" href="/blt/laporan"><span class="nav-icon"></span><i class="bi bi-journal-check mx-2"></i>Laporan</a></li>
+                <li class="nav-item"><a class="nav-link" href="/bpnt/datapeserta"><span class="nav-icon"></span> <i class="bi bi-list-ol mx-2"></i>Data Peserta</a></li>
+                <li class="nav-item"><a class="nav-link" href="/bpnt/kriteria"><span class="nav-icon"></span> <i class="bi bi-list-ol mx-2"></i>Kriteria</a></li>
+                <li class="nav-item"><a class="nav-link" href="/bpnt/subkriteria"><span class="nav-icon"></span> <i class="bi bi-list-ol mx-2"></i>Sub Kriteria</a></li>
+                <li class="nav-item"><a class="nav-link" href="/bpnt/perhitungan"><span class="nav-icon"></span><i class="bi bi-calculator mx-2"></i>Perhitungan Kriteria</a></li>
+                <li class="nav-item"><a class="nav-link" href="/bpnt/keputusan"><span class="nav-icon"></span><i class="bi bi-clipboard2-check mx-2"></i>Data Keputusan</a></li>
+                <li class="nav-item"><a class="nav-link" href="/bpnt/laporan"><span class="nav-icon"></span><i class="bi bi-journal-check mx-2"></i>Laporan</a></li>
             </ul>
         </li>
 
         <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
                 <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-ui-checks" viewBox="0 0 16 16">
                     <path d="M7 2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-1zM2 1a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H2zm0 8a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2H2zm.854-3.646a.5.5 0 0 1-.708 0l-1-1a.5.5 0 1 1 .708-.708l.646.647 1.646-1.647a.5.5 0 1 1 .708.708l-2 2zm0 8a.5.5 0 0 1-.708 0l-1-1a.5.5 0 0 1 .708-.708l.646.647 1.646-1.647a.5.5 0 0 1 .708.708l-2 2zM7 10.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-1zm0-5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 8a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z" />
-                </svg> BNTT</a>
+                </svg> BLT</a>
             <ul class="nav-group-items">
-                <li class="nav-item"><a class="nav-link" href="/bntp/datapeserta"><span class="nav-icon"></span> <i class="bi bi-list-ol mx-2"></i>Data Penduduk</a></li>
-                <li class="nav-item"><a class="nav-link" href="/bntp/kriteria"><span class="nav-icon"></span> <i class="bi bi-list-ol mx-2"></i>Kriteria</a></li>
-                <li class="nav-item"><a class="nav-link" href="/bntp/perhitungan"><span class="nav-icon"></span><i class="bi bi-calculator mx-2"></i>Perhitungan Kriteria</a></li>
-                <li class="nav-item"><a class="nav-link" href="/bntp/keputusan"><span class="nav-icon"></span><i class="bi bi-clipboard2-check mx-2"></i>Data Keputusan</a></li>
-                <li class="nav-item"><a class="nav-link" href="/bntp/laporan"><span class="nav-icon"></span><i class="bi bi-journal-check mx-2"></i>Laporan</a></li>
+                <li class="nav-item"><a class="nav-link" href="/blt/datapeserta"><span class="nav-icon"></span> <i class="bi bi-list-ol mx-2"></i>Data Peserta</a></li>
+                <li class="nav-item"><a class="nav-link" href="/blt/kriteria"><span class="nav-icon"></span> <i class="bi bi-list-ol mx-2"></i>Kriteria</a></li>
+                <li class="nav-item"><a class="nav-link" href="/blt/subkriteria"><span class="nav-icon"></span> <i class="bi bi-list-ol mx-2"></i>Sub Kriteria</a></li>
+                <li class="nav-item"><a class="nav-link" href="/blt/perhitungan"><span class="nav-icon"></span><i class="bi bi-calculator mx-2"></i>Perhitungan Kriteria</a></li>
+                <li class="nav-item"><a class="nav-link" href="/blt/keputusan"><span class="nav-icon"></span><i class="bi bi-clipboard2-check mx-2"></i>Data Keputusan</a></li>
+                <li class="nav-item"><a class="nav-link" href="/blt/laporan"><span class="nav-icon"></span><i class="bi bi-journal-check mx-2"></i>Laporan</a></li>
             </ul>
         </li>
         <li class="nav-item"><a class="nav-link" href="/logout">

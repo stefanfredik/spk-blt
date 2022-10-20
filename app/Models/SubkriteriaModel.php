@@ -13,14 +13,15 @@ class SubkriteriaModel extends Model {
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['id', 'id_kriteria', 'subkriteria', 'nilai'];
+    protected $allowedFields    = ['id', 'id_kriteria', 'subkriteria', 'nilai','jenis_bantuan'];
 
 
-    public function findAll(int $limit = 0, int $offset = 0) {
+    public function findAllSubkriteria($jenisBantuan) {
         $this->select('subkriteria.*');
         $this->select('kriteria.kriteria');
         $this->join('kriteria', 'kriteria.id = subkriteria.id_kriteria');
         $this->orderBy('id_kriteria', 'ASC');
+        $this->where('subkriteria.jenis_bantuan',$jenisBantuan);
         return parent::findAll();
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\Blt;
 
 use App\Controllers\BaseController;
 use App\Models\KriteriaModel;
@@ -9,7 +9,8 @@ use CodeIgniter\API\ResponseTrait;
 
 class Subkriteria extends BaseController {
     use ResponseTrait;
-    var $url = 'subkriteria';
+    var $url = 'blt/subkriteria';
+    var $jenisBantuan = 'blt';
 
     public function __construct() {
         $this->subkriteriaModel = new SubkriteriaModel();
@@ -23,41 +24,42 @@ class Subkriteria extends BaseController {
             'title' => 'Data Sub Kriteria'
         ];
 
-        return view('/subkriteria/index', $data);
+        return view('/blt/subkriteria/index', $data);
     }
 
     public function getTambah() {
         $data = [
             'title' => 'Tambah Data Kriteria',
-            'dataKriteria' => $this->kriteriaModel->findAll(),
+            'kriteriaData' => $this->kriteriaModel->where('jenis_bantuan',$this->jenisBantuan)->findAll(),
             'url'   => $this->url
         ];
 
-        return view('/subkriteria/tambah', $data);
+        return view('/blt/subkriteria/tambah', $data);
     }
     public function getTable() {
         $data = [
             'title' => 'Data Kriteria',
             'url'   => $this->url,
-            'subkriteriaData' => $this->subkriteriaModel->findAll(),
+            'subkriteriaData' => $this->subkriteriaModel->findAllSubkriteria($this->jenisBantuan),
         ];
 
-        return view('/subkriteria/table', $data);
+        return view('/blt/subkriteria/table', $data);
     }
 
     public function getEdit($id) {
         $data = [
             'title' => 'Edit Data Penduduk',
             'data'  => $this->subkriteriaModel->find($id),
-            'dataKriteria' => $this->kriteriaModel->findAll(),
+            'kriteriaData' => $this->kriteriaModel->where('jenis_bantuan',$this->jenisBantuan)->findAll(),
             'url'   => $this->url
         ];
 
-        return $this->respond(view('/subkriteria/edit', $data), 200);
+        return $this->respond(view('/blt/subkriteria/edit', $data), 200);
     }
 
     public function postIndex() {
         $data = $this->request->getPost();
+        $data['jenis_bantuan'] = $this->jenisBantuan;
         $this->subkriteriaModel->save($data);
 
         $res = [

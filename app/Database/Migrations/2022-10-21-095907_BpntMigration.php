@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class BltMigration extends Migration
+class BpntMigration extends Migration
 {
     public function up()
     {
@@ -20,11 +20,11 @@ class BltMigration extends Migration
 
         $this->forge->addField($data);
         $this->forge->addKey('id', true);
-        $this->forge->createTable('datablt');
+        $this->forge->createTable('databpnt');
     }
 
     public function down()
     {
-        $this->forge->dropTable('datablt');
+        $this->forge->dropTable('databpnt');
     }
 }

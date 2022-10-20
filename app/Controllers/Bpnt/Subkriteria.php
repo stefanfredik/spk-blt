@@ -1,80 +1,71 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\Bpnt;
 
 use App\Controllers\BaseController;
 use App\Models\KriteriaModel;
-use App\Models\KriteriapendudukModel;
+use App\Models\SubkriteriaModel;
 use CodeIgniter\API\ResponseTrait;
 
-class Kriteria extends BaseController {
+class Subkriteria extends BaseController {
     use ResponseTrait;
-    var $url = 'kriteria';
+    var $url = 'bpnt/subkriteria';
+    var $jenisBantuan = 'bpnt';
 
     public function __construct() {
+        $this->subkriteriaModel = new SubkriteriaModel();
         $this->kriteriaModel = new KriteriaModel();
-        $this->kriteriaPenduduk = new KriteriapendudukModel();
-        $this->forge = \Config\Database::forge();
     }
 
     public function getIndex() {
-        // dd($this->kriteriaModel->orderBy('id', 'desc')->first()['id']);
+
         $data = [
             'url' => $this->url,
-            'title' => 'Data Kriteria'
+            'title' => 'Data Sub Kriteria'
         ];
 
-        return view('/kriteria/index', $data);
+        return view('/bpnt/subkriteria/index', $data);
     }
 
     public function getTambah() {
         $data = [
             'title' => 'Tambah Data Kriteria',
+            'kriteriaData' => $this->kriteriaModel->where('jenis_bantuan',$this->jenisBantuan)->findAll(),
             'url'   => $this->url
         ];
 
-        return view('/kriteria/tambah', $data);
+        return view('/bpnt/subkriteria/tambah', $data);
     }
     public function getTable() {
         $data = [
             'title' => 'Data Kriteria',
             'url'   => $this->url,
-            'kriteriaData' => $this->kriteriaModel->findAll(),
+            'subkriteriaData' => $this->subkriteriaModel->findAllSubkriteria($this->jenisBantuan),
         ];
 
-        return view('/kriteria/table', $data);
+        return view('/bpnt/subkriteria/table', $data);
     }
 
     public function getEdit($id) {
+
         $data = [
             'title' => 'Edit Data Penduduk',
-            'kriteria'  => $this->kriteriaModel->find($id),
+            'data'  => $this->subkriteriaModel->find($id),
+            'kriteriaData' => $this->kriteriaModel->where('jenis_bantuan',$this->jenisBantuan)->findAll(),
             'url'   => $this->url
         ];
 
-        return $this->respond(view('/kriteria/edit', $data), 200);
+        return $this->respond(view('/bpnt/subkriteria/edit', $data), 200);
     }
 
     public function postIndex() {
         $data = $this->request->getPost();
-        $this->kriteriaModel->save($data);
-
-        $result = $this->kriteriaModel->orderBy('id', 'desc')->first();
-        $column = 'k_' . $result['id'];
-
-        $field = [
-            $column => [
-                'type' => 'INT'
-            ]
-        ];
-
-        // return $this->respond($field, 200);
-
-        $this->forge->addColumn('kriteriapenduduk', $field);
+        $data['jenis_bantuan'] = $this->jenisBantuan;
+        $this->subkriteriaModel->save($data);
 
         $res = [
             'status' => 'success',
-            'msg'   => 'Data Kriteria Berhasil Ditambahkan.',
+            'msg'   => 'Data Sub Kriteria Berhasil Ditambahkan.',
             'data'  => $data
         ];
 
@@ -84,7 +75,7 @@ class Kriteria extends BaseController {
 
     public function postSaveedit($id) {
         $data = $this->request->getPost();
-        $this->kriteriaModel->update($id, $data);
+        $this->subkriteriaModel->update($id, $data);
 
         $res = [
             'status' => 'success',
@@ -98,10 +89,8 @@ class Kriteria extends BaseController {
 
 
     public function deleteDelete($id) {
-        $this->kriteriaModel->delete($id);
 
-        $column = "k_" . $id;
-        $this->forge->dropColumn('kriteriapenduduk', $column);
+        $this->subkriteriaModel->delete($id);
 
         $res = [
             'status'    => 'success',
