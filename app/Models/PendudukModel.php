@@ -24,6 +24,15 @@ class PendudukModel extends Model {
 
 
     public function test() {
-        dd($this->select('*')->join('user', 'user.id = penduduk.id_user', 'left')->findAll());
+        // dd($this->select('*')->join('user', 'user.id = penduduk.id_user', 'left')->findAll());
+    }
+
+    public function findAllData() {
+        $this->select('penduduk.*');
+        $this->select('kriteriapenduduk.*', 'kriteriapenduduk.id as Kri');
+
+
+        $this->join('kriteriapenduduk', 'penduduk.id = kriteriapenduduk.id_penduduk', 'left', 'penduduk.id as pend');
+        return $this->findAll();
     }
 }
