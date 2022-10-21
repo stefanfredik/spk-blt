@@ -1,14 +1,16 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\Blt;
 
 use App\Controllers\BaseController;
 
-class Blt extends BaseController {
+class Home extends BaseController
+{
     private $url = 'blt';
     private $title = 'Data Keputusan Blt';
 
-    public function getIndex() {
+    public function getIndex()
+    {
 
         $data = [
             'url' => $this->url,
@@ -18,7 +20,8 @@ class Blt extends BaseController {
         return view('/blt/index', $data);
     }
 
-    public function getTable() {
+    public function getTable()
+    {
         $data = [
             'title' => $this->title,
             'url'   => $this->url,

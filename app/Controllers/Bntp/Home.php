@@ -1,15 +1,13 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\Bntp;
 
 use App\Controllers\BaseController;
 
-
-
 class Home extends BaseController
 {
-    public function Index()
+    public function getIndex()
     {
-        return view('/home/index');
+        echo "Hello Word";
     }
 }
