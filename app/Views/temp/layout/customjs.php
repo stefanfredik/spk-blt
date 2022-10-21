@@ -80,7 +80,7 @@
     async function getTable(url) {
         await $.get(`/${url}/table`, (data, status) => {
             $("#data").html(data);
-            $(`#${url}`).DataTable({
+            $(`table`).DataTable({
                 columnDefs: [{
                     width: 20,
                     targets: 0

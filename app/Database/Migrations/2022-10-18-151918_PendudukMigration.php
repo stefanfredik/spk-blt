@@ -4,8 +4,10 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class PendudukMigration extends Migration {
-    public function up() {
+class PendudukMigration extends Migration
+{
+    public function up()
+    {
         $data = [
             'id' => [
                 'type'  => 'INT',
@@ -32,7 +34,7 @@ class PendudukMigration extends Migration {
                 'constraint' => 64
             ],
             'tanggal_lahir' => [
-                'type' => 'DATETIME'
+                'type' => 'DATE'
             ],
             'jenis_kelamin' => [
                 'type' => 'VARCHAR',
@@ -65,7 +67,8 @@ class PendudukMigration extends Migration {
         $this->forge->createTable('penduduk');
     }
 
-    public function down() {
+    public function down()
+    {
         $this->forge->dropTable('penduduk');
     }
 }

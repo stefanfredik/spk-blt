@@ -4,29 +4,32 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\KriteriaModel;
-use App\Models\KriteriapendudukModel;
+use App\Models\Peserta;
 use App\Models\PendudukModel;
 use App\Models\SubkriteriaModel;
 use CodeIgniter\API\ResponseTrait;
 
-class Kriteriapenduduk extends BaseController {
+class Peserta extends BaseController
+{
     use ResponseTrait;
 
     private $url = 'kriteriapenduduk';
     private $title = 'Data Kriteria Penududukan';
     private $jumlahKriteria = 0;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->kriteriaModel = new KriteriaModel();
         $this->pendudukModel = new PendudukModel();
         $this->subkriteriaModel = new SubkriteriaModel();
-        $this->kriteriapendudukModel = new KriteriapendudukModel();
+        $this->Peserta = new Peserta();
 
 
         $this->jumlahKriteria = $this->kriteriaModel->countAllResults();
     }
 
-    public function getIndex() {
+    public function getIndex()
+    {
         $data = [
             'url' => $this->url,
             'title' => 'Data Kriteria'
@@ -35,7 +38,8 @@ class Kriteriapenduduk extends BaseController {
         return view('/kriteriapenduduk/index', $data);
     }
 
-    public function getTambah() {
+    public function getTambah()
+    {
         $data = [
             'title' => 'Tambah Data Penduduk',
             'url'   => $this->url,
@@ -46,7 +50,8 @@ class Kriteriapenduduk extends BaseController {
         return view('/kriteriapenduduk/tambah', $data);
     }
 
-    public function getTable() {
+    public function getTable()
+    {
         $data = [
             'title' => 'Data Kriteria',
             'url'   => $this->url,
@@ -58,7 +63,8 @@ class Kriteriapenduduk extends BaseController {
         return view('/kriteriapenduduk/table', $data);
     }
 
-    public function getEdit($id) {
+    public function getEdit($id)
+    {
 
         $data = [
             'title' => 'Edit Data Kriteria Penduduk',
@@ -71,7 +77,8 @@ class Kriteriapenduduk extends BaseController {
         return $this->respond(view('/kriteriapenduduk/edit', $data), 200);
     }
 
-    public function getDetail($id) {
+    public function getDetail($id)
+    {
 
         $data = [
             'title' => 'Edit Data Kriteria Penduduk',
@@ -84,7 +91,8 @@ class Kriteriapenduduk extends BaseController {
         return $this->respond(view('/kriteriapenduduk/edit', $data), 200);
     }
 
-    public function postIndex() {
+    public function postIndex()
+    {
         $data = $this->request->getPost();
         $this->kriteriaModel->save($data);
 
@@ -98,7 +106,8 @@ class Kriteriapenduduk extends BaseController {
     }
 
 
-    public function postSaveedit($id) {
+    public function postSaveedit($id)
+    {
         $data = $this->request->getPost();
         $this->kriteriaModel->update($id, $data);
 
@@ -113,7 +122,8 @@ class Kriteriapenduduk extends BaseController {
 
 
 
-    public function deleteDelete($id) {
+    public function deleteDelete($id)
+    {
 
         $this->kriteriaModel->delete($id);
 
@@ -125,7 +135,8 @@ class Kriteriapenduduk extends BaseController {
         return $this->respond($res, 200);
     }
 
-    private function statusBerkas($id) {
-        $this->kriteriapendudukModel->first($id);
+    private function statusBerkas($id)
+    {
+        $this->Peserta->first($id);
     }
 }

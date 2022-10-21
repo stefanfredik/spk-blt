@@ -4,7 +4,7 @@ namespace App\Controllers\Blt;
 
 use App\Controllers\BaseController;
 use App\Models\KriteriaModel;
-use App\Models\KriteriapendudukModel;
+use App\Models\BltModel;
 use CodeIgniter\API\ResponseTrait;
 
 class Kriteria extends BaseController
@@ -13,11 +13,12 @@ class Kriteria extends BaseController
 
     private $url = 'blt/kriteria';
     private $jenisBantuan = 'blt';
+    private $dir = 'blt';
 
     public function __construct()
     {
         $this->kriteriaModel = new KriteriaModel();
-        $this->kriteriaPenduduk = new KriteriapendudukModel();
+        $this->Peserta = new BltModel();
         $this->forge = \Config\Database::forge();
     }
 
@@ -29,7 +30,7 @@ class Kriteria extends BaseController
             'title' => 'Data Kriteria'
         ];
 
-        return view('/kriteria/index', $data);
+        return view('blt/kriteria/index', $data);
     }
 
     public function getTambah()
@@ -39,7 +40,7 @@ class Kriteria extends BaseController
             'url'   => $this->url
         ];
 
-        return view('/kriteria/tambah', $data);
+        return view('blt/kriteria/tambah', $data);
     }
     public function getTable()
     {
@@ -49,7 +50,7 @@ class Kriteria extends BaseController
             'kriteriaData' => $this->kriteriaModel->findAll(),
         ];
 
-        return view('/kriteria/table', $data);
+        return view('blt/kriteria/table', $data);
     }
 
     public function getEdit($id)
@@ -60,7 +61,7 @@ class Kriteria extends BaseController
             'url'   => $this->url
         ];
 
-        return $this->respond(view('/kriteria/edit', $data), 200);
+        return $this->respond(view('blt/kriteria/edit', $data), 200);
     }
 
     public function postIndex()
@@ -81,7 +82,7 @@ class Kriteria extends BaseController
 
         // return $this->respond($field, 200);
 
-        $this->forge->addColumn('kriteriapenduduk', $field);
+        $this->forge->addColumn('datablt', $field);
 
         $res = [
             'status' => 'success',
@@ -114,7 +115,7 @@ class Kriteria extends BaseController
         $this->kriteriaModel->delete($id);
 
         $column = "k_" . $id;
-        $this->forge->dropColumn('kriteriapenduduk', $column);
+        $this->forge->dropColumn('datablt', $column);
 
         $res = [
             'status'    => 'success',

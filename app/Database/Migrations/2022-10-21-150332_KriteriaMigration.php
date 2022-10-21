@@ -21,7 +21,7 @@ class KriteriaMigration extends Migration
                 'type'  => 'VARCHAR',
                 'constraint'    => '64'
             ],
-            'bobot' => [
+            'kriteria' => [
                 'type'  => 'FLOAT',
             ],
             'type' => [

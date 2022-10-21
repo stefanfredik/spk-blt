@@ -30,10 +30,10 @@
 
                     <div class="row mb-2">
                         <div class="col-md-4">
-                            <label class="form-label">Bobot</label>
+                            <label class="form-label">Nilai</label>
                         </div>
                         <div class="col-md-8">
-                            <input name="bobot" type="number" class="form-control" required>
+                            <input name="nilai" type="number" class="form-control" required>
                             <div id="" class="invalid-feedback"></div>
                         </div>
                     </div>
