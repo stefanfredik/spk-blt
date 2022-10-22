@@ -8,42 +8,22 @@ helper('Perhitungan');
 $peserta = $dataPeserta;
 
 
-
-
-
-// $peserta['data'] = array();
-
-// foreach ($variable as $key => $value) {
-//     # code...
-// }
-
-$ps = array();
 foreach ($dataPeserta  as $key => $ps) {
-    $peserta[$key]['data_kriteria'] = array();
-    $peserta[$key]['data_normalisasi'] = array();
 
-    // memasukan data kriteria
-    foreach ($dataKriteria as $kunci => $dt) {
-        $kriteria = $peserta[$key]['data_kriteria']['k_' . $dt['id']] = array();
-        if ($ds['id'] == $ps[$k]) {
-            hitungBobot($ds['nilai'], $totalNilaiKriteria);
+    foreach ($dataKriteria as $kunci => $dk) {
+        $k = 'k_' . $dk['id'];
+
+        foreach ($dataSubkriteria as $ds) {
+
+            if ($ps[$k] == $ds['id']) {
+
+                $peserta[$key]['data_kriteria'][$dk['keterangan']]          = $ds['subkriteria'];
+                $peserta[$key]['data_kriteria_nilai'][$dk['keterangan']]    = $ds['nilai'];
+            }
         }
-
-
-        array_push($kriteria, $dt['nilai']);
     }
 
-    // foreach ($dataKriteria as $dk) {
-    //     $k = 'k_' . $dk['id'];
-
-    //     foreach ($dataSubkriteria as $ds) {
-    //         if ($ds['id'] == $ps[$k]) {
-    //             array_push($peserta['data'], hitungBobot($ds['nilai'], $totalNilaiKriteria));
-    //         }
-    //     }
-    // }
-
-    // return $ps;
+    // memasukan data optimasi ke dalam array
 }
 
 // dd($ps);

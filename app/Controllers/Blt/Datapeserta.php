@@ -9,7 +9,8 @@ use App\Models\PendudukModel;
 use App\Models\SubkriteriaModel;
 use CodeIgniter\API\ResponseTrait;
 
-class Datapeserta extends BaseController {
+class Datapeserta extends BaseController
+{
     use ResponseTrait;
 
     private $url = 'blt/datapeserta';
@@ -17,7 +18,8 @@ class Datapeserta extends BaseController {
     private $jumlahKriteria = 0;
     private $jenisBantuan = 'blt';
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->kriteriaModel = new KriteriaModel();
         $this->pendudukModel = new PendudukModel();
         $this->subkriteriaModel = new SubkriteriaModel();
@@ -25,7 +27,8 @@ class Datapeserta extends BaseController {
         $this->jumlahKriteria = $this->kriteriaModel->where('jenis_bantuan', $this->jenisBantuan)->countAllResults();
     }
 
-    public function getIndex() {
+    public function getIndex()
+    {
         $data = [
             'url' => $this->url,
             'title' => 'Data Peserta'
@@ -34,7 +37,8 @@ class Datapeserta extends BaseController {
         return view('/blt/peserta/index', $data);
     }
 
-    public function getTambah() {
+    public function getTambah()
+    {
         $data = [
             'title' => 'Tambah Data Peserta',
             'url'   => $this->url,
@@ -46,7 +50,8 @@ class Datapeserta extends BaseController {
         return view('/blt/peserta/tambah', $data);
     }
 
-    public function getTable() {
+    public function getTable()
+    {
         $data = [
             'title' => 'Data Peserta',
             'url'   => $this->url,
@@ -58,7 +63,8 @@ class Datapeserta extends BaseController {
         return view('/blt/peserta/table', $data);
     }
 
-    public function getEdit($id) {
+    public function getEdit($id)
+    {
 
         $data = [
             'title' => 'Edit Data Peserta',
@@ -72,7 +78,8 @@ class Datapeserta extends BaseController {
         return $this->respond(view('/blt/peserta/edit', $data), 200);
     }
 
-    public function getDetail($id) {
+    public function getDetail($id)
+    {
 
         $data = [
 
@@ -88,7 +95,8 @@ class Datapeserta extends BaseController {
         return $this->respond(view('/blt/peserta/detail', $data), 200);
     }
 
-    public function postIndex() {
+    public function postIndex()
+    {
         $data = $this->request->getPost();
         $this->bltModel->save($data);
 
@@ -102,7 +110,8 @@ class Datapeserta extends BaseController {
     }
 
 
-    public function postSaveedit($id) {
+    public function postSaveedit($id)
+    {
         $data = $this->request->getPost();
         $this->bltModel->update($id, $data);
 
@@ -117,7 +126,8 @@ class Datapeserta extends BaseController {
 
 
 
-    public function deleteDelete($id) {
+    public function deleteDelete($id)
+    {
 
         $this->bltModel->delete($id);
 
@@ -129,7 +139,8 @@ class Datapeserta extends BaseController {
         return $this->respond($res, 200);
     }
 
-    private function statusBerkas($id) {
+    private function statusBerkas($id)
+    {
         $this->Peserta->first($id);
     }
 }
