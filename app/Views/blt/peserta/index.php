@@ -2,6 +2,7 @@
 
 <?= $this->section("content"); ?>
 <div class="row">
+    <p>Jumlah Peserta : </p>
     <div class="col">
         <button data-url="<?= '/' . $url . '/tambah'; ?>" class="rounded-pill m-2 btn btn-outline-primary" onclick="add(this)"><i class="bi bi-plus-circle mx-1"></i>Tambah Data</button>
 

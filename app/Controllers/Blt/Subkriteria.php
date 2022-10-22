@@ -30,7 +30,7 @@ class Subkriteria extends BaseController {
     public function getTambah() {
         $data = [
             'title' => 'Tambah Data Kriteria',
-            'kriteriaData' => $this->kriteriaModel->where('jenis_bantuan',$this->jenisBantuan)->findAll(),
+            'kriteriaData' => $this->kriteriaModel->where('jenis_bantuan', $this->jenisBantuan)->findAll(),
             'url'   => $this->url
         ];
 
@@ -50,7 +50,7 @@ class Subkriteria extends BaseController {
         $data = [
             'title' => 'Edit Data Penduduk',
             'data'  => $this->subkriteriaModel->find($id),
-            'kriteriaData' => $this->kriteriaModel->where('jenis_bantuan',$this->jenisBantuan)->findAll(),
+            'dataKriteria' => $this->kriteriaModel->where('jenis_bantuan', $this->jenisBantuan)->findAll(),
             'url'   => $this->url
         ];
 

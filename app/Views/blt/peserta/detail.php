@@ -5,11 +5,11 @@
                 <h5 class="modal-title" id="modalLabel"><?= $title; ?></h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="<?= $url; ?>" method="" id="formTambah" onsubmit="saveEdit(event)">
-                <div class="modal-body">
+            <div class="modal-body ">
+                <div class="border rounded p-3">
                     <div class="row mb-2">
                         <div class="col-md-4">
-                            <label class="form-label">Peserta</label>
+                            <label class="form-label">Nama Lengkap</label>
                         </div>
                         <div class="col-md-8">
                             <p><?= $peserta['nama_lengkap']; ?></p>
@@ -45,15 +45,36 @@
 
                     <div class="row mb-2">
                         <div class="col-md-4">
+                            <label class="form-label">Tempat Lahir</label>
+                        </div>
+                        <div class="col-md-8">
+                            <p><?= $peserta['tempat_lahir']; ?></p>
+                        </div>
+                    </div>
+
+                    <div class="row mb-2">
+                        <div class="col-md-4">
+                            <label class="form-label">Tanggal Lahir</label>
+                        </div>
+                        <div class="col-md-8">
+                            <p><?= $peserta['tanggal_lahir']; ?></p>
+                        </div>
+                    </div>
+
+                    <div class="row mb-2">
+                        <div class="col-md-4">
                             <label class="form-label">Alamat</label>
                         </div>
                         <div class="col-md-8">
                             <p><?= $peserta['alamat']; ?></p>
-                            <p>Desa : <?= $peserta['desa']; ?>, RT.  <?= $peserta['rt']; ?>, RW.   <?= $peserta['rw']; ?></p>
+                            <p>RT. <?= $peserta['rt']; ?>, RW. <?= $peserta['rw']; ?>, Desa <?= $peserta['desa']; ?></p>
                         </div>
                     </div>
 
-                    <hr>
+                </div>
+                <hr>
+                <h5>Data Kriteria</h5>
+                <div class="border rounded p-3">
 
                     <?php foreach ($dataKriteria as $dt) : ?>
                         <div class="row mb-2">
@@ -62,24 +83,25 @@
                             </div>
 
                             <div class="col-md-8">
-                                    <?php 
-                                    $k = 'k_'. $dt['id'];
-                                    foreach ($dataSubkriteria as $sk) :
-                                        if ($dt['id'] == $sk['id_kriteria']) :
-                                    ?>
-                                            <p> <?= ($peserta[$k] == $sk['id']) ? $sk['subkriteria'] : '' ?></p>
-                                    <?php endif;
-                                    
-                                    endforeach; ?>
+                                <?php
+                                $k = 'k_' . $dt['id'];
+                                foreach ($dataSubkriteria as $sk) :
+                                    if ($dt['id'] == $sk['id_kriteria']) :
+                                ?>
+                                        <?= ($peserta[$k] == $sk['id']) ? '<p>' . $sk['subkriteria'] . '</p>' : false ?>
+                                <?php endif;
+
+                                endforeach; ?>
                             </div>
                         </div>
                     <?php endforeach; ?>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                    <button type="submit" class="btn btn-primary">Simpan</button>
-                </div>
-            </form>
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kembali</button>
+            </div>
         </div>
     </div>
 </div>
