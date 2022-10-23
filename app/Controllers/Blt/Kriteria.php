@@ -7,8 +7,7 @@ use App\Models\KriteriaModel;
 use App\Models\BltModel;
 use CodeIgniter\API\ResponseTrait;
 
-class Kriteria extends BaseController
-{
+class Kriteria extends BaseController {
     use ResponseTrait;
 
     private $url = 'blt/kriteria';
@@ -16,15 +15,13 @@ class Kriteria extends BaseController
     private $dir = 'blt';
     private $table = 'kriteria';
 
-    public function __construct()
-    {
+    public function __construct() {
         $this->kriteriaModel = new KriteriaModel();
         $this->Peserta = new BltModel();
         $this->forge = \Config\Database::forge();
     }
 
-    public function getIndex()
-    {
+    public function getIndex() {
         // dd($this->kriteriaModel->orderBy('id', 'desc')->first()['id']);
         $data = [
             'url' => $this->url,
@@ -35,8 +32,7 @@ class Kriteria extends BaseController
         return view('blt/kriteria/index', $data);
     }
 
-    public function getTambah()
-    {
+    public function getTambah() {
         $data = [
             'title' => 'Tambah Data Kriteria',
             'url'   => $this->url
@@ -44,20 +40,18 @@ class Kriteria extends BaseController
 
         return view('blt/kriteria/tambah', $data);
     }
-    public function getTable()
-    {
+    public function getTable() {
         $data = [
             'title' => 'Data Kriteria',
             'url'   => $this->url,
             'table' => $this->table,
-            'kriteriaData' => $this->kriteriaModel->where('jenis_bantuan',$this->jenisBantuan)->findAll(),
+            'kriteriaData' => $this->kriteriaModel->where('jenis_bantuan', $this->jenisBantuan)->orderBy('keterangan', 'ASC')->findAll(),
         ];
 
         return view('blt/kriteria/table', $data);
     }
 
-    public function getEdit($id)
-    {
+    public function getEdit($id) {
         $data = [
             'title' => 'Edit Data Penduduk',
             'kriteria'  => $this->kriteriaModel->find($id),
@@ -67,8 +61,7 @@ class Kriteria extends BaseController
         return $this->respond(view('blt/kriteria/edit', $data), 200);
     }
 
-    public function postIndex()
-    {
+    public function postIndex() {
         $data = $this->request->getPost();
         $data['jenis_bantuan'] = $this->jenisBantuan;
 
@@ -97,8 +90,7 @@ class Kriteria extends BaseController
     }
 
 
-    public function postSaveedit($id)
-    {
+    public function postSaveedit($id) {
         $data = $this->request->getPost();
         $this->kriteriaModel->update($id, $data);
 
@@ -113,8 +105,7 @@ class Kriteria extends BaseController
 
 
 
-    public function deleteDelete($id)
-    {
+    public function deleteDelete($id) {
         $this->kriteriaModel->delete($id);
 
         $column = "k_" . $id;

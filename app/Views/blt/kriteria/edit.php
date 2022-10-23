@@ -33,7 +33,7 @@
                             <label class="form-label">Bobot</label>
                         </div>
                         <div class="col-md-8">
-                            <input value="<?= $kriteria['nilai']; ?>" name="bobot" type="number" class="form-control" required>
+                            <input value="<?= $kriteria['nilai']; ?>" name="nilai" type="number" class="form-control" required>
                             <div id="" class="invalid-feedback"></div>
                         </div>
                     </div>
