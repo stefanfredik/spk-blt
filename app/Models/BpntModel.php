@@ -15,4 +15,22 @@ class BpntModel extends Model
     protected $useSoftDeletes   = false;
     protected $protectFields    = false;
     protected $allowedFields    = ['id', 'id_penduduk'];
+
+    public function findAllDataBpnt()
+    {
+        $this->select('databpnt.id as id_databpnt');
+        $this->select('penduduk.*');
+        $this->select('databpnt.*');
+        $this->join('penduduk', 'penduduk.id = databpnt.id_penduduk');
+        return $this->findAll();
+    }
+
+    public function findDataBpnt($id)
+    {
+        $this->select('databpnt.id as id_databpnt');
+        $this->select('penduduk.*');
+        $this->select('databpnt.*');
+        $this->join('penduduk', 'penduduk.id = databpnt.id_penduduk');
+        return $this->find($id);
+    }
 }

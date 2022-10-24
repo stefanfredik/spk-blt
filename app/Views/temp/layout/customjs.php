@@ -107,6 +107,8 @@
         })
     }
     async function remove(url, target) {
+        target.event();
+
         let id = target.getAttribute("data-id");
         Swal.fire({
             title: "Hapus Data",
@@ -139,6 +141,7 @@
         })
     }
     async function edit(url, target) {
+        target.preventDefault();
         const id = target.getAttribute("data-id");
         $("#modal").modal("hide");
         $.get(`/${url}/edit/${id}`, (data, status) => {

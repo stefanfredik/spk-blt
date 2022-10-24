@@ -1,42 +1,16 @@
 <?= $this->extend('/temp/index'); ?>
+
 <?= $this->section("content"); ?>
 
 <?php
-
 helper('Perhitungan');
 
-
-// Hitung bobot kriteria
-$nilaiKriteria = array();
-foreach ($dataKriteria as $dk) {
-    array_push($nilaiKriteria, $dk['nilai']);
-}
-
-foreach ($dataKriteria as $dk) {
-    $bobotKriteria[$dk['keterangan']] = hitungBobot($dk['nilai'], $nilaiKriteria);
-}
-
-// --------------------------------------------------------------------------------
-
-function perhitunganMoora(array $dataPeserta, array $dataKriteria, array $dataSubkriteria)
-{
-}
-
-
-// Memasukan data kriteria
-$kriteria           = array();
-$bobotKriteria      = array();
-$totalKriteria      = array();
-$kriteriaBenefit    = array();
-$kriteriaCost       = array();
-
-
-
-// Array Data Peserta
 $peserta = $dataPeserta;
+
 foreach ($dataPeserta  as $key => $ps) {
     foreach ($dataKriteria as $kunci => $dk) {
         $k = 'k_' . $dk['id'];
+
 
         foreach ($dataSubkriteria as $ds) {
             if ($ps[$k] == $ds['id']) {
@@ -50,8 +24,29 @@ foreach ($dataPeserta  as $key => $ps) {
     }
 }
 
+// d($peserta);
 
-// Menampung data kriteria tertentu dari setiap peserta
+
+// Memasukan data kriteria
+$kriteria           = array();
+$bobotKriteria      = array();
+$totalKriteria      = array();
+$kriteriaBenefit    = array();
+$kriteriaCost       = array();
+
+
+// Hitung bobot kriteria
+$nilaiKriteria = array();
+foreach ($dataKriteria as $dk) {
+    array_push($nilaiKriteria, $dk['nilai']);
+}
+
+foreach ($dataKriteria as $dk) {
+    $bobotKriteria[$dk['keterangan']] = hitungBobot($dk['nilai'], $nilaiKriteria);
+}
+
+// Memasukan data kriteria ke dalam data array
+
 foreach ($dataKriteria as $dk) {
     $kriteria[$dk['keterangan']] = array();
 
@@ -150,6 +145,18 @@ foreach ($dataKriteria as $dk) {
     }
 }
 
+
+// $data = [
+// 'C1' => 2,
+// 'C2' => 2,
+// 'C3' => 10,
+// ];
+
+// dd(array_sum($data));
+
+// dd($peserta);
+// dd($bobotKriteria);
+// dd($totalKriteria);
 
 ?>
 

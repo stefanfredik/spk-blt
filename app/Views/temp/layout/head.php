@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/core/vendors/simplebar/css/simplebar.css">
     <link href="/core/css/style.css" rel="stylesheet">
 
-    <!-- <link rel="stylesheet" href="/core/https://cdn.jsdelivr.net/npm/prismjs@1.23.0/themes/prism.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/themes/prism.css">
     <!-- <link href="/core/css/examples.css" rel="stylesheet"> -->
     <link rel="stylesheet" href="/assets/css/dataTables.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">

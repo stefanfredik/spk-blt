@@ -9,7 +9,7 @@
                             <svg class="icon">
                                 <use xlink:href="/core/vendors/@coreui/icons/svg/free.svg#cil-arrow-bottom"></use>
                             </svg>)</span></div>
-                    <div>Users</div>
+                    <div>Bantuan Pangan Non Tunai</div>
                 </div>
                 <div class="dropdown">
                     <button class="btn btn-transparent text-white p-0" type="button" data-coreui-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -50,57 +50,6 @@
             </div>
         </div>
     </div>
-    <!-- /.col-->
-    <div class="col-sm-6 col-lg-3">
-        <div class="card mb-4 text-white bg-warning">
-            <div class="card-body pb-0 d-flex justify-content-between align-items-start">
-                <div>
-                    <div class="fs-4 fw-semibold">2.49% <span class="fs-6 fw-normal">(84.7%
-                            <svg class="icon">
-                                <use xlink:href="/core/vendors/@coreui/icons/svg/free.svg#cil-arrow-top"></use>
-                            </svg>)</span></div>
-                    <div>Conversion Rate</div>
-                </div>
-                <div class="dropdown">
-                    <button class="btn btn-transparent text-white p-0" type="button" data-coreui-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <svg class="icon">
-                            <use xlink:href="/core/vendors/@coreui/icons/svg/free.svg#cil-options"></use>
-                        </svg>
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-end"><a class="dropdown-item" href="/core/#">Action</a><a class="dropdown-item" href="/core/#">Another action</a><a class="dropdown-item" href="/core/#">Something else here</a></div>
-                </div>
-            </div>
-            <div class="c-chart-wrapper mt-3" style="height:70px;">
-                <canvas class="chart" id="card-chart3" height="70"></canvas>
-            </div>
-        </div>
-    </div>
-    <!-- /.col-->
-    <div class="col-sm-6 col-lg-3">
-        <div class="card mb-4 text-white bg-danger">
-            <div class="card-body pb-0 d-flex justify-content-between align-items-start">
-                <div>
-                    <div class="fs-4 fw-semibold">44K <span class="fs-6 fw-normal">(-23.6%
-                            <svg class="icon">
-                                <use xlink:href="/core/vendors/@coreui/icons/svg/free.svg#cil-arrow-bottom"></use>
-                            </svg>)</span></div>
-                    <div>Sessions</div>
-                </div>
-                <div class="dropdown">
-                    <button class="btn btn-transparent text-white p-0" type="button" data-coreui-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <svg class="icon">
-                            <use xlink:href="/core/vendors/@coreui/icons/svg/free.svg#cil-options"></use>
-                        </svg>
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-end"><a class="dropdown-item" href="/core/#">Action</a><a class="dropdown-item" href="/core/#">Another action</a><a class="dropdown-item" href="/core/#">Something else here</a></div>
-                </div>
-            </div>
-            <div class="c-chart-wrapper mt-3 mx-3" style="height:70px;">
-                <canvas class="chart" id="card-chart4" height="70"></canvas>
-            </div>
-        </div>
-    </div>
-    <!-- /.col-->
 </div>
 <!-- /.row-->
 <div class="card mb-4">
@@ -130,6 +79,7 @@
             <canvas class="chart" id="main-chart" height="300"></canvas>
         </div>
     </div>
+
     <div class="card-footer">
         <div class="row row-cols-1 row-cols-md-5 text-center">
             <div class="col mb-sm-2 mb-0">
