@@ -1,0 +1,30 @@
+:root {
+  --cui-bg-opacity: 0;
+}
+
+.sidebar {
+  background-color: #1565c0;
+}
+
+.sidebar-nav .nav-link.active {
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  color: #1565c0;
+  background: white;
+}
+
+.sidebar-nav .nav-link.active .nav-icon {
+  color: #1565c0;
+}
+
+.bg-light {
+  background-color: white;
+}
+
+.sidebar-brand {
+  background-color: #003c8f;
+}
+
+.header {
+  /* background-color: #003c8f; */
+}

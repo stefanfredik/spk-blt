@@ -8,10 +8,9 @@ use App\Models\KriteriaModel;
 use App\Models\PendudukModel;
 use App\Models\SubkriteriaModel;
 
-class Perhitungan extends BaseController {
-    private $url = 'bpnt/perhitungan';
+class Keputusan extends BaseController {
+    private $url = 'bpnt/keputusan';
     private $jenisBantuan = 'bpnt';
-    private $jumlahKriteria;
     private $totalNilaiKriteria;
 
     public function __construct() {
@@ -36,6 +35,6 @@ class Perhitungan extends BaseController {
         ];
 
 
-        return view('/bantuan/perhitungan/index', $data);
+        return view('/bantuan/keputusan/index', $data);
     }
 }

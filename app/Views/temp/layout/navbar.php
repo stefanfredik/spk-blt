@@ -9,7 +9,7 @@
                 <use xlink:href="/core/assets/brand/coreui.svg#full"></use>
             </svg></a>
         <ul class="header-nav d-none d-md-flex">
-            <li class="nav-item"><a class="nav-link" href="/home">Dashboard</a></li>
+            <li class="nav-item"><a class="nav-link" href="/home"><?= WEBTITLE; ?></a></li>
         </ul>
 
         <ul class="header-nav ms-3">
@@ -41,9 +41,9 @@
     <div class="container-fluid">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb my-0 ms-2">
-                <li class="breadcrumb-item"><span>Home</span>
-                </li>
-                <li class="breadcrumb-item active"><span>Dashboard</span></li>
+                <!-- <li class="breadcrumb-item"><span>Home</span>
+                </li> -->
+                <li class="breadcrumb-item active"><span><?= $title; ?></span></li>
             </ol>
         </nav>
     </div>

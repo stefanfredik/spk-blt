@@ -11,6 +11,7 @@
                 <th class="text-center">Username</th>
                 <th class="text-center">Jabatan</th>
                 <th>Activity</th>
+                <th>Opsi</th>
             </tr>
         </thead>
         <tbody>
@@ -18,7 +19,10 @@
             foreach ($userData as $dt) : ?>
                 <tr class="align-middle">
                     <td class="text-center">
-                        <div class="avatar avatar-md"><img class="avatar-img" src="/core/assets/img/avatars/1.jpg" alt="user@email.com"><span class="avatar-status bg-success"></span></div>
+                        <div class="avatar avatar-md"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                            </svg></div>
                     </td>
                     <td>
                         <div><?= $dt['nama_user']; ?></div>
@@ -35,21 +39,13 @@
 
 
                     <td>
-                        <div class="small text-medium-emphasis">Last login</div>
+                        <div class="small text-medium-emphasis">Login Terakhir : </div>
                         <div class="fw-semibold"><?= $dt['last_login'] ?></div>
                     </td>
-                    <td>
-                        <div class="dropdown">
-                            <button class="btn btn-transparent p-0" type="button" data-coreui-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <svg class="icon">
-                                    <use xlink:href="/core/vendors/@coreui/icons/svg/free.svg#cil-options"></use>
-                                </svg>
-                            </button>
-                            <div class="dropdown-menu dropdown-menu-end">
-                                <a class="dropdown-item" href="/core/#">Info</a>
-                                <a class="dropdown-item" onclick="edit('<?= $url; ?>', this)" data-id="<?= $dt['id'] ?>" href="/#">Edit</a>
-                                <a class=" dropdown-item text-danger" onclick="edit('<?= $url; ?>', this)" data-id="<?= $dt['id'] ?>" href="/#">Delete</a>
-                            </div>
+                    <td style="text-align: center" width="120px">
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <button onclick="remove('<?= $url; ?>', this)" class="btn  btn-outline-danger" data-id="<?= $dt['id'] ?>"><i class="bi bi-trash mr-2"></i></button>
+                            <button onclick="edit('<?= $url; ?>', this)" class="btn btn-outline-primary" data-id="<?= $dt['id'] ?>"><i class="bi bi-pencil-square mr-2"></i></button>
                         </div>
                     </td>
                 </tr>
@@ -57,38 +53,3 @@
         </tbody>
     </table>
 </div>
-
-<!-- <div class="table-responsive">
-    <table class="table table-bordered" id="<?= $url; ?>" width="100%" colspacing="0">
-        <thead>
-            <tr>
-                <th>No</th>
-                <th>Nama User</th>
-                <th>Jabatan</th>
-                <th>Username</th>
-                <th>Created</th>
-                <th>Login Terakhir</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php $no = 1;
-            foreach ($userData as $dt) : ?>
-                <tr>
-                    <td><?= $no++; ?></td>
-                    <td><?= $dt['nama_user']; ?></td>
-                    <td><?= $dt['jabatan']; ?></td>
-                    <td><?= $dt['username']; ?></td>
-                    <td><?= $dt['created_at']; ?></td>
-                    <td><?= $dt['last_login']; ?></td>
-                    <td style="text-align: center" width="120px">
-                        <div class="btn-group" role="group" aria-label="Basic example">
-                            <button onclick="remove('<?= $url; ?>', this)" class="btn text-white btn-danger" data-id="<?= $dt['id'] ?>"><i class="bi bi-trash mr-2"></i></button>
-                            <button onclick="edit('<?= $url; ?>', this)" class="btn  btn-primary" data-id="<?= $dt['id'] ?>"><i class="bi bi-pencil-square mr-2"></i></button>
-                        </div>
-                    </td>
-                </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
-</div> -->

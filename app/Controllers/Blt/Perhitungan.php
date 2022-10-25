@@ -36,6 +36,6 @@ class Perhitungan extends BaseController {
         ];
 
 
-        return view('blt/perhitungan/index', $data);
+        return view('/bantuan/perhitungan/index', $data);
     }
 }

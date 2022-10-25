@@ -13,7 +13,7 @@
         <tbody>
             <?php $no = 1;
 
-            foreach ($kriteriaData as $dt) : ?>
+            foreach ($dataKriteria as $dt) : ?>
                 <tr>
                     <td><?= $no++; ?></td>
                     <td><?= $dt['kriteria']; ?></td>

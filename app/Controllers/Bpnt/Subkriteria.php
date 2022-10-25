@@ -24,26 +24,27 @@ class Subkriteria extends BaseController {
             'title' => 'Data Sub Kriteria'
         ];
 
-        return view('/bpnt/subkriteria/index', $data);
+        return view('/bantuan/subkriteria/index', $data);
     }
 
     public function getTambah() {
         $data = [
             'title' => 'Tambah Data Kriteria',
-            'kriteriaData' => $this->kriteriaModel->where('jenis_bantuan',$this->jenisBantuan)->findAll(),
+            'kriteriaData' => $this->kriteriaModel->where('jenis_bantuan', $this->jenisBantuan)->findAll(),
             'url'   => $this->url
         ];
 
-        return view('/bpnt/subkriteria/tambah', $data);
+        return view('/bantuan/subkriteria/tambah', $data);
     }
     public function getTable() {
         $data = [
             'title' => 'Data Kriteria',
             'url'   => $this->url,
-            'subkriteriaData' => $this->subkriteriaModel->findAllSubkriteria($this->jenisBantuan),
+            'dataSubkriteria' => $this->subkriteriaModel->findAllSubkriteria($this->jenisBantuan),
+            'dataKriteria' => $this->kriteriaModel->where('jenis_bantuan', $this->jenisBantuan)->findAll(),
         ];
 
-        return view('/bpnt/subkriteria/table', $data);
+        return view('/bantuan/subkriteria/table', $data);
     }
 
     public function getEdit($id) {
@@ -51,11 +52,11 @@ class Subkriteria extends BaseController {
         $data = [
             'title' => 'Edit Data Penduduk',
             'data'  => $this->subkriteriaModel->find($id),
-            'kriteriaData' => $this->kriteriaModel->where('jenis_bantuan',$this->jenisBantuan)->findAll(),
+            'dataKriteria' => $this->kriteriaModel->where('jenis_bantuan', $this->jenisBantuan)->findAll(),
             'url'   => $this->url
         ];
 
-        return $this->respond(view('/bpnt/subkriteria/edit', $data), 200);
+        return $this->respond(view('/bantuan/subkriteria/edit', $data), 200);
     }
 
     public function postIndex() {

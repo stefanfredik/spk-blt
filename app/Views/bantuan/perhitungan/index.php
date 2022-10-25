@@ -1,33 +1,9 @@
 <?= $this->extend('/temp/index'); ?>
-
 <?= $this->section("content"); ?>
+<?php helper('Perhitungan'); ?>
 
 <?php
-helper('Perhitungan');
-
-$peserta = $dataPeserta;
-
-foreach ($dataPeserta  as $key => $ps) {
-    foreach ($dataKriteria as $kunci => $dk) {
-        $k = 'k_' . $dk['id'];
-
-
-        foreach ($dataSubkriteria as $ds) {
-            if ($ps[$k] == $ds['id']) {
-                $peserta[$key]['data_kriteria'][$dk['keterangan']]          = $ds['subkriteria'];
-                $peserta[$key]['data_kriteria_nilai'][$dk['keterangan']]    = $ds['nilai'];
-            } else if ($ps[$k] == null) {
-                $peserta[$key]['data_kriteria'][$dk['keterangan']]          = 0;
-                $peserta[$key]['data_kriteria_nilai'][$dk['keterangan']]    = 0;
-            }
-        }
-    }
-}
-
-// d($peserta);
-
-
-// Memasukan data kriteria
+// Data yang dibutuhkan
 $kriteria           = array();
 $bobotKriteria      = array();
 $totalKriteria      = array();
@@ -45,8 +21,27 @@ foreach ($dataKriteria as $dk) {
     $bobotKriteria[$dk['keterangan']] = hitungBobot($dk['nilai'], $nilaiKriteria);
 }
 
-// Memasukan data kriteria ke dalam data array
+// --------------------------------------------------------------------------------
+// Array Data Peserta
+$peserta = $dataPeserta;
+foreach ($dataPeserta  as $key => $ps) {
+    foreach ($dataKriteria as $kunci => $dk) {
+        $k = 'k_' . $dk['id'];
 
+        foreach ($dataSubkriteria as $ds) {
+            if ($ps[$k] == $ds['id']) {
+                $peserta[$key]['data_kriteria'][$dk['keterangan']]          = $ds['subkriteria'];
+                $peserta[$key]['data_kriteria_nilai'][$dk['keterangan']]    = $ds['nilai'];
+            } else if ($ps[$k] == null) {
+                $peserta[$key]['data_kriteria'][$dk['keterangan']]          = 0;
+                $peserta[$key]['data_kriteria_nilai'][$dk['keterangan']]    = 0;
+            }
+        }
+    }
+}
+
+
+// Menampung data kriteria tertentu dari setiap peserta
 foreach ($dataKriteria as $dk) {
     $kriteria[$dk['keterangan']] = array();
 
@@ -69,6 +64,7 @@ foreach ($peserta as $i => $ps) {
         $peserta[$i]['data_normalisasi'][$key] = normalisasi($dk, $kriteria[$key]);
     }
 }
+
 
 // Optimasi data ke array
 foreach ($peserta as $i => $ps) {
@@ -96,7 +92,6 @@ foreach ($peserta as $i => $ps) {
     }
 }
 
-
 // Data Cost ke array
 foreach ($peserta as $i => $ps) {
     $peserta[$i]['data_kriteria_cost'] = array();
@@ -121,19 +116,18 @@ foreach ($peserta as $i =>  $ps) {
 }
 
 
-//Min
+// Min ke array
 foreach ($peserta  as $i =>  $ps) {
     $peserta[$i]['kriteria_min'] = array_sum($ps['data_kriteria_cost']);
 }
 
-// dd($peserta);
-// Nilai
+
+// Nilai ke array
 foreach ($peserta as $i => $ps) {
     $peserta[$i]['kriteria_nilai'] = ($ps['kriteria_max'] + $ps['kriteria_min']);
 }
 
 // Hitung Jumlah Key Kriteria
-
 $jumKriteriaBenefit = 0;
 $jumKriteriaCost = 0;
 
@@ -146,19 +140,9 @@ foreach ($dataKriteria as $dk) {
 }
 
 
-// $data = [
-// 'C1' => 2,
-// 'C2' => 2,
-// 'C3' => 10,
-// ];
-
-// dd(array_sum($data));
-
-// dd($peserta);
-// dd($bobotKriteria);
-// dd($totalKriteria);
-
 ?>
+
+
 
 
 <div class="row">

@@ -29,7 +29,7 @@ class Kriteria extends BaseController {
             'title' => 'Data Kriteria'
         ];
 
-        return view('blt/kriteria/index', $data);
+        return view('/bantuan/kriteria/index', $data);
     }
 
     public function getTambah() {
@@ -38,17 +38,17 @@ class Kriteria extends BaseController {
             'url'   => $this->url
         ];
 
-        return view('blt/kriteria/tambah', $data);
+        return view('/bantuan/kriteria/tambah', $data);
     }
     public function getTable() {
         $data = [
             'title' => 'Data Kriteria',
             'url'   => $this->url,
             'table' => $this->table,
-            'kriteriaData' => $this->kriteriaModel->where('jenis_bantuan', $this->jenisBantuan)->orderBy('keterangan', 'ASC')->findAll(),
+            'dataKriteria' => $this->kriteriaModel->where('jenis_bantuan', $this->jenisBantuan)->orderBy('keterangan', 'ASC')->findAll(),
         ];
 
-        return view('blt/kriteria/table', $data);
+        return view('/bantuan/kriteria/table', $data);
     }
 
     public function getEdit($id) {
@@ -58,7 +58,7 @@ class Kriteria extends BaseController {
             'url'   => $this->url
         ];
 
-        return $this->respond(view('blt/kriteria/edit', $data), 200);
+        return $this->respond(view('/bantuan/kriteria/edit', $data), 200);
     }
 
     public function postIndex() {

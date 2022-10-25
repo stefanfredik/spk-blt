@@ -24,7 +24,7 @@ class Subkriteria extends BaseController {
             'title' => 'Data Sub Kriteria'
         ];
 
-        return view('/blt/subkriteria/index', $data);
+        return view('/bantuan/subkriteria/index', $data);
     }
 
     public function getTambah() {
@@ -34,16 +34,17 @@ class Subkriteria extends BaseController {
             'url'   => $this->url
         ];
 
-        return view('/blt/subkriteria/tambah', $data);
+        return view('/bantuan/subkriteria/tambah', $data);
     }
     public function getTable() {
         $data = [
             'title' => 'Data Kriteria',
             'url'   => $this->url,
-            'subkriteriaData' => $this->subkriteriaModel->findAllSubkriteria($this->jenisBantuan),
+            'dataSubkriteria' => $this->subkriteriaModel->findAllSubkriteria($this->jenisBantuan),
+            'dataKriteria' => $this->kriteriaModel->where('jenis_bantuan', $this->jenisBantuan)->findAll(),
         ];
 
-        return view('/blt/subkriteria/table', $data);
+        return view('/bantuan/subkriteria/table', $data);
     }
 
     public function getEdit($id) {
@@ -54,7 +55,7 @@ class Subkriteria extends BaseController {
             'url'   => $this->url
         ];
 
-        return $this->respond(view('/blt/subkriteria/edit', $data), 200);
+        return $this->respond(view('/bantuan/subkriteria/edit', $data), 200);
     }
 
     public function postIndex() {

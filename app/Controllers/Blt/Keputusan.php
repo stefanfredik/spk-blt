@@ -1,24 +1,23 @@
 <?php
 
-namespace App\Controllers\Bpnt;
+namespace App\Controllers\Blt;
 
 use App\Controllers\BaseController;
-use App\Models\BpntModel;
+use App\Models\BltModel;
 use App\Models\KriteriaModel;
 use App\Models\PendudukModel;
 use App\Models\SubkriteriaModel;
 
-class Perhitungan extends BaseController {
-    private $url = 'bpnt/perhitungan';
-    private $jenisBantuan = 'bpnt';
-    private $jumlahKriteria;
+class Keputusan extends BaseController {
+    private $url = 'blt/keputusan';
+    private $jenisBantuan = 'blt';
     private $totalNilaiKriteria;
 
     public function __construct() {
         $this->kriteriaModel = new KriteriaModel();
         $this->pendudukModel = new PendudukModel();
         $this->subkriteriaModel = new SubkriteriaModel();
-        $this->bltModel = new BpntModel();
+        $this->bltModel = new BltModel();
 
         $this->jumlahKriteria = $this->kriteriaModel->where('jenis_bantuan', $this->jenisBantuan)->countAllResults();
     }
@@ -31,11 +30,11 @@ class Perhitungan extends BaseController {
             'title' => 'Data Perhitungan dan Table Moora',
             'dataKriteria' => $this->kriteriaModel->where('jenis_bantuan', $this->jenisBantuan)->findAll(),
             'totalNilaiKriteria' => $this->totalNilaiKriteria,
-            'dataPeserta' => $this->bltModel->findAllDataBpnt(),
+            'dataPeserta' => $this->bltModel->findAllDataBlt(),
             'dataSubkriteria' => $this->subkriteriaModel->where('jenis_bantuan', $this->jenisBantuan)->findAll(),
         ];
 
 
-        return view('/bantuan/perhitungan/index', $data);
+        return view('/bantuan/keputusan/index', $data);
     }
 }
