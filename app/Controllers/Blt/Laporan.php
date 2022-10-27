@@ -1,11 +1,15 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\Blt;
 
 use App\Controllers\BaseController;
 
 class Laporan extends BaseController {
     public function getIndex() {
-        return view('laporan/index');
+        $data = [
+            'title' => 'Laporan'
+        ];
+
+        return view('laporan/index', $data);
     }
 }
