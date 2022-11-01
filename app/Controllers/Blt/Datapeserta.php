@@ -55,6 +55,7 @@ class Datapeserta extends BaseController {
             'dataPeserta' => $this->bltModel->findAllDataBlt(),
         ];
 
+
         return view('/bantuan/peserta/table', $data);
     }
 
