@@ -25,7 +25,7 @@
                                 <option value="">Pilih Jabatan</option>
                                 <option value="Admin">Admin</option>
                                 <option value="Pendamping BLT">Pendamping BLT</option>
-                                <option value="Pendamping BLT">Pendamping BPNT</option>
+                                <option value="Pendamping BPNT">Pendamping BPNT</option>
                                 <option value="Kepala Desa">Kepala Desa</option>
                             </select>
                         </div>

@@ -21,6 +21,7 @@
             })
         })
     }
+
     async function save(event) {
         event.preventDefault();
         let form = document.querySelector("form");
@@ -48,6 +49,7 @@
             })
         })
     }
+
     async function saveEdit(event) {
         event.preventDefault();
         let form = document.querySelector("form");

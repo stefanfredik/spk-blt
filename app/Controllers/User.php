@@ -99,6 +99,46 @@ class User extends BaseController {
     }
 
     public function putEdit($id) {
+        $rules1 = [
+            'username'  => [
+                'rules'  => 'required|is_unique[user.username]',
+                'errors' => [
+                    'is_unique' => 'Username telah digunakan.'
+                ]
+            ],
+            'password' => [
+                'rules' => 'required|min_length[8]',
+                'errors' => [
+                    'min_length' => 'Password minimal 8 Digit.'
+                ]
+            ],
+            'password2' => [
+                'rules' => 'required|matches[password]',
+                'errors' => [
+                    'matches' => 'Password tidak sama.'
+                ]
+            ]
+        ];
+
+        $rules2 = [
+            'password' => [
+                'rules' => 'required|min_length[8]',
+                'errors' => [
+                    'min_length' => 'Password minimal 8 Digit.'
+                ]
+            ],
+            'password2' => [
+                'rules' => 'required|matches[password]',
+                'errors' => [
+                    'matches' => 'Password tidak sama.'
+                ]
+            ]
+        ];
+
+        if ($this->validate($rules)) {
+        }
+
+
         return $this->respond($id);
     }
 

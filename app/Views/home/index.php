@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <link href="/bs/assets/css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 
 <body>
@@ -29,6 +30,8 @@
           <li><a class="nav-link scrollto" href="#bantuan">Bantuan</a></li>
           <?php if (!session()->get('isLogin')) : ?>
             <li><a href="/login" class="nav-link scrollto">Login</a></li>
+          <?php else :  ?>
+            <li><a href="/logout" class="nav-link scrollto">Logout</a></li>
           <?php endif; ?>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -46,7 +49,12 @@
             <h1>Selamat datang di <span><?= WEBTITLE; ?></span></h1>
             <h2><?= WEBNAME; ?></h2>
             <div class="text-center text-lg-start">
-              <a href="/login" class="btn-get-started scrollto">Login</a>
+              <?php if (!session()->get('isLogin')) : ?>
+                <a href="/login" class="btn-get-started scrollto">Login</a>
+              <?php else :  ?>
+                <a href="/dashboard" class="btn-get-started scrollto">Dashboard</a>
+              <?php endif; ?>
+
             </div>
           </div>
         </div>
@@ -71,25 +79,22 @@
       </g>
     </svg>
 
-  </section><!-- End Hero -->
-
+  </section>
   <main id="main">
-
-    <!-- ======= About Section ======= -->
     <section id="bantuan" class="about">
       <div class="container-fluid">
 
         <div class="row">
           <div class="col-xl-5 col-lg-6 video-box d-flex justify-content-center align-items-stretch" data-aos="fade-right">
-            <a href="https://www.youtube.com/watch?v=StpBR2W8G5A" class="glightbox play-btn mb-4"></a>
+            <!-- <a href="https://www.youtube.com/watch?v=StpBR2W8G5A" class="glightbox play-btn mb-4"></a> -->
           </div>
 
           <div class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5" data-aos="fade-left">
-            <h3>Bantuan Desa</h3>
+            <h3>Bantuan Sosial Desa</h3>
             <p>Bantuan Desa adalah ...</p>
 
             <div class="icon-box" data-aos="zoom-in" data-aos-delay="100">
-              <div class="icon"><i class="bx bx-fingerprint"></i></div>
+              <div class="icon"><i class="bi bi-cash-coin"></i></div>
               <h4 class="title"><a href="">BLT</a></h4>
               <p class="description">BLT adalah ...</p>
             </div>
@@ -108,10 +113,7 @@
   <footer id="footer">
     <div class="container">
       <div class="copyright">
-        &copy; Copyright <strong><span>Bootslander</span></strong>. All Rights Reserved
-      </div>
-      <div class="credits">
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        &copy; Copyright <strong><span><?= WEBTITLE; ?></span></strong> 2022
       </div>
     </div>
   </footer>

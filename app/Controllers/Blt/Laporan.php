@@ -13,7 +13,7 @@ use Dompdf\Dompdf;
 class Laporan extends BaseController {
     use ResponseTrait;
 
-    private $url = 'bpnt/laporan';
+    private $url = 'blt/laporan';
     private $title = 'Data Peserta Bntp';
     private $jumlahKriteria = 0;
     private $jenisBantuan = 'blt';
@@ -31,7 +31,8 @@ class Laporan extends BaseController {
             'dataPeserta' => $this->bltModel->findAllDataBlt(),
             'dataKriteria' => $this->kriteriaModel->where('jenis_bantuan', $this->jenisBantuan)->findAll(),
             'dataSubkriteria' => $this->subkriteriaModel->where('jenis_bantuan', $this->jenisBantuan)->findAll(),
-            'url'   => $this->url
+            'url'   => $this->url,
+            'jenisBantuan' => $this->jenisBantuan
         ];
 
         // dd($data);
@@ -55,7 +56,8 @@ class Laporan extends BaseController {
             'dataPeserta' => $this->bltModel->findAllDataBlt(),
             'dataKriteria' => $this->kriteriaModel->where('jenis_bantuan', $this->jenisBantuan)->findAll(),
             'dataSubkriteria' => $this->subkriteriaModel->where('jenis_bantuan', $this->jenisBantuan)->findAll(),
-            'url'   => $this->url
+            'url'   => $this->url,
+            'jenisBantuan' => $this->jenisBantuan
         ];
 
         $pdf = new Dompdf;
@@ -74,7 +76,8 @@ class Laporan extends BaseController {
             'dataPeserta' => $this->bltModel->findAllDataBlt(),
             'dataKriteria' => $this->kriteriaModel->where('jenis_bantuan', $this->jenisBantuan)->findAll(),
             'dataSubkriteria' => $this->subkriteriaModel->where('jenis_bantuan', $this->jenisBantuan)->findAll(),
-            'url'   => $this->url
+            'url'   => $this->url,
+            'jenisBantuan' => $this->jenisBantuan
         ];
 
         $pdf = new Dompdf;

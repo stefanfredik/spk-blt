@@ -14,7 +14,7 @@
 
 <div class="tab-content" id="myTabContent">
     <div class="tab-pane fade active show" id="datablt" role="tabpanel" aria-labelledby="profile-tab">
-        <a href="/blt/laporan/cetak/penduduk" class="my-3 col btn btn-primary">Cetak Laporan</a>
+        <a href="/<?= $url; ?>/cetak/<?= $jenisBantuan; ?>" class="my-3 col btn btn-primary"><i class="bi bi-printer mx-2"></i> Cetak Laporan</a>
         <hr>
         <div class="row">
             <?= $this->include("bantuan/laporan/datablt"); ?>
@@ -22,7 +22,7 @@
     </div>
 
     <div class="tab-pane fade show " id="datapenduduk" role="tabpanel" aria-labelledby="home-tab">
-        <a href="/blt/laporan/cetak/blt" class="my-3 col btn btn-primary">Cetak Laporan</a>
+        <a href="/<?= $url; ?>/cetak/<?= $jenisBantuan; ?>" class="my-3 col btn btn-primary"><i class="bi bi-printer mx-2"></i> Cetak Laporan</a>
         <hr>
         <div class="row">
             <?= $this->include("bantuan/laporan/datapenduduk"); ?>
@@ -45,7 +45,7 @@
             paginate: {
                 first: "Awal",
                 last: "Akhir",
-                next: '<i class="bi bi-arrow-right-circle"></i>',
+                next: ' <i class="bi bi-arrow-right-circle"></i>',
                 previous: '<i class="bi bi-arrow-left-circle"></i>'
             },
             zeroRecords: "Belum ada data.",

@@ -2,6 +2,7 @@
 <?= $this->section("content"); ?>
 
 <?php
+$nilaiLayak = $nilaiKelayakan['nilai'] ?? 0;
 
 helper('Perhitungan');
 // Data yang dibutuhkan
@@ -129,11 +130,17 @@ foreach ($peserta as $i => $ps) {
 // Kelayakan
 foreach ($peserta as $i => $ps) {
     $n = $peserta[$i]['kriteria_nilai'];
-    if ($n > 0.1200) {
+    // if ($n > 0.1200) {
+    //     $peserta[$i]['status_layak'] = 'Layak';
+    // } else if ($n > 0.100  && $n <= 0.1200) {
+    //     $peserta[$i]['status_layak'] = 'Cukup Layak';
+    // } else if ($n <= 0.100) {
+    //     $peserta[$i]['status_layak'] = 'Tidak Layak';
+    // }
+
+    if ($n > $nilaiLayak) {
         $peserta[$i]['status_layak'] = 'Layak';
-    } else if ($n > 0.100  && $n <= 0.1200) {
-        $peserta[$i]['status_layak'] = 'Cukup Layak';
-    } else if ($n <= 0.100) {
+    } else {
         $peserta[$i]['status_layak'] = 'Tidak Layak';
     }
 }
@@ -154,10 +161,35 @@ foreach ($dataKriteria as $dk) {
 usort($peserta, fn ($a, $b) => $b['kriteria_nilai'] <=> $a['kriteria_nilai']);
 
 ?>
+<div class="row mb-2">
+    <div class="col-lg-12">
+        <div class="card border shadow">
+            <div class="card-header">
+                <div class="display-6">Penentuan Kriteria</div>
+            </div>
+            <div class="card-body">
 
+                <div>
+                    <form method="POST" action="/<?= $url; ?>/nilaikelayakan">
+                        <h2>Nilai Kriteria Kelayakan : <?= $nilaiLayak ?></h2>
+                        <label class="form-label" for="">Ubah Nilai Kriteria Kelayakan</label>
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <input min="0" name="nilai" class="form-control" type="text">
+                            </div>
+                            <div class="col-lg-2">
+                                <input class="btn btn-primary" type="submit" value="Simpan">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="row">
     <div class="col">
-        <div class="card border border-secondary">
+        <div class="card border border-secondary shadow">
             <div class="card-header">
                 <h3>Tabel Kriteria</h3>
             </div>

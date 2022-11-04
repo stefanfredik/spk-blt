@@ -22,7 +22,10 @@ class Filters extends BaseConfig {
         'honeypot'      => Honeypot::class,
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
-        'auth'          => \App\Filters\Authenticate::class
+        'auth'          => \App\Filters\Authenticate::class,
+        'kepalaDesa'    => \App\Filters\Kepaladesa::class,
+        'pendampingBlt'    => \App\Filters\PendampingBlt::class
+
     ];
 
     /**
@@ -68,9 +71,65 @@ class Filters extends BaseConfig {
      *
      * @var array
      */
+
+
     public $filters = [
         'auth' => [
             'before' => ['/dashboard/', '/bpnt/*', '/blt/*', '/laporan', '/penduduk', '/user']
+        ],
+        'pendampingBlt' => [
+            'before' => [
+                '/user',
+                '/penduduk',
+                '/penduduk/*',
+                '/bpnt/subkriteria',
+                '/bpnt/subkriteria/*',
+                '/bpnt/kriteria',
+                '/bpnt/kriteria/*',
+                '/bpnt/perhitungan',
+                '/bpnt/perhitungan/*',
+                '/bpnt/laporan/',
+                '/bpnt/laporan/*',
+
+                '/blt/subkriteria',
+                '/blt/subkriteria/*',
+                '/blt/kriteria',
+                '/blt/kriteria/*',
+                '/blt/perhitungan/',
+                '/blt/perhitungan/*',
+
+                '/laporan',
+                '/laporan/*',
+                '/user',
+                '/user/*'
+            ]
+        ],
+        'kepalaDesa' => [
+            'before' => [
+                '/user',
+                '/penduduk',
+                '/penduduk/*',
+                '/bpnt/subkriteria',
+                '/bpnt/subkriteria/*',
+                '/bpnt/kriteria',
+                '/bpnt/kriteria/*',
+                '/bpnt/perhitungan',
+                '/bpnt/perhitungan/*',
+                '/bpnt/laporan',
+                '/bpnt/laporan/*',
+
+                '/blt/subkriteria',
+                '/blt/subkriteria/*',
+                '/blt/kriteria',
+                '/blt/kriteria/*',
+                '/blt/perhitungan/',
+                '/blt/perhitungan/*',
+
+                '/laporan',
+                '/laporan/*',
+                '/user',
+                '/user/*'
+            ]
         ]
     ];
 }

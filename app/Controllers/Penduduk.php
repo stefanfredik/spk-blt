@@ -77,13 +77,13 @@ class Penduduk extends BaseController {
 
     public function postFile() {
         $data = $this->request->getVar('file');
-
-        // echo "Test";
         return $this->respond($data);
     }
 
     public function postIndex() {
         $data = $this->request->getPost();
+        $data['status'] = "Tidak Ada";
+
         $this->pendudukModel->save($data);
 
         $res = [
@@ -130,27 +130,61 @@ class Penduduk extends BaseController {
                 ],
                 'errors' => [
                     'required' => 'File Belum Diupload.',
-                    'ext_in' => 'File tidak Cocok dengan kriteria'
+                    'ext_in' => 'Jenis File tidak Cocok dengan kriteria.'
                 ]
             ],
         ];
 
         if (!$this->validate($rules)) {
-            dd($this->validation->getErrors());
+            return $this->respond([
+                'status' => 'error',
+                'error' => $this->validation->getError("excel")
+            ], 400);
         }
 
-        $file = $this->request->getFile("excel")->move('penduduk', 'test.xlsx', true);
+        $file = $this->request->getFile("excel");
+        $fileName = $file->getName();
+
+        $file->move(WRITEPATH . 'uploads/penduduk', 'test.xlsx', $fileName);
 
         $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
 
-        $spreadsheet = $reader->load(WRITEPATH . 'uploads/penduduk/test.xlsx');
-        // dd($file);
+        $spreadsheet = $reader->load(WRITEPATH . 'uploads/penduduk/' . $fileName);
 
-        $d = $spreadsheet->getSheet(0)->toArray();
-        unset($d[0]);
-        dd($d);
-    }
+        $dataExcel = $spreadsheet->getSheet(0)->toArray();
+        unset($dataExcel[0]);
 
-    public function importExcel($file) {
+        $data  = array();
+
+        foreach ($dataExcel as $t) {
+            $dt["nik"] = $t[0];
+            $dt["no_kk"] = $t[1];
+            $dt["nama_lengkap"] = $t[2];
+            $dt["tempat_lahir"] = $t[3];
+            $dt["tanggal_lahir"] = $t[4];
+            $dt["jenis_kelamin"] = $t[5];
+            $dt["alamat"] = $t[6];
+            $dt["rt"] = $t[7];
+            $dt["rw"] = $t[8];
+            $dt["desa"] = $t[9];
+
+            array_push($data, $dt);
+        }
+
+        $data['status'] = "Tidak Ada";
+
+        unlink(WRITEPATH . 'uploads/penduduk/' . $fileName);
+
+        foreach ($data as $dt) {
+            $this->pendudukModel->save($dt);
+        }
+
+        $res = [
+            'status' => 'success',
+            'msg'   => 'Data Excel Berhasil di Import.',
+            'data'  => $data
+        ];
+
+        return $this->respond($res, 200);
     }
 }

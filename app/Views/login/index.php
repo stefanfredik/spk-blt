@@ -21,13 +21,27 @@
     <link href="/core/css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/themes/prism.css">
     <link href="/core/css/examples.css" rel="stylesheet">
+    <style>
+        #main {
+
+            background-image: url("/assets/img/bg.png");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: #0d47a1;
+            /* filter: blur(8px); */
+        }
+
+        .container {
+            /* filter: blur(8px); */
+        }
+    </style>
 </head>
 
 <body>
-    <div class="bg-light min-vh-100 d-flex flex-row align-items-center">
+    <div id="main" class="min-vh-100 d-flex flex-row align-items-center">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-4">
+            <div class="row justify-content-center ">
+                <div class="col-lg-4 shadow-md">
                     <div class="card-group d-block d-md-flex row">
                         <div class="card col-md-4 p-4 mb-0">
                             <div class="card-body text-center">

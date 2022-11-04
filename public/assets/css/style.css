@@ -25,6 +25,8 @@
   background-color: #003c8f;
 }
 
-.header {
-  /* background-color: #003c8f; */
+.about .video-box {
+  background: url("../img/hero.png");
+  background-size: contain;
+  min-height: 300px;
 }
