@@ -14,7 +14,7 @@
 
 <div class="tab-content" id="myTabContent">
     <div class="tab-pane fade active show" id="datablt" role="tabpanel" aria-labelledby="profile-tab">
-        <button class="my-3 col btn btn-primary">Cetak Laporan</button>
+        <a href="/blt/laporan/cetak/penduduk" class="my-3 col btn btn-primary">Cetak Laporan</a>
         <hr>
         <div class="row">
             <?= $this->include("bantuan/laporan/datablt"); ?>
@@ -22,7 +22,7 @@
     </div>
 
     <div class="tab-pane fade show " id="datapenduduk" role="tabpanel" aria-labelledby="home-tab">
-        <button class="my-3 col btn btn-primary">Cetak Laporan</button>
+        <a href="/blt/laporan/cetak/blt" class="my-3 col btn btn-primary">Cetak Laporan</a>
         <hr>
         <div class="row">
             <?= $this->include("bantuan/laporan/datapenduduk"); ?>
@@ -57,5 +57,10 @@
 
     $('#tablePenduduk').DataTable(config)
     $('#tableBlt').DataTable(config)
+
+
+    function cetakLaporanBlt() {
+        alert("blt");
+    }
 </script>
 <?= $this->endSection(); ?>

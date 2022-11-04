@@ -24,7 +24,9 @@
                             <select class="form-control" name="jabatan" id="" required>
                                 <option value="">Pilih Jabatan</option>
                                 <option value="Admin">Admin</option>
-                                <option value="Kepala Sekolah">Kepala Sekolah</option>
+                                <option value="Pendamping BLT">Pendamping BLT</option>
+                                <option value="Pendamping BLT">Pendamping BPNT</option>
+                                <option value="Kepala Desa">Kepala Desa</option>
                             </select>
                         </div>
                     </div>

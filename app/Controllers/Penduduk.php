@@ -5,6 +5,8 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\PendudukModel;
 use CodeIgniter\API\ResponseTrait;
+use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
 
 class Penduduk extends BaseController {
     use ResponseTrait;
@@ -40,6 +42,16 @@ class Penduduk extends BaseController {
         ];
 
         return view('/penduduk/tambah', $data);
+    }
+
+
+    public function getImportexcel() {
+        $data = [
+            'title' => 'Import File Excel',
+            'url'   => $this->url
+        ];
+
+        return view('/penduduk/importexcel', $data);
     }
 
     public function getEdit($id) {
@@ -107,5 +119,38 @@ class Penduduk extends BaseController {
         ];
 
         return $this->respond($res, 200);
+    }
+
+
+    public function postUpload() {
+        $rules = [
+            'excel' => [
+                'rules' => [
+                    'ext_in[excel,xlsx]'
+                ],
+                'errors' => [
+                    'required' => 'File Belum Diupload.',
+                    'ext_in' => 'File tidak Cocok dengan kriteria'
+                ]
+            ],
+        ];
+
+        if (!$this->validate($rules)) {
+            dd($this->validation->getErrors());
+        }
+
+        $file = $this->request->getFile("excel")->move('penduduk', 'test.xlsx', true);
+
+        $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
+
+        $spreadsheet = $reader->load(WRITEPATH . 'uploads/penduduk/test.xlsx');
+        // dd($file);
+
+        $d = $spreadsheet->getSheet(0)->toArray();
+        unset($d[0]);
+        dd($d);
+    }
+
+    public function importExcel($file) {
     }
 }

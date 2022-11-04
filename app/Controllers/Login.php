@@ -9,8 +9,9 @@ use CodeIgniter\I18n\Time;
 
 class Login extends BaseController {
     use ResponseTrait;
-    public function index() {
-        if (session()->get('isLogin')) return redirect()->to('/');
+
+    public function getIndex() {
+        if (session()->get('isLogin')) return redirect()->to('/dashboard');
 
         if ($this->request->getPost()) {
             return $this->login();
@@ -19,7 +20,15 @@ class Login extends BaseController {
         $data = [
             'title' => 'Halaman Login'
         ];
+
         return view('/login/index', $data);
+    }
+
+
+    public function postIndex() {
+        if ($this->request->getPost()) {
+            return $this->login();
+        }
     }
 
     private function login() {
@@ -67,6 +76,6 @@ class Login extends BaseController {
 
     public function logout() {
         $this->session->destroy();
-        return redirect()->to('/');
+        return redirect()->to('home');
     }
 }

@@ -69,8 +69,8 @@ class Filters extends BaseConfig {
      * @var array
      */
     public $filters = [
-        // 'auth' => [
-        //     'before' => ['/', '/home', '/keputusan', '/kriteria', '/laporan', '/nilai', '/siswa', '/user']
-        // ]
+        'auth' => [
+            'before' => ['/dashboard/', '/bpnt/*', '/blt/*', '/laporan', '/penduduk', '/user']
+        ]
     ];
 }

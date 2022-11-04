@@ -7,8 +7,8 @@ use App\Controllers\BaseController;
 class Dashboard extends BaseController {
     public function getIndex() {
         $data = [
-            'title' => 'Dashboard'
+            'title' => 'Dashboard Admin'
         ];
-        return view('/home/index', $data);
+        return view('/dashboard/index', $data);
     }
 }
