@@ -115,8 +115,8 @@ class Filters extends BaseConfig {
                 '/bpnt/kriteria/*',
                 '/bpnt/perhitungan',
                 '/bpnt/perhitungan/*',
-                '/bpnt/laporan',
-                '/bpnt/laporan/*',
+                // '/bpnt/laporan',
+                // '/bpnt/laporan/*',
 
                 '/blt/subkriteria',
                 '/blt/subkriteria/*',
@@ -125,8 +125,8 @@ class Filters extends BaseConfig {
                 '/blt/perhitungan/',
                 '/blt/perhitungan/*',
 
-                '/laporan',
-                '/laporan/*',
+                // '/laporan',
+                // '/laporan/*',
                 '/user',
                 '/user/*'
             ]

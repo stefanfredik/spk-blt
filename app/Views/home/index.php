@@ -27,7 +27,7 @@
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#bantuan">Bantuan</a></li>
+          <li><a class="nav-link scrollto" href="#bantuan">Info Bantuan</a></li>
           <?php if (!session()->get('isLogin')) : ?>
             <li><a href="/login" class="nav-link scrollto">Login</a></li>
           <?php else :  ?>

@@ -14,7 +14,7 @@ class Laporan extends BaseController {
     use ResponseTrait;
 
     private $url = 'blt/laporan';
-    private $title = 'Data Peserta Bntp';
+    private $title = 'Data Peserta BLT';
     private $jumlahKriteria = 0;
     private $jenisBantuan = 'blt';
 

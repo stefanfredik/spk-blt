@@ -8,8 +8,8 @@
                     </svg>
                 </th>
                 <th>Nama User</th>
-                <th class="text-center">Username</th>
-                <th class="text-center">Jabatan</th>
+                <th>Username</th>
+                <th>Jabatan</th>
                 <th>Activity</th>
                 <th>Opsi</th>
             </tr>
@@ -29,11 +29,11 @@
                         <div class="small text-medium-emphasis">Terdaftar : <?= $dt['created_at'] ?></div>
                     </td>
 
-                    <td class="text-center">
-                        <div><?= $dt['nama_user']; ?></div>
+                    <td class="">
+                        <div><?= $dt['username']; ?></div>
                     </td>
 
-                    <td class="text-center">
+                    <td>
                         <div><?= $dt['jabatan']; ?></div>
                     </td>
 
