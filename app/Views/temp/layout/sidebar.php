@@ -48,6 +48,7 @@
                 <li class="nav-item"><a class="nav-link" href="/bpnt/subkriteria"><span class="nav-icon"></span> <i class="bi bi-list-ol mx-2"></i>Sub Kriteria</a></li>
                 <li class="nav-item"><a class="nav-link" href="/bpnt/perhitungan"><span class="nav-icon"></span><i class="bi bi-calculator mx-2"></i>Perhitungan MOORA</a></li>
                 <li class="nav-item"><a class="nav-link" href="/bpnt/datapeserta"><span class="nav-icon"></span> <i class="bi bi-list-ol mx-2"></i>Data Peserta</a></li>
+                <li class="nav-item"><a class="nav-link" href="/bpnt/kelayakan"><span class="nav-icon"></span><i class="bi bi-clipboard2-check mx-2"></i>Kriteria Kelayakan</a></li>
                 <li class="nav-item"><a class="nav-link" href="/bpnt/keputusan"><span class="nav-icon"></span><i class="bi bi-clipboard2-check mx-2"></i>Data Keputusan</a></li>
                 <li class="nav-item"><a class="nav-link" href="/bpnt/laporan"><span class="nav-icon"></span><i class="bi bi-journal-check mx-2"></i>Laporan</a></li>
             </ul>
@@ -63,6 +64,7 @@
                 <li class="nav-item"><a class="nav-link" href="/blt/subkriteria"><span class="nav-icon"></span> <i class="bi bi-list-ol mx-2"></i>Sub Kriteria</a></li>
                 <li class="nav-item"><a class="nav-link" href="/blt/datapeserta"><span class="nav-icon"></span> <i class="bi bi-list-ol mx-2"></i>Data Peserta</a></li>
                 <li class="nav-item"><a class="nav-link" href="/blt/perhitungan"><span class="nav-icon"></span><i class="bi bi-calculator mx-2"></i>Perhitungan MOORA</a></li>
+                <li class="nav-item"><a class="nav-link" href="/blt/kelayakan"><span class="nav-icon"></span><i class="bi bi-clipboard2-check mx-2"></i>Kriteria Kelayakan</a></li>
                 <li class="nav-item"><a class="nav-link" href="/blt/keputusan"><span class="nav-icon"></span><i class="bi bi-clipboard2-check mx-2"></i>Data Keputusan</a></li>
                 <li class="nav-item"><a class="nav-link" href="/blt/laporan"><span class="nav-icon"></span><i class="bi bi-journal-check mx-2"></i>Laporan</a></li>
             </ul>
