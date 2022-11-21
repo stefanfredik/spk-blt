@@ -45,7 +45,7 @@
                         <div class="col-md-8">
                             <input value="cost" <?= ($kriteria['type'] == 'cost') ? 'checked' : ''; ?> class="form-check-input" type="radio" name="type" id="cost">
                             <label class="form-check-label" for="cost">
-                                Cost
+                                Cosr
                             </label>
                             <input value="benefit" <?= ($kriteria['type'] == 'benefit') ? 'checked' : ''; ?> class="form-check-input" type="radio" name="type" id="benefit">
                             <label class="form-check-label" for="benefit">

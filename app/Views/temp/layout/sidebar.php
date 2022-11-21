@@ -46,8 +46,8 @@
 
                 <li class="nav-item"><a class="nav-link" href="/bpnt/kriteria"><span class="nav-icon"></span> <i class="bi bi-list-ol mx-2"></i>Kriteria</a></li>
                 <li class="nav-item"><a class="nav-link" href="/bpnt/subkriteria"><span class="nav-icon"></span> <i class="bi bi-list-ol mx-2"></i>Sub Kriteria</a></li>
-                <li class="nav-item"><a class="nav-link" href="/bpnt/perhitungan"><span class="nav-icon"></span><i class="bi bi-calculator mx-2"></i>Perhitungan MOORA</a></li>
                 <li class="nav-item"><a class="nav-link" href="/bpnt/datapeserta"><span class="nav-icon"></span> <i class="bi bi-list-ol mx-2"></i>Data Peserta</a></li>
+                <li class="nav-item"><a class="nav-link" href="/bpnt/perhitungan"><span class="nav-icon"></span><i class="bi bi-calculator mx-2"></i>Perhitungan MOORA</a></li>
                 <li class="nav-item"><a class="nav-link" href="/bpnt/kelayakan"><span class="nav-icon"></span><i class="bi bi-clipboard2-check mx-2"></i>Kriteria Kelayakan</a></li>
                 <li class="nav-item"><a class="nav-link" href="/bpnt/keputusan"><span class="nav-icon"></span><i class="bi bi-clipboard2-check mx-2"></i>Data Keputusan</a></li>
                 <li class="nav-item"><a class="nav-link" href="/bpnt/laporan"><span class="nav-icon"></span><i class="bi bi-journal-check mx-2"></i>Laporan</a></li>
@@ -70,10 +70,22 @@
             </ul>
         </li>
 
+
+        <li class="nav-group"><a class="nav-link nav-group-toggle" href="#"> ''
+                <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-ui-checks" viewBox="0 0 16 16">
+                    <path d="M7 2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-1zM2 1a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H2zm0 8a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2H2zm.854-3.646a.5.5 0 0 1-.708 0l-1-1a.5.5 0 1 1 .708-.708l.646.647 1.646-1.647a.5.5 0 1 1 .708.708l-2 2zm0 8a.5.5 0 0 1-.708 0l-1-1a.5.5 0 0 1 .708-.708l.646.647 1.646-1.647a.5.5 0 0 1 .708.708l-2 2zM7 10.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-1zm0-5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 8a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z" />
+                </svg> BLT</a>
+            <ul class="nav-group-items">
+
+                <li class="nav-item"><a class="nav-link" href="/laporan/penduduk"><span class="nav-icon"></span> <i class="bi bi-list-ol mx-2"></i>Data Penduduk</a></li>
+                <li class="nav-item"><a class="nav-link" href="/laporan/subkriteria"><span class="nav-icon"></span> <i class="bi bi-list-ol mx-2"></i>Data BPNT</a></li>
+                <li class="nav-item"><a class="nav-link" href="/laporan/datapeserta"><span class="nav-icon"></span> <i class="bi bi-list-ol mx-2"></i>Data BLT</a></li>
+            </ul>
+        </li>
+
         <li class="nav-item my-2"><a class="nav-link" href="/logout">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="nav-icon bi bi-box-arrow-left" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z" />
-                    <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z" />
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="nav-icon  bi bi-list-columns-reverse" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M0 .5A.5.5 0 0 1 .5 0h2a.5.5 0 0 1 0 1h-2A.5.5 0 0 1 0 .5Zm4 0a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1h-10A.5.5 0 0 1 4 .5Zm-4 2A.5.5 0 0 1 .5 2h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5Zm4 0a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5Zm-4 2A.5.5 0 0 1 .5 4h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5Zm4 0a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5Zm-4 2A.5.5 0 0 1 .5 6h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5Zm4 0a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 0 1h-8a.5.5 0 0 1-.5-.5Zm-4 2A.5.5 0 0 1 .5 8h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5Zm4 0a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 0 1h-8a.5.5 0 0 1-.5-.5Zm-4 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5Zm4 0a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1h-10a.5.5 0 0 1-.5-.5Zm-4 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5Zm4 0a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5Zm-4 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5Zm4 0a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5Z" />
                 </svg>
                 Logout</a></li>
     </ul>
