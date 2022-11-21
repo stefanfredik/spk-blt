@@ -86,11 +86,13 @@
                                 <?php
                                 $k = 'k_' . $dt['id'];
                                 foreach ($dataSubkriteria as $sk) :
-                                    if ($dt['id'] == $sk['id_kriteria']) :
-                                ?>
-                                        <?= ($peserta[$k] == $sk['id']) ? '<p>' . $sk['subkriteria'] . '</p>' : false ?>
-                                <?php endif;
-
+                                    if ($dt['id'] == $sk['id_kriteria']) {
+                                        if (isset($peserta[$k])) {
+                                            echo ($peserta[$k] == $sk['id']) ? '<p>' . $sk['subkriteria'] . '</p>' : false;
+                                        } else {
+                                            'Data Belum Lengkap';
+                                        }
+                                    }
                                 endforeach; ?>
                             </div>
                         </div>

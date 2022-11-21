@@ -40,7 +40,7 @@ class Datapeserta extends BaseController {
             'url'   => $this->url,
             'dataPenduduk' => $this->pendudukModel->findAll(),
             'dataKriteria' => $this->kriteriaModel->where('jenis_bantuan', $this->jenisBantuan)->findAll(),
-            'dataSubkriteria' => $this->subkriteriaModel->findAll(),
+            'dataSubkriteria' => $this->subkriteriaModel->where('jenis_bantuan', $this->jenisBantuan)->findAll(),
         ];
 
         return view('/bantuan/peserta/tambah', $data);
@@ -59,11 +59,10 @@ class Datapeserta extends BaseController {
     }
 
     public function getEdit($id) {
-
         $data = [
             'title' => 'Edit Data Peserta',
-            'dataKriteria'  => $this->kriteriaModel->findAll(),
-            'dataSubkriteria' => $this->subkriteriaModel->findAll(),
+            'dataKriteria'  => $this->kriteriaModel->where('jenis_bantuan', $this->jenisBantuan)->findAll(),
+            'dataSubkriteria' => $this->subkriteriaModel->where('jenis_bantuan', $this->jenisBantuan)->findAll(),
             'dataPenduduk' => $this->pendudukModel->findAll(),
             'peserta' => $this->bpntModel->find($id),
             'url'   => $this->url
@@ -76,7 +75,7 @@ class Datapeserta extends BaseController {
 
         $data = [
 
-            'dataKriteria'  => $this->kriteriaModel->findAll(),
+            'dataKriteria' => $this->kriteriaModel->where('jenis_bantuan', $this->jenisBantuan)->findAll(),
             'dataSubkriteria' => $this->subkriteriaModel->findAll(),
             'dataPenduduk' => $this->pendudukModel->findAll(),
             'peserta' => $this->bpntModel->findDataBpnt($id),
