@@ -68,7 +68,6 @@ class Kelayakan extends BaseController {
         return $this->respond($res, 200);
     }
 
-
     public function postSaveedit($id) {
         $data = $this->request->getPost();
         $this->kelayakanModel->update($id, $data);

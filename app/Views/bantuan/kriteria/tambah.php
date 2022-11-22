@@ -40,12 +40,12 @@
 
                     <div class="row mb-2">
                         <div class="col-md-4">
-                            <label class="form-label">Cost/ Benefit</label>
+                            <label class="form-label">Cosr/ Benefit</label>
                         </div>
                         <div class="col-md-8">
                             <input value="cost" class="form-check-input" type="radio" name="type" id="cost" checked>
                             <label class="form-check-label" for="cost">
-                                Cost
+                                Cosr
                             </label>
                             <input value="benefit" class="form-check-input" type="radio" name="type" id="benefit" checked>
                             <label class="form-check-label" for="benefit">
