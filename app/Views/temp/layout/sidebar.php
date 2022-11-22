@@ -46,8 +46,8 @@
 
                 <li class="nav-item"><a class="nav-link" href="/bpnt/kriteria"><span class="nav-icon"></span> <i class="bi bi-list-ol mx-2"></i>Kriteria</a></li>
                 <li class="nav-item"><a class="nav-link" href="/bpnt/subkriteria"><span class="nav-icon"></span> <i class="bi bi-list-ol mx-2"></i>Sub Kriteria</a></li>
-                <li class="nav-item"><a class="nav-link" href="/bpnt/perhitungan"><span class="nav-icon"></span><i class="bi bi-calculator mx-2"></i>Perhitungan MOORA</a></li>
                 <li class="nav-item"><a class="nav-link" href="/bpnt/datapeserta"><span class="nav-icon"></span> <i class="bi bi-list-ol mx-2"></i>Data Peserta</a></li>
+                <li class="nav-item"><a class="nav-link" href="/bpnt/perhitungan"><span class="nav-icon"></span><i class="bi bi-calculator mx-2"></i>Perhitungan MOORA</a></li>
                 <li class="nav-item"><a class="nav-link" href="/bpnt/kelayakan"><span class="nav-icon"></span><i class="bi bi-clipboard2-check mx-2"></i>Kriteria Kelayakan</a></li>
                 <li class="nav-item"><a class="nav-link" href="/bpnt/keputusan"><span class="nav-icon"></span><i class="bi bi-clipboard2-check mx-2"></i>Data Keputusan</a></li>
                 <li class="nav-item"><a class="nav-link" href="/bpnt/laporan"><span class="nav-icon"></span><i class="bi bi-journal-check mx-2"></i>Laporan</a></li>
@@ -67,6 +67,19 @@
                 <li class="nav-item"><a class="nav-link" href="/blt/kelayakan"><span class="nav-icon"></span><i class="bi bi-clipboard2-check mx-2"></i>Kriteria Kelayakan</a></li>
                 <li class="nav-item"><a class="nav-link" href="/blt/keputusan"><span class="nav-icon"></span><i class="bi bi-clipboard2-check mx-2"></i>Data Keputusan</a></li>
                 <li class="nav-item"><a class="nav-link" href="/blt/laporan"><span class="nav-icon"></span><i class="bi bi-journal-check mx-2"></i>Laporan</a></li>
+            </ul>
+        </li>
+
+
+        <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="nav-icon bi bi-list-columns" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M0 .5A.5.5 0 0 1 .5 0h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 0 .5Zm13 0a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5Zm-13 2A.5.5 0 0 1 .5 2h8a.5.5 0 0 1 0 1h-8a.5.5 0 0 1-.5-.5Zm13 0a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5Zm-13 2A.5.5 0 0 1 .5 4h10a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5Zm13 0a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5Zm-13 2A.5.5 0 0 1 .5 6h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5Zm13 0a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5Zm-13 2A.5.5 0 0 1 .5 8h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5Zm13 0a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5Zm-13 2a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5Zm13 0a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5Zm-13 2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5Zm13 0a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5Zm-13 2a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5Zm13 0a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5Z" />
+                </svg> Laporan</a>
+            <ul class="nav-group-items">
+
+                <li class="nav-item"><a class="nav-link" href="/laporan/bpnt"><span class="nav-icon"></span> <i class="bi bi-list-ol mx-2"></i>BPNT</a></li>
+                <li class="nav-item"><a class="nav-link" href="/laporan/blt"><span class="nav-icon"></span> <i class="bi bi-cash-coin mx-2"></i>BLT</a></li>
+                <li class="nav-item"><a class="nav-link" href="/laporan/Penduduk"><span class="nav-icon"></span> <i class="bi bi-people-fill mx-2"></i>Penduduk</a></li>
             </ul>
         </li>
 

@@ -170,6 +170,8 @@ class Moora {
             foreach ($this->nilaiKelayakan as $kl) {
                 if ($n >= $kl['nilai']) {
                     $this->peserta[$i]['status_layak'] = $kl['keterangan'];
+                } else {
+                    $this->peserta[$i]['status_layak'] = "Tidak Layak";
                 }
             }
         }
@@ -178,9 +180,6 @@ class Moora {
 
     // Hitung Jumlah Key Kriteria
     private function countBenCost() {
-        $jumKriteriaBenefit = 0;
-        $jumKriteriaCost = 0;
-
         foreach ($this->dataKriteria as $dk) {
             if ($dk['type'] == 'benefit') {
                 $this->jumKriteriaBenefit++;
@@ -193,7 +192,6 @@ class Moora {
 
 
     // helper function 
-
     private function sortPeserta() {
         usort($this->peserta, fn ($a, $b) => $b['kriteria_nilai'] <=> $a['kriteria_nilai']);
     }

@@ -27,7 +27,7 @@ class Laporan extends BaseController {
 
     public function getIndex() {
         $data = [
-            'title' => 'Laporan',
+            'title' => $this->title,
             'dataPeserta' => $this->bpntModel->findAllDataBpnt(),
             'dataKriteria' => $this->kriteriaModel->where('jenis_bantuan', $this->jenisBantuan)->findAll(),
             'dataSubkriteria' => $this->subkriteriaModel->where('jenis_bantuan', $this->jenisBantuan)->findAll(),

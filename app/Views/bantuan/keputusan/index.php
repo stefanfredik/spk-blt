@@ -5,7 +5,7 @@
     <div class="col-lg-12">
         <div class="card border shadow">
             <div class="card-header">
-                <div class="display-6">Penentuan Kriteria</div>
+                <h3>Kriteria Kelayakan</h3>
             </div>
             <div class="card-body">
                 <?php foreach ($kelayakan as $kl) : ?>
@@ -23,9 +23,9 @@
 </div>
 <div class="row">
     <div class="col">
-        <div class="card border border-secondary shadow">
+        <div class="card  shadow">
             <div class="card-header">
-                <h3>Tabel Kriteria</h3>
+                <h3>Daftar Peserta</h3>
             </div>
             <div id="data" class="card-body">
                 <div class="table-responsive">

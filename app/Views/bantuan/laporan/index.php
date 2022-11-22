@@ -1,38 +1,20 @@
 <?= $this->extend('temp/index'); ?>
 <?= $this->section("content"); ?>
 
-<ul class="nav nav-tabs" id="myTab" role="tablist">
-
-    <li class="nav-item" role="presentation">
-        <button class="nav-link active" id="profile-tab" data-bs-toggle="tab" data-bs-target="#datablt" type="button" role="tab" aria-controls="profile" aria-selected="false">Data Penerima BLT</button>
-    </li>
-
-    <li class="nav-item" role="presentation">
-        <button class="nav-link " id="home-tab" data-bs-toggle="tab" data-bs-target="#datapenduduk" type="button" role="tab" aria-controls="home" aria-selected="true">Data Penduduk</button>
-    </li>
-</ul>
-
-<div class="tab-content" id="myTabContent">
-    <div class="tab-pane fade active show" id="datablt" role="tabpanel" aria-labelledby="profile-tab">
-        <a href="/<?= $url; ?>/cetak/<?= $jenisBantuan; ?>" class="my-3 col btn btn-primary"><i class="bi bi-printer mx-2"></i> Cetak Laporan</a>
-        <hr>
-        <div class="row">
-            <?= $this->include("bantuan/laporan/datablt"); ?>
+<a href="/<?= $url; ?>/cetak/<?= $jenisBantuan; ?>" class="my-3 col btn btn-primary"><i class="bi bi-printer mx-2"></i> Cetak Laporan</a>
+<div class="row">
+    <div class="col">
+        <div class="card  shadow">
+            <div class="card-header">
+                <h3><?= $title; ?></h3>
+            </div>
+            <div id="data" class="card-body">
+                <?= $this->include("bantuan/laporan/table"); ?>
+            </div>
         </div>
     </div>
-
-    <div class="tab-pane fade show " id="datapenduduk" role="tabpanel" aria-labelledby="home-tab">
-        <a href="/<?= $url; ?>/cetak/<?= $jenisBantuan; ?>" class="my-3 col btn btn-primary"><i class="bi bi-printer mx-2"></i> Cetak Laporan</a>
-        <hr>
-        <div class="row">
-            <?= $this->include("bantuan/laporan/datapenduduk"); ?>
-        </div>
-    </div>
-
 </div>
-
 <?= $this->endSection(); ?>
-
 
 <?= $this->section("script"); ?>
 <script>

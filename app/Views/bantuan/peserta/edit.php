@@ -36,7 +36,7 @@
                                     foreach ($dataSubkriteria as $sk) :
                                         if ($dt['id'] == $sk['id_kriteria']) :
                                     ?>
-                                            <option <?= ($peserta[$k] == $sk['id']) ? 'selected' : '' ?> value="<?= $sk['id']; ?>"><?= $sk['subkriteria']; ?></option>
+                                            <option <?= @($peserta[$k] == $sk['id']) ? 'selected' : '' ?> value="<?= $sk['id']; ?>"><?= $sk['subkriteria']; ?></option>
                                     <?php endif;
                                     endforeach; ?>
                                 </select>
