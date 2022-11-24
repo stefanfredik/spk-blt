@@ -79,6 +79,7 @@
             })
         })
     }
+
     async function getTable(url) {
         await $.get(`/${url}/table`, (data, status) => {
             $("#data").html(data);
@@ -108,7 +109,6 @@
             console.log(e)
         })
     }
-
 
     async function remove(url, target) {
         // target.event();
@@ -144,6 +144,7 @@
             }
         })
     }
+
     async function edit(url, target) {
         // target.preventDefault();
         const id = target.getAttribute("data-id");
