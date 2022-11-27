@@ -1,3 +1,5 @@
+<?= $this->extend("temp/index") ?>
+<?= $this->section("content") ?>
 <div class="table-responsive">
     <table class="table table-bordered" id="table" width="100%" colspacing="0">
         <thead>
@@ -18,7 +20,7 @@
         <tbody>
             <?php $no = 1;
             // dd($dataPeserta);
-            foreach ($dataPeserta as $dt) : ?>
+            foreach ($dataPenduduk as $dt) : ?>
                 <tr>
                     <td><?= $no++; ?></td>
                     <td><?= $dt['nik']; ?></td>
@@ -38,3 +40,5 @@
         </tbody>
     </table>
 </div>
+
+<?= $this->endSection() ?>

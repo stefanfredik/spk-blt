@@ -3,24 +3,26 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\PendudukModel;
 
-class Laporan extends BaseController {
-    public function index() {
-        //
+class Laporan extends BaseController
+{
+
+    private $url = 'penduduk';
+    private $title = 'Data Laporan Penduduk';
+
+    public function __construct()
+    {
+        $this->pendudukModel = new PendudukModel();
     }
 
-
-    public function getBpnt() {
+    public function getPenduduk()
+    {
         $data = [
-            'title' => 'Laporan Bantuan BPNT'
+            'title' => 'Laporan Bantuan BPNT',
+            'dataPenduduk' => $this->pendudukModel->findAll(),
+            'url' => $this->url
         ];
-        return view('laporan/bpnt', $data);
-    }
-
-    public function getBlt() {
-        $data = [
-            'title' => 'Laporan Bantuan BLT'
-        ];
-        return view('laporan/blt', $data);
+        return view('laporan/datapenduduk', $data);
     }
 }

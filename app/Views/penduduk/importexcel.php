@@ -7,12 +7,46 @@
             </div>
             <?= form_open_multipart('/penduduk/upload', 'onsubmit="uploadFile(event)"') ?>
             <div class="modal-body">
-                <div class="row mb-4 p-2">
-                    <p>- Agar tidak terjadi kesalahan data saat mengupload data, pastikan file excel anda mengikuti format berikut.</p>
-                    <p>- Pastikan urutan penamaan kolom seudah sesuai dengan format berikut. </p>
-                    <p>- Jenis File yang didukung hanya file dengan jenis extensi <b>.xlsx</b> </p>
+                <div class="row mb-4 p-3">
+                    <ul>
+                        <li>Agar tidak terjadi kesalahan data saat mengupload data, pastikan file excel anda mengikuti format berikut.</li>
+                        <li>Pastikan urutan penamaan kolom seudah sesuai dengan format berikut. </li>
+                        <li>Jenis File yang didukung hanya file dengan jenis extensi <b>.xlsx</b> </li>
+                    </ul>
                     <hr>
-                    <img class="border rounded" src="/assets/img/format.png" alt="">
+                    <div class="table-responsive">
+                        <table class="table border">
+                            <thead class="text-center">
+                                <tr>
+                                    <th class="align-middle">NIK</th>
+                                    <th class="align-middle">Nama Lengkap</th>
+                                    <th class="align-middle">Tempat Lahir</th>
+                                    <th class="align-middle">Tempat Lahir</th>
+                                    <th class="align-middle">Tanggal Lahir</th>
+                                    <th class="align-middle">Jenis Kelamin</th>
+                                    <th class="align-middle">Alamat</th>
+                                    <th class="align-middle">RT</th>
+                                    <th class="align-middle">RW</th>
+                                    <th class="align-middle">Desa</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>12345678</td>
+                                    <td>12345678</td>
+                                    <td>Jhon Doe</td>
+                                    <td>Bali</td>
+                                    <td>2000/11/01</td>
+                                    <td>Laki-Laki</td>
+                                    <td>Denpasar, Bali</td>
+                                    <td>01</td>
+                                    <td>05</td>
+                                    <td>Denpasar Selatan</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
                     <hr>
                 </div>
                 <div class="row mb-2">

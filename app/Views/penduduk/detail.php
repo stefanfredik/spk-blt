@@ -103,15 +103,6 @@
                     </div>
                 </div>
 
-                <div class="row mb-1">
-                    <div class="col-md-4">
-                        <label class="form-label">Status</label>
-                    </div>
-                    <div class="col-md-8">
-                        <p><?= $penduduk['status'] ?></p>
-                    </div>
-                </div>
-
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kembali</button>
