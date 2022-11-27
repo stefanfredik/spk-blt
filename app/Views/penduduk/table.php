@@ -3,8 +3,8 @@
         <thead>
             <tr>
                 <th>No</th>
-                <th>Nik</th>
                 <th>No KK</th>
+                <th>Nik</th>
                 <th>Nama Lengkap</th>
                 <th>Tempat Lahir</th>
                 <th>Tanggal Lahir</th>
@@ -18,8 +18,8 @@
             foreach ($pendudukData as $dt) : ?>
                 <tr>
                     <td><?= $no++ ?></td>
-                    <td><?= $dt['nik'] ?></td>
                     <td><?= $dt['no_kk'] ?></td>
+                    <td><?= $dt['nik'] ?></td>
                     <td><?= $dt['nama_lengkap'] ?></td>
                     <td><?= $dt['tempat_lahir'] ?></td>
                     <td><?= $dt['tanggal_lahir'] ?></td>
