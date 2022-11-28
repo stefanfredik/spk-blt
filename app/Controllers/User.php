@@ -3,8 +3,9 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use App\Models\UserModel;
+use App\Models\MyUserModel;
 use CodeIgniter\API\ResponseTrait;
+use Myth\Auth\Password;
 
 class User extends BaseController {
     use ResponseTrait;
@@ -12,11 +13,10 @@ class User extends BaseController {
     var $url = 'user';
 
     public function __construct() {
-        $this->userModel = new UserModel();
+        $this->userModel = new MyUserModel();
     }
 
     public function getIndex() {
-
         $data = [
             'title' => 'Data User',
             'url'   => $this->url,
@@ -86,9 +86,16 @@ class User extends BaseController {
         }
 
 
-        $data = $this->request->getPost();
-        $data['password'] = password_hash($this->request->getPost('password'), PASSWORD_DEFAULT);
-        $this->userModel->save($data);
+        $request = $this->request->getPost();
+
+        $data = [
+            'nama_user' => $request['nama_user'],
+            'username' => $request['username'],
+            'password_hash' => Password::hash($request['password']),
+            'active'    => "1"
+        ];
+
+        $this->userModel->withGroup($request['jabatan'])->save($data);
 
         $res = [
             'status' => 'success',

@@ -8,14 +8,14 @@ use App\Models\BpntModel;
 use App\Models\KriteriaModel;
 use App\Models\PendudukModel;
 use App\Models\SubkriteriaModel;
-use App\Models\UserModel;
+use App\Models\MyUserModel;
 
 class Dashboard extends BaseController {
 
     public function __construct() {
         $this->bltModel  = new BltModel();
         $this->bpntModel  = new BpntModel();
-        $this->userModel = new UserModel();
+        $this->userModel = new MyUserModel();
         $this->pendudukModel = new PendudukModel();
     }
 

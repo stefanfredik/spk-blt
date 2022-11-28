@@ -7,7 +7,7 @@ use App\Models\UserModel;
 use CodeIgniter\API\ResponseTrait;
 use CodeIgniter\I18n\Time;
 
-class Login extends BaseController {
+class Logins extends BaseController {
     use ResponseTrait;
 
     public function getIndex() {

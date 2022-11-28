@@ -21,8 +21,7 @@ use CodeIgniter\Debug\Toolbar\Collectors\Views;
  * NOT be displayed under production environments, and will only display if
  * `CI_DEBUG` is true, since if it's not, there's not much to display anyway.
  */
-class Toolbar extends BaseConfig
-{
+class Toolbar extends BaseConfig {
     /**
      * --------------------------------------------------------------------------
      * Toolbar Collectors
@@ -42,6 +41,7 @@ class Toolbar extends BaseConfig
         Files::class,
         Routes::class,
         Events::class,
+        \Myth\Auth\Collectors\Auth::class,
     ];
 
     /**

@@ -10,7 +10,7 @@
             </svg></a> -->
             <img class="img-fluid sidebar-brand-narrow" width="50" height="50" src="/assets/img/bg.png" alt="">
             <ul class="header-nav d-none d-md-flex">
-                <li class="nav-item"><a class="nav-link" href="/home"><?= WEBTITLE . ' - ' . session()->get("jabatan"); ?></a></li>
+                <li class="nav-item"><a class="nav-link" href="/home"><?= WEBTITLE . ' - ' . user()->nama_user; ?></a></li>
             </ul>
 
             <ul class="header-nav ms-3">
@@ -27,7 +27,7 @@
                         </div><button class="dropdown-item" href="#">
                             <svg class="icon me-2">
                                 <use xlink:href="/core/vendors/@coreui/icons/svg/free.svg#cil-user"></use>
-                            </svg> <?= session()->get('namaUser'); ?></button><a class="dropdown-item" href="/#">
+                            </svg> <?= user()->nama_user; ?></button><a class="dropdown-item" href="/#">
                         </a>
 
                         <div class="dropdown-divider"></div><a class="dropdown-item" href="/logout">

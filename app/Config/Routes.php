@@ -2,6 +2,8 @@
 
 namespace Config;
 
+use App\Controllers\Dashboard;
+
 // Create a new instance of our RouteCollection class.
 $routes = Services::routes();
 
@@ -36,15 +38,64 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
-$routes->get('/home', 'Home::index');
-$routes->get('/logout', 'Login::logout');
-$routes->post('/login', 'Login::postIndex');
-$routes->get('/login', 'Login::getIndex');
+// $routes->get('/home', 'Home::index');
+// $routes->get('/logout', 'Login::logout');
+// $routes->post('/login', 'Login::postIndex');
+// $routes->get('/login', 'Login::getIndex');
 // $routes->get('user/(:num)', 'User::getEdit/$1');
 // $routes->group('user', static function ($routes) {
 //     $routes->get('user/(:num)', 'User::getEdit/$1');
 // });
 
+$routes->get('dashboard', 'Dashboard::getIndex');
+
+$routes->group("user", ['filter' => 'role:Admin'], function ($r) {
+    $r->get("/", "User::getIndex");
+    $r->get("tambah", "User::getTambah");
+    $r->get("edit/(:num)", "User::getEdit/$1");
+    $r->get("table", "User::getTable");
+
+    $r->post("/", "User::postIndex");
+
+    $r->put("edit/(:num)", "User::putEdit/$1");
+
+    $r->delete("delete/(:num)", "User::deleteDelete/$1");
+});
+
+$routes->group("penduduk", ['filter' => 'role:Admin'], function ($r) {
+    $r->get("/", "Penduduk::getIndex");
+    $r->get("tambah", "Penduduk::getTambah");
+    $r->get("edit/(:num)", "Penduduk::getEdit/$1");
+    $r->get("table", "Penduduk::getTable");
+    $r->get('importexcel', "Penduduk::getImportexcel");
+
+    $r->post("/", "Penduduk::postIndex");
+    $r->post("file", "Penduduk::postFile");
+    $r->post("saveedit/(:num)", "Penduduk::postSaveedit/$1");
+    $r->post("upload", "Penduduk::postUpload");
+
+    $r->put("edit/(:num)", "Penduduk::putEdit/$1");
+
+    $r->delete("delete/(:num)", "Penduduk::deleteDelete/$1");
+});
+
+
+$routes->group("blt", ['filter' => 'role:Admin'], function ($r) {
+    $r->get("/", "Blt\Kelayakan::getTambah ");
+    $r->get("tambah", "Penduduk::getTambah");
+    $r->get("edit/(:num)", "Penduduk::getEdit/$1");
+    $r->get("table", "Penduduk::getTable");
+    $r->get('importexcel', "Penduduk::getImportexcel");
+
+    $r->post("/", "Penduduk::postIndex");
+    $r->post("file", "Penduduk::postFile");
+    $r->post("saveedit/(:num)", "Penduduk::postSaveedit/$1");
+    $r->post("upload", "Penduduk::postUpload");
+
+    $r->put("edit/(:num)", "Penduduk::putEdit/$1");
+
+    $r->delete("delete/(:num)", "Penduduk::deleteDelete/$1");
+});
 
 
 // my custom router

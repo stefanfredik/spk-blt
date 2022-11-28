@@ -22,9 +22,13 @@ class Filters extends BaseConfig {
         'honeypot'      => Honeypot::class,
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
-        'auth'          => \App\Filters\Authenticate::class,
-        'kepalaDesa'    => \App\Filters\Kepaladesa::class,
-        'pendampingBlt'    => \App\Filters\PendampingBlt::class
+        'login'         => \Myth\Auth\Filters\LoginFilter::class,
+        'role'          => \Myth\Auth\Filters\RoleFilter::class,
+        'permission'    => \Myth\Auth\Filters\PermissionFilter::class,
+        // 'auth'          => \App\Filters\Authenticate::class,
+        // 'kepalaDesa'    => \App\Filters\Kepaladesa::class,
+        // 'pendampingBlt'    => \App\Filters\PendampingBlt::class
+
 
     ];
 
@@ -36,6 +40,9 @@ class Filters extends BaseConfig {
      */
     public $globals = [
         'before' => [
+            'login' => [
+                'except' => '/'
+            ]
             // 'honeypot',
             // 'csrf',
             // 'invalidchars',
@@ -74,62 +81,63 @@ class Filters extends BaseConfig {
 
 
     public $filters = [
-        'auth' => [
-            'before' => ['/dashboard/', '/bpnt/*', '/blt/*', '/laporan', '/penduduk', '/user']
-        ],
-        'pendampingBlt' => [
-            'before' => [
-                '/user',
-                '/penduduk',
-                '/penduduk/*',
-                '/bpnt/subkriteria',
-                '/bpnt/subkriteria/*',
-                '/bpnt/kriteria',
-                '/bpnt/kriteria/*',
-                '/bpnt/perhitungan',
-                '/bpnt/perhitungan/*',
-                '/bpnt/laporan/',
-                '/bpnt/laporan/*',
 
-                '/blt/subkriteria',
-                '/blt/subkriteria/*',
-                '/blt/kriteria',
-                '/blt/kriteria/*',
-                '/blt/perhitungan/',
-                '/blt/perhitungan/*',
+        // 'auth' => [
+        //     'before' => ['/dashboard/', '/bpnt/*', '/blt/*', '/laporan', '/penduduk', '/user']
+        // ],
+        // 'pendampingBlt' => [
+        //     'before' => [
+        //         '/user',
+        //         '/penduduk',
+        //         '/penduduk/*',
+        //         '/bpnt/subkriteria',
+        //         '/bpnt/subkriteria/*',
+        //         '/bpnt/kriteria',
+        //         '/bpnt/kriteria/*',
+        //         '/bpnt/perhitungan',
+        //         '/bpnt/perhitungan/*',
+        //         '/bpnt/laporan/',
+        //         '/bpnt/laporan/*',
 
-                '/laporan',
-                '/laporan/*',
-                '/user',
-                '/user/*'
-            ]
-        ],
-        'kepalaDesa' => [
-            'before' => [
-                '/user',
-                '/penduduk',
-                '/penduduk/*',
-                '/bpnt/subkriteria',
-                '/bpnt/subkriteria/*',
-                '/bpnt/kriteria',
-                '/bpnt/kriteria/*',
-                '/bpnt/perhitungan',
-                '/bpnt/perhitungan/*',
-                // '/bpnt/laporan',
-                // '/bpnt/laporan/*',
+        //         '/blt/subkriteria',
+        //         '/blt/subkriteria/*',
+        //         '/blt/kriteria',
+        //         '/blt/kriteria/*',
+        //         '/blt/perhitungan/',
+        //         '/blt/perhitungan/*',
 
-                '/blt/subkriteria',
-                '/blt/subkriteria/*',
-                '/blt/kriteria',
-                '/blt/kriteria/*',
-                '/blt/perhitungan/',
-                '/blt/perhitungan/*',
+        //         '/laporan',
+        //         '/laporan/*',
+        //         '/user',
+        //         '/user/*'
+        //     ]
+        // ],
+        // 'kepalaDesa' => [
+        //     'before' => [
+        //         '/user',
+        //         '/penduduk',
+        //         '/penduduk/*',
+        //         '/bpnt/subkriteria',
+        //         '/bpnt/subkriteria/*',
+        //         '/bpnt/kriteria',
+        //         '/bpnt/kriteria/*',
+        //         '/bpnt/perhitungan',
+        //         '/bpnt/perhitungan/*',
+        //         // '/bpnt/laporan',
+        //         // '/bpnt/laporan/*',
 
-                // '/laporan',
-                // '/laporan/*',
-                '/user',
-                '/user/*'
-            ]
-        ]
+        //         '/blt/subkriteria',
+        //         '/blt/subkriteria/*',
+        //         '/blt/kriteria',
+        //         '/blt/kriteria/*',
+        //         '/blt/perhitungan/',
+        //         '/blt/perhitungan/*',
+
+        //         // '/laporan',
+        //         // '/laporan/*',
+        //         '/user',
+        //         '/user/*'
+        //     ]
+        // ]
     ];
 }

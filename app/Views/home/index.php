@@ -28,7 +28,7 @@
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
           <li><a class="nav-link scrollto" href="#bantuan">Info Bantuan</a></li>
-          <?php if (!session()->get('isLogin')) : ?>
+          <?php if (!logged_in()) : ?>
             <li><a href="/login" class="nav-link scrollto">Login</a></li>
           <?php else :  ?>
             <li><a href="/logout" class="nav-link scrollto">Logout</a></li>
@@ -49,7 +49,7 @@
             <h1>Selamat datang di <span><?= WEBTITLE; ?></span></h1>
             <h2><?= WEBNAME; ?></h2>
             <div class="text-center text-lg-start">
-              <?php if (!session()->get('isLogin')) : ?>
+              <?php if (!logged_in()) : ?>
                 <a href="/login" class="btn-get-started scrollto">Login</a>
               <?php else :  ?>
                 <a href="/dashboard" class="btn-get-started scrollto">Dashboard</a>
