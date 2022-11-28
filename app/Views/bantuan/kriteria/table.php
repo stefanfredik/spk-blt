@@ -6,7 +6,7 @@
                 <th>Kriteria</th>
                 <th>Keterangan</th>
                 <th>Bobot</th>
-                <th>Cosr/Benefit</th>
+                <th>Cost/Benefit</th>
                 <th>Action</th>
             </tr>
         </thead>

@@ -19,7 +19,7 @@
                             <thead class="text-center">
                                 <tr>
                                     <th class="align-middle">No. KK</th>
-                                    <th class="align-middle">No. NIK</th>
+                                    <th class="align-middle">NIK</th>
                                     <th class="align-middle">Nama Lengkap</th>
                                     <th class="align-middle">Tempat Lahir</th>
                                     <th class="align-middle">Tanggal Lahir</th>
