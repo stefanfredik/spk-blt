@@ -14,7 +14,6 @@
                 <th>Alamat</th>
                 <th>RT</th>
                 <th>RW</th>
-                <th>Status Bantuan</th>
             </tr>
         </thead>
         <tbody>
