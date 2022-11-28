@@ -45,7 +45,7 @@
                         <div class="col-md-8">
                             <input value="cost" class="form-check-input" type="radio" name="type" id="cost" checked>
                             <label class="form-check-label" for="cost">
-                                Cosr
+                                Cost
                             </label>
                             <input value="benefit" class="form-check-input" type="radio" name="type" id="benefit" checked>
                             <label class="form-check-label" for="benefit">
