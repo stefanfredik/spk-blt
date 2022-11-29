@@ -9,7 +9,6 @@ use Dompdf\Dompdf;
 class Laporan extends BaseController {
 
     private $url = 'laporan';
-    private $title = 'Data Laporan Penduduk';
 
     public function __construct() {
         $this->pendudukModel = new PendudukModel();
@@ -17,7 +16,7 @@ class Laporan extends BaseController {
 
     public function getIndex() {
         $data = [
-            'title' => 'Laporan Bantuan Penduduk',
+            'title' => 'Laporan Data Penduduk',
             'url' => $this->url
         ];
         return view('laporan/index', $data);
@@ -25,7 +24,7 @@ class Laporan extends BaseController {
 
     public function getTable() {
         $data = [
-            'title' => 'Data Laporan Penduduk',
+            'title' => 'Laporan Data Penduduk',
             'dataPenduduk' => $this->pendudukModel->findAll(),
             'url' => $this->url
         ];
