@@ -65,8 +65,9 @@ $routes->group("user", ['filter' => 'role:Admin'], function ($r) {
 $routes->group("penduduk", ['filter' => 'role:Admin'], function ($r) {
     $r->get("/", "Penduduk::getIndex");
     $r->get("tambah", "Penduduk::getTambah");
-    $r->get("edit/(:num)", "Penduduk::getEdit/$1");
     $r->get("table", "Penduduk::getTable");
+    $r->get("edit/(:num)", "Penduduk::getEdit/$1");
+    $r->get("detail/(:num)", "Penduduk::getDetail/$1");
     $r->get('importexcel', "Penduduk::getImportexcel");
 
     $r->post("/", "Penduduk::postIndex");
