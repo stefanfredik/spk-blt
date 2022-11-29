@@ -38,7 +38,7 @@ class Datapeserta extends BaseController {
         $data = [
             'title' => 'Tambah Data Peserta',
             'url'   => $this->url,
-            'dataPenduduk' => $this->pendudukModel->findAll(),
+            'dataPenduduk' => $this->pendudukModel->findAllNonBantuan(),
             'dataKriteria' => $this->kriteriaModel->where('jenis_bantuan', $this->jenisBantuan)->findAll(),
             'dataSubkriteria' => $this->subkriteriaModel->where('jenis_bantuan', $this->jenisBantuan)->findAll(),
         ];
