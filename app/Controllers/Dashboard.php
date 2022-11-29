@@ -28,19 +28,9 @@ class Dashboard extends BaseController {
             'jumUser' =>  $this->userModel->countAll(),
         ];
 
-        switch (session()->get('jabatan')) {
-            case 'Pendamping BLT':
-                return view('dashboard/indexPendampingBlt', $data);
-                break;
-            case 'Pendamping BPNT':
-                return view('dashboard/indexPendampingBpnt', $data);
-                break;
-
-            case 'Kepala Desa':
-                return view('dashboard/indexKepalaDesa', $data);
-                break;
-            default:
-                return view('dashboard/index', $data);
-        }
+        if (in_groups('Pendamping BLT')) return view('dashboard/indexPendampingBlt', $data);
+        if (in_groups('Pendamping BPNT')) return view('dashboard/indexPendampingBpnt', $data);
+        if (in_groups('Kepala Desa')) return view('dashboard/indexKepalaDesa', $data);
+        if (in_groups('Admin')) return view('dashboard/index', $data);
     }
 }
