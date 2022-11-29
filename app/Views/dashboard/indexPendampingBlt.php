@@ -2,6 +2,15 @@
 <?= $this->section('content'); ?>
 <div class="body flex-grow-1 px-3">
     <div class="container-lg">
+        <div class="row mb-5">
+            <div class="display-6 text-center">
+                Hallo <?= user()->nama_user; ?>,
+            </div>
+            <div class="display-5 text-center">
+                Selamat datang di <?= WEBTITLE; ?>
+            </div>
+        </div>
+
         <div class="row">
             <div class="col-sm-12 col-lg-12">
                 <div class="card mb-4 text-white bg-primary">
@@ -15,12 +24,6 @@
                         <canvas class="chart" id="card-chart1" height="70"></canvas>
                     </div>
                 </div>
-            </div>
-        </div>
-
-        <div class="row mb-5">
-            <div class="display-2 text-center">
-                Selamat Datang Di Halaman Admin <?= WEBTITLE; ?>
             </div>
         </div>
     </div>
