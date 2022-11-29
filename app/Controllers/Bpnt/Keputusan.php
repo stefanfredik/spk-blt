@@ -36,7 +36,7 @@ class Keputusan extends BaseController {
         if ($check) return view('/error/index', ['title' => 'Error', 'listError' => $check]);
 
         $moora = new Moora($peserta, $kriteria, $subkriteria, $kelayakan);
-
+        // dd($moora);
         $data = [
             'title'         => 'Data Perhitungan dan Table Moora',
             'url'           => $this->url,

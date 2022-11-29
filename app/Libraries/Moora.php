@@ -166,14 +166,17 @@ class Moora {
 
         // Kelayakan
         foreach ($this->peserta as $i => $ps) {
-            $n = $this->peserta[$i]['kriteria_nilai'];
+            $n = (float)$ps['kriteria_nilai'];
+            $max = 0;
+
             foreach ($this->nilaiKelayakan as $kl) {
-                if ($n >= $kl['nilai']) {
-                    $this->peserta[$i]['status_layak'] = $kl['keterangan'];
-                } else {
-                    $this->peserta[$i]['status_layak'] = "Tidak Layak";
+                if ($n >= $kl['nilai'] && $kl['nilai'] >= $max) {
+                    $max = $kl['nilai'];
+                    $status = $kl['keterangan'];
                 }
             }
+
+            $this->peserta[$i]['status_layak'] = $status;
         }
     }
 

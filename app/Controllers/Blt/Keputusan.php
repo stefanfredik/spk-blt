@@ -38,6 +38,8 @@ class Keputusan extends BaseController {
 
         $moora = new Moora($peserta, $kriteria, $subkriteria, $kelayakan);
 
+
+
         $data = [
             'title'         => 'Data Perhitungan dan Table Moora',
             'url'           => $this->url,

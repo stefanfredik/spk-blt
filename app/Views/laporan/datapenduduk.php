@@ -1,43 +1,37 @@
-<?= $this->extend("temp/index") ?>
-<?= $this->section("content") ?>
 <div class="table-responsive">
     <table class="table table-bordered" id="table" width="100%" colspacing="0">
         <thead>
             <tr>
-                <th>No</th>
-                <th>No KK</th>
-                <th>NIK</th>
-                <th>Nama</th>
-                <th>Jenis Kelamin</th>
-                <th>Tanggal Lahir</th>
-                <th>Desa</th>
-                <th>Alamat</th>
-                <th>RT</th>
-                <th>RW</th>
+                <th class="text-center align-middle">No</th>
+                <th class="text-center align-middle">No KK</th>
+                <th class="text-center align-middle">NIK</th>
+                <th class="text-center align-middle">Nama</th>
+                <th class="text-center align-middle">Jenis Kelamin</th>
+                <th class="text-center align-middle">Tanggal Lahir</th>
+                <th class="text-center align-middle">Desa</th>
+                <th class="text-center align-middle">Alamat</th>
+                <th class="text-center align-middle">RT</th>
+                <th class="text-center align-middle">RW</th>
+                <th class="text-center align-middle">Desa</th>
             </tr>
         </thead>
         <tbody>
             <?php $no = 1;
-            // dd($dataPeserta);
             foreach ($dataPenduduk as $dt) : ?>
                 <tr>
                     <td><?= $no++; ?></td>
+                    <td><?= $dt['no_kk']; ?></td>
                     <td><?= $dt['nik']; ?></td>
                     <td><?= $dt['nama_lengkap']; ?></td>
                     <td><?= $dt['jenis_kelamin']; ?></td>
-
-
-                    <td style="text-align: center" width="120px">
-                        <div class="btn-group" role="group" aria-label="Basic example">
-                            <button onclick="remove('<?= $url; ?>', this)" class="btn text-white btn-danger" data-id="<?= $dt['id'] ?>"><i class="bi bi-trash mr-2"></i></button>
-                            <button onclick="edit('<?= $url; ?>', this)" class="btn  btn-primary" data-id="<?= $dt['id'] ?>"><i class="bi bi-pencil-square mr-2"></i></button>
-                            <button onclick="detail('<?= $url; ?>', this)" class="btn btn-info" data-id="<?= $dt['id'] ?>">Detail</button>
-                        </div>
-                    </td>
+                    <td><?= $dt['tanggal_lahir']; ?></td>
+                    <td><?= $dt['tempat_lahir']; ?></td>
+                    <td><?= $dt['alamat']; ?></td>
+                    <td><?= $dt['rt']; ?></td>
+                    <td><?= $dt['rw']; ?></td>
+                    <td><?= $dt['desa']; ?></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
 </div>
-
-<?= $this->endSection() ?>
