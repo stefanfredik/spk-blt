@@ -142,8 +142,7 @@ class User extends BaseController {
             ]
         ];
 
-        if ($this->validate($rules)) {
-        }
+
 
 
         return $this->respond($id);

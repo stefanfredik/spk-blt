@@ -161,4 +161,20 @@
             })
         })
     }
+
+    async function detail(url, target) {
+        const id = target.getAttribute('data-id');
+
+        $.get(`/${url}/detail/${id}`, (data, status) => {
+            if (status === 'success') {
+                $("#modalArea").html(data);
+                $("#modal").modal("show");
+            }
+        }).catch((err) => {
+            Toast.fire({
+                icon: 'error',
+                title: 'Gagal mendapatkan data!'
+            })
+        });
+    }
 </script>

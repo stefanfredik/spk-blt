@@ -92,10 +92,17 @@ $routes->group("blt", ['filter' => 'role:Admin'], function ($r) {
     $r->post("file", "Penduduk::postFile");
     $r->post("saveedit/(:num)", "Penduduk::postSaveedit/$1");
     $r->post("upload", "Penduduk::postUpload");
-
     $r->put("edit/(:num)", "Penduduk::putEdit/$1");
 
     $r->delete("delete/(:num)", "Penduduk::deleteDelete/$1");
+});
+
+
+$routes->group("profile", function ($r) {
+    $r->get("/", "Profile::index");
+    $r->get("editpassword", "Profile::editPassword");
+
+    $r->post("/", "Profile::gantiPassword");
 });
 
 

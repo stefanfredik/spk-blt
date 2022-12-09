@@ -8,18 +8,15 @@ use CodeIgniter\API\ResponseTrait;
 use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 
-class Penduduk extends BaseController
-{
+class Penduduk extends BaseController {
     use ResponseTrait;
     private $url = 'penduduk';
 
-    public function __construct()
-    {
+    public function __construct() {
         $this->pendudukModel = new PendudukModel();
     }
 
-    public function getIndex()
-    {
+    public function getIndex() {
         $data = [
             'title' => 'Data Penduduk',
             'url'   => $this->url
@@ -28,8 +25,7 @@ class Penduduk extends BaseController
         return view('penduduk/index', $data);
     }
 
-    public function getTable()
-    {
+    public function getTable() {
         $data = [
             'title' => 'Data Penduduk',
             'url'   => $this->url,
@@ -39,8 +35,7 @@ class Penduduk extends BaseController
         return view('/penduduk/table', $data);
     }
 
-    public function getTambah()
-    {
+    public function getTambah() {
         $data = [
             'title' => 'Tambah Data User',
             'url'   => $this->url
@@ -50,8 +45,7 @@ class Penduduk extends BaseController
     }
 
 
-    public function getImportexcel()
-    {
+    public function getImportexcel() {
         $data = [
             'title' => 'Import File Excel',
             'url'   => $this->url
@@ -60,8 +54,7 @@ class Penduduk extends BaseController
         return view('/penduduk/importexcel', $data);
     }
 
-    public function getEdit($id)
-    {
+    public function getEdit($id) {
         $data = [
             'title' => 'Edit Data Penduduk',
             'penduduk'  => $this->pendudukModel->find($id),
@@ -71,8 +64,7 @@ class Penduduk extends BaseController
         return $this->respond(view('/penduduk/edit', $data), 200);
     }
 
-    public function getDetail($id)
-    {
+    public function getDetail($id) {
         $data = [
             'title' => 'Detail Data Penduduk',
             'penduduk'  => $this->pendudukModel->find($id),
@@ -83,14 +75,12 @@ class Penduduk extends BaseController
     }
 
 
-    public function postFile()
-    {
+    public function postFile() {
         $data = $this->request->getVar('file');
         return $this->respond($data);
     }
 
-    public function postIndex()
-    {
+    public function postIndex() {
         $data = $this->request->getPost();
         $data['status'] = "Tidak Ada";
 
@@ -105,8 +95,7 @@ class Penduduk extends BaseController
         return $this->respond($res, 200);
     }
 
-    public function postSaveedit($id)
-    {
+    public function postSaveedit($id) {
         $data = $this->request->getPost();
         $this->pendudukModel->update($id, $data);
 
@@ -120,8 +109,7 @@ class Penduduk extends BaseController
     }
 
 
-    public function deleteDelete($id)
-    {
+    public function deleteDelete($id) {
 
         $this->pendudukModel->delete($id);
 
@@ -134,8 +122,7 @@ class Penduduk extends BaseController
     }
 
 
-    public function postUpload()
-    {
+    public function postUpload() {
         $rules = [
             'excel' => [
                 'rules' => [
@@ -158,7 +145,7 @@ class Penduduk extends BaseController
         $file = $this->request->getFile("excel");
         $fileName = $file->getName();
 
-        $file->move(WRITEPATH . 'uploads/penduduk', 'test.xlsx', $fileName);
+        $file->move(WRITEPATH . 'uploads/penduduk', $fileName, true);
 
         $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
 

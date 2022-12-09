@@ -5,6 +5,7 @@ namespace Config;
 use Myth\Auth\Config\Auth as AuthConfig;
 
 class Auth extends AuthConfig {
+    public $silent = true;
     public $landingRoute = 'dashboard';
     public $requireActivation   = null;
     public $allowRegistration   = false;

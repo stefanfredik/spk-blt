@@ -28,30 +28,6 @@
         getTable(url);
     });
 
-    const formInput = ["username", "password", "password2"];
-
-
-    function validation(error) {
-        resetForm(formInput);
-        if (error.username) {
-            $("input[name='username']").addClass("is-invalid").next().html(error.username);
-        }
-
-        if (error.password) {
-            $("input[name='password']").addClass("is-invalid").next().html(error.password);
-        }
-
-        if (error.password2) {
-            $("input[name='password2']").addClass("is-invalid").next().html(error.password2);
-        }
-    }
-
-    function resetForm(arr) {
-        arr.forEach((a) => {
-            $(`input[name='${a}']`).removeClass("is-invalid").next().html("");
-        });
-    }
-
     async function uploadFile(event) {
         event.preventDefault();
         const modal = $("#modal");
@@ -74,7 +50,7 @@
                 });
 
                 modal.modal("hide");
-                getTable(url)
+                return getTable(url)
             }
         }).catch(e => {
             debug(e);
@@ -88,22 +64,6 @@
             })
         });
 
-    }
-
-    async function detail(url, target) {
-        const id = target.getAttribute('data-id');
-
-        $.get(`/${url}/detail/${id}`, (data, status) => {
-            if (status === 'success') {
-                $("#modalArea").html(data);
-                $("#modal").modal("show");
-            }
-        }).catch((err) => {
-            Toast.fire({
-                icon: 'error',
-                title: 'Gagal mendapatkan data!'
-            })
-        });
     }
 </script>
 <?= $this->endSection(); ?>
