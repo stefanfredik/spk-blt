@@ -68,7 +68,7 @@
                     <div class="col-sm-6 border rounded">
                         <div class="row">
                             <div class="col-6  ">
-                                <div class="border-start border-start-4 border-start-info px-3 mb-3"><small class="text-medium-emphasis">New Clients</small>
+                                <div class="border-start border-start-4 border-start-info px-3 mb-3"><small class="text-medium-emphasis">Jumlah Peserta BLT</small>
                                     <div class="fs-5 fw-semibold">9.123</div>
                                 </div>
                             </div>
@@ -86,7 +86,7 @@
                     <div class="col-sm-6 border rounded">
                         <div class="row">
                             <div class="col-6">
-                                <div class="border-start border-start-4 border-start-info px-3 mb-3"><small class="text-medium-emphasis">Jumlah Peserta</small>
+                                <div class="border-start border-start-4 border-start-info px-3 mb-3"><small class="text-medium-emphasis">Jumlah Peserta BPNT</small>
                                     <div class="fs-5 fw-semibold">9.123</div>
                                 </div>
                             </div>
