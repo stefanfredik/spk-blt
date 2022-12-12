@@ -165,6 +165,7 @@ class Moora {
         }
 
         // Kelayakan
+        $status = "";
         foreach ($this->peserta as $i => $ps) {
             $n = (float)$ps['kriteria_nilai'];
             $max = 0;

@@ -1,5 +1,7 @@
 <?= $this->extend('temp/index'); ?>
 <?= $this->section('content'); ?>
+
+
 <div class="dashboard body flex-grow-1 px-3">
     <div class="container-lg">
         <div class="row mb-5">
@@ -69,7 +71,7 @@
                         <div class="row">
                             <div class="col-6  ">
                                 <div class="border-start border-start-4 border-start-info px-3 mb-3"><small class="text-medium-emphasis">Jumlah Peserta BLT</small>
-                                    <div class="fs-5 fw-semibold">9.123</div>
+                                    <div class="fs-5 fw-semibold"><?= $jumBlt; ?> Peserta</div>
                                 </div>
                             </div>
                         </div>
@@ -87,7 +89,7 @@
                         <div class="row">
                             <div class="col-6">
                                 <div class="border-start border-start-4 border-start-info px-3 mb-3"><small class="text-medium-emphasis">Jumlah Peserta BPNT</small>
-                                    <div class="fs-5 fw-semibold">9.123</div>
+                                    <div class="fs-5 fw-semibold"><?= $jumBpnt; ?> Peserta</div>
                                 </div>
                             </div>
                         </div>
@@ -138,29 +140,33 @@
 </script>
 
 
-
-
 <script>
     var blt = document.getElementById("chartBlt").getContext('2d');
 
     var chartBlt = new Chart(blt, {
         type: 'bar',
         data: {
-            labels: ["Layak", "Cukup Layak", "Kurang Layak", "Tidak Layak"],
+            // labels: ["Layak", "Cukup Layak", "Kurang Layak", "Tidak Layak"],
+            labels: [
+                <?php
+                foreach ($dataKelayakanBlt as $blt) : ?> "<?= esc($blt['keterangan']); ?>",
+                <?php endforeach; ?>
+            ],
             datasets: [{
                 label: 'BLT',
-                data: [12, 50, 3, 23, 2, 3],
+                data: [
+                    <?php foreach ($dataJumKelayakanBlt as $blt) : ?> <?= esc($blt) ?>,
+                    <?php endforeach; ?>
+                ],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
                     'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
                 ],
                 borderColor: [
                     'rgba(255,99,132,1)',
                     'rgba(54, 162, 235, 1)',
                     'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
                 ],
                 borderWidth: 1
             }]
@@ -182,21 +188,26 @@
     var chartBpnt = new Chart(bpnt, {
         type: 'bar',
         data: {
-            labels: ["Layak", "Cukup Layak", "Kurang Layak", "Tidak Layak"],
+            labels: [
+                <?php
+                foreach ($dataKelayakanBpnt as $bpnt) : ?> "<?= esc($bpnt['keterangan']); ?>",
+                <?php endforeach; ?>
+            ],
             datasets: [{
                 label: 'BPNT',
-                data: [12, 50, 3, 23, 2, 3],
+                data: [
+                    <?php foreach ($dataJumKelayakanBpnt as $bpnt) : ?> <?= esc($bpnt) ?>,
+                    <?php endforeach; ?>
+                ],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
                     'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
                 ],
                 borderColor: [
                     'rgba(255,99,132,1)',
                     'rgba(54, 162, 235, 1)',
                     'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
                 ],
                 borderWidth: 1
             }]

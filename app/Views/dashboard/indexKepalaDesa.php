@@ -33,6 +33,18 @@
                     </div>
                 </div>
             </div>
+
+
+            <div id="penduduk" class="col-sm-6 col-lg-3 ">
+                <div class="card mb-4 text-white bg-warning shadow p-3">
+                    <div class="card-body pb-0 d-flex justify-content-between align-items-start">
+                        <div>
+                            <div class="fs-4 fw-semibold"> Laporan Data Penduduk</div>
+                            <div><?= $jumPenduduk; ?>Orang</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -55,6 +67,11 @@
     const pesertaBpnt = document.getElementById("pesertaBpnt");
     pesertaBpnt.addEventListener("click", () => {
         window.location.href = "/bpnt/laporan"
+    });
+
+    const penduduk = document.getElementById("penduduk");
+    penduduk.addEventListener("click", () => {
+        window.location.href = "/laporan"
     });
 </script>
 <?= $this->endSection(); ?>
