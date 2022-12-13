@@ -21,7 +21,7 @@ class Subkriteria extends BaseController {
 
         $data = [
             'url' => $this->url,
-            'title' => 'Data Sub Kriteria BLT'
+            'title' => 'Data Sub Kriteria'
         ];
 
         return view('/bantuan/subkriteria/index', $data);
@@ -29,7 +29,7 @@ class Subkriteria extends BaseController {
 
     public function getTambah() {
         $data = [
-            'title' => 'Tambah Data Sub Kriteria BLT',
+            'title' => 'Tambah Data Sub Kriteria',
             'kriteriaData' => $this->kriteriaModel->where('jenis_bantuan', $this->jenisBantuan)->findAll(),
             'url'   => $this->url
         ];
@@ -38,7 +38,7 @@ class Subkriteria extends BaseController {
     }
     public function getTable() {
         $data = [
-            'title' => 'Data Sub Kriteria BLT',
+            'title' => 'Data Sub Kriteria',
             'url'   => $this->url,
             'dataSubkriteria' => $this->subkriteriaModel->findAllSubkriteria($this->jenisBantuan),
             'dataKriteria' => $this->kriteriaModel->where('jenis_bantuan', $this->jenisBantuan)->findAll(),
@@ -49,7 +49,7 @@ class Subkriteria extends BaseController {
 
     public function getEdit($id) {
         $data = [
-            'title' => 'Edit Data Sub Kriteria BLT',
+            'title' => 'Edit Data Sub Kriteria',
             'data'  => $this->subkriteriaModel->find($id),
             'dataKriteria' => $this->kriteriaModel->where('jenis_bantuan', $this->jenisBantuan)->findAll(),
             'url'   => $this->url
