@@ -20,7 +20,7 @@
             foreach ($pendudukData as $dt) : ?>
                 <tr>
                     <td><?= $no++ ?></td>
-                    <td class="text-center">
+                    <td class="text-left">
                         <?php if ($dt['blt'] != null) : ?>
                             <div class="badge bg-success">
                                 <i class="bi bi-check-all"></i> BLT
@@ -30,7 +30,7 @@
                                 <i class="bi bi-check-all"></i> BPNT
                             </div>
                         <?php else : ?>
-                            -
+                            <div class="text-center">-</div>
                         <?php endif; ?>
 
                     </td>
