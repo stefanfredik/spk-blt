@@ -21,7 +21,7 @@ class Subkriteria extends BaseController {
 
         $data = [
             'url' => $this->url,
-            'title' => 'Data Sub Kriteria'
+            'title' => 'Data Sub Kriteria BPNT'
         ];
 
         return view('/bantuan/subkriteria/index', $data);
@@ -29,7 +29,7 @@ class Subkriteria extends BaseController {
 
     public function getTambah() {
         $data = [
-            'title' => 'Tambah Data Kriteria',
+            'title' => 'Tambah Data Kriteria BPNT',
             'kriteriaData' => $this->kriteriaModel->where('jenis_bantuan', $this->jenisBantuan)->findAll(),
             'url'   => $this->url
         ];
@@ -38,7 +38,7 @@ class Subkriteria extends BaseController {
     }
     public function getTable() {
         $data = [
-            'title' => 'Data Kriteria',
+            'title' => 'Data Sub Kriteria BPNT',
             'url'   => $this->url,
             'dataSubkriteria' => $this->subkriteriaModel->findAllSubkriteria($this->jenisBantuan),
             'dataKriteria' => $this->kriteriaModel->where('jenis_bantuan', $this->jenisBantuan)->findAll(),
@@ -50,7 +50,7 @@ class Subkriteria extends BaseController {
     public function getEdit($id) {
 
         $data = [
-            'title' => 'Edit Data Penduduk',
+            'title' => 'Edit Data Sub Kriteria BPNT',
             'data'  => $this->subkriteriaModel->find($id),
             'dataKriteria' => $this->kriteriaModel->where('jenis_bantuan', $this->jenisBantuan)->findAll(),
             'url'   => $this->url
@@ -80,7 +80,7 @@ class Subkriteria extends BaseController {
 
         $res = [
             'status' => 'success',
-            'msg'   => 'Data User Berhasil Diupdate.',
+            'msg'   => 'Data berhasil diupdate.',
             'data'  => $data
         ];
 

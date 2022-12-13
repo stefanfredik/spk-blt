@@ -17,6 +17,9 @@ class Penduduk extends BaseController {
     }
 
     public function getIndex() {
+
+        // dd($this->pendudukModel->findAllPenduduk());
+
         $data = [
             'title' => 'Data Penduduk',
             'url'   => $this->url
@@ -29,7 +32,7 @@ class Penduduk extends BaseController {
         $data = [
             'title' => 'Data Penduduk',
             'url'   => $this->url,
-            'pendudukData' => $this->pendudukModel->findAll(),
+            'pendudukData' => $this->pendudukModel->findAllPenduduk(),
         ];
 
         return view('/penduduk/table', $data);

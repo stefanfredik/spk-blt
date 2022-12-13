@@ -26,7 +26,7 @@ class Kriteria extends BaseController {
         $data = [
             'url' => $this->url,
             'table' => $this->table,
-            'title' => 'Data Kriteria'
+            'title' => 'Data Kriteria BLT'
         ];
 
         return view('/bantuan/kriteria/index', $data);
@@ -34,7 +34,7 @@ class Kriteria extends BaseController {
 
     public function getTambah() {
         $data = [
-            'title' => 'Tambah Data Kriteria',
+            'title' => 'Tambah Data Kriteria BLT',
             'url'   => $this->url
         ];
 
@@ -42,7 +42,7 @@ class Kriteria extends BaseController {
     }
     public function getTable() {
         $data = [
-            'title' => 'Data Kriteria',
+            'title' => 'Data Kriteria BLT',
             'url'   => $this->url,
             'table' => $this->table,
             'dataKriteria' => $this->kriteriaModel->where('jenis_bantuan', $this->jenisBantuan)->orderBy('keterangan', 'ASC')->findAll(),
@@ -53,7 +53,7 @@ class Kriteria extends BaseController {
 
     public function getEdit($id) {
         $data = [
-            'title' => 'Edit Data Penduduk',
+            'title' => 'Edit Data Kriteria BLT',
             'kriteria'  => $this->kriteriaModel->find($id),
             'url'   => $this->url
         ];
@@ -96,7 +96,7 @@ class Kriteria extends BaseController {
 
         $res = [
             'status' => 'success',
-            'msg'   => 'Data User Berhasil Diupdate.',
+            'msg'   => 'Data berhasil Diupdate.',
             'data'  => $data
         ];
 

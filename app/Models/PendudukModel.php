@@ -43,4 +43,14 @@ class PendudukModel extends Model {
         $this->join("databpnt", "databpnt.id_penduduk = penduduk.id", "left")->where("databpnt.id", NULL);
         return $this->findAll();
     }
+
+
+    public function findAllPenduduk() {
+        $this->select("penduduk.*");
+        $this->select("datablt.id_penduduk as blt");
+        $this->select("databpnt.id_penduduk as bpnt");
+        $this->join("datablt", "datablt.id_penduduk = penduduk.id", "left");
+        $this->join("databpnt", "databpnt.id_penduduk = penduduk.id", "left");
+        return $this->findAll();
+    }
 }
