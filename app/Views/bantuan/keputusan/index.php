@@ -11,11 +11,10 @@
                 <?php foreach ($kelayakan as $kl) : ?>
                     <div class="row">
                         <div class="col-md-4">
-                            <ul>
-                                <li>>= <span class="fw-bold mx-2"><?= $kl['nilai']; ?></span><?= $kl['keterangan']; ?></li>
-                            </ul>
+                            >= <span class="fw-bold mx-2"><?= $kl['nilai']; ?></span><?= $kl['keterangan']; ?>
                         </div>
                     </div>
+                    <hr>
                 <?php endforeach; ?>
             </div>
         </div>

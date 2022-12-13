@@ -29,7 +29,7 @@ class Subkriteria extends BaseController {
 
     public function getTambah() {
         $data = [
-            'title' => 'Tambah Data Kriteria BPNT',
+            'title' => 'Tambah Data Sub Kriteria BPNT',
             'kriteriaData' => $this->kriteriaModel->where('jenis_bantuan', $this->jenisBantuan)->findAll(),
             'url'   => $this->url
         ];
