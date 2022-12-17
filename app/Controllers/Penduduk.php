@@ -157,6 +157,8 @@ class Penduduk extends BaseController {
         $dataExcel = $spreadsheet->getSheet(0)->toArray();
         unset($dataExcel[0]);
 
+        return $this->respond($dataExcel);
+
         $data  = array();
 
         foreach ($dataExcel as $t) {
