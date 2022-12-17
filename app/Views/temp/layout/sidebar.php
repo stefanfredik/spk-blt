@@ -14,9 +14,9 @@
 
     <?php
     if (in_groups('Admin')) echo view("/temp/layout/sidebar/sidebarAdmin");
-    if (in_groups('Pendamping BLT'))  echo view("/temp/layout/sidebar/sidebarPendampingBlt");
-    if (in_groups('Pendamping BPNT')) echo view("/temp/layout/sidebar/sidebarPendampingBpnt");
-    if (in_groups('Kepala Desa')) echo view("/temp/layout/sidebar/sidebarKepalaDesa");
+    if (in_groups('pendamping-blt'))  echo view("/temp/layout/sidebar/sidebarPendampingBlt");
+    if (in_groups('pendamping-bpnt')) echo view("/temp/layout/sidebar/sidebarPendampingBpnt");
+    if (in_groups('kepala-desa')) echo view("/temp/layout/sidebar/sidebarKepalaDesa");
     ?>
     <button class="sidebar-toggler" type="button" data-coreui-toggle="unfoldable"></button>
 </div>

@@ -5,7 +5,7 @@
                 <h5 class="modal-title" id="modalLabel"><?= $title; ?></h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="<?= $url; ?>" method="" id="formTambah" onsubmit="save(event)">
+            <form action="<?= $url; ?>" method="" data-id="<?= $user['id']; ?>" id="formTambah" onsubmit="saveEdit(event)">
                 <div class="modal-body">
                     <div class="mb-3">
                         <label class="form-label">Nama User</label>
@@ -17,8 +17,9 @@
                         <label class="form-label">Jabatan</label>
                         <select class="form-control" name="jabatan" id="" required>
                             <option value="">Pilih Jabatan</option>
-                            <option <?= $user['jabatan'] == 'Admin' ? 'selected' : '' ?> value="Admin">Admin</option>
-                            <option <?= $user['jabatan'] == 'Kepala Sekolah' ? 'selected' : '' ?> value="Kepala Sekolah">Kepala Sekolah</option>
+                            <?php foreach ($jabatan as $jb) : ?>
+                                <option <?= $user['jabatan'] == $jb['description'] ? 'selected' : '' ?> value="<?= $jb['id']; ?>"><?= $jb['description']; ?></option>
+                            <?php endforeach; ?>
                         </select>
                     </div>
 
@@ -30,7 +31,7 @@
                     </div>
 
 
-                    <div class="mb-3">
+                    <!-- <div class="mb-3">
                         <label class="form-label">Password</label>
                         <input name="password" type="password" class="form-control" required>
                         <div id="" class="invalid-feedback"></div>
@@ -40,7 +41,7 @@
                         <label class="form-label">Ulangi Password</label>
                         <input name="password2" type="password" class="form-control" required>
                         <div id="" class="invalid-feedback"></div>
-                    </div>
+                    </div> -->
 
                 </div>
                 <div class="modal-footer">

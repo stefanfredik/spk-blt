@@ -104,7 +104,7 @@ class Penduduk extends BaseController {
 
         $res = [
             'status' => 'success',
-            'msg'   => 'Data User Berhasil Diupdate.',
+            'msg'   => 'Data Penduduk Berhasil Diupdate.',
             'data'  => $data
         ];
 

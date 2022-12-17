@@ -24,7 +24,7 @@ class MyUserModel extends MythUserModel {
 
     function findAll(int $limit = 0, int $offset = 0) {
         $this->select("users.*");
-        $this->select("g.name as jabatan");
+        $this->select("g.description as jabatan");
         $this->join('auth_groups_users gs', 'users.id = gs.user_id');
         $this->join("auth_groups g", "g.id = gs.group_id");
         return $this->get()->getResultArray();
@@ -36,10 +36,17 @@ class MyUserModel extends MythUserModel {
 
     function find($id = null) {
         $this->select("users.*");
-        $this->select("g.name as jabatan");
+        $this->select("g.description as jabatan");
         $this->join('auth_groups_users gs', 'users.id = gs.user_id');
         $this->join("auth_groups g", "g.id = gs.group_id");
         $this->where("users.id", $id);
         return $this->first();
+    }
+
+    function updateGroup($id = null, $idGroup = null) {
+        return $this->builder('auth_groups_users')
+            ->where("user_id", $id)
+            ->set(["group_id" => $idGroup])
+            ->update();
     }
 }

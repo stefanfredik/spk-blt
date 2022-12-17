@@ -37,9 +37,9 @@ class Dashboard extends BaseController {
 
         ];
 
-        if (in_groups('Pendamping BLT')) return view('dashboard/indexPendampingBlt', $data);
-        if (in_groups('Pendamping BPNT')) return view('dashboard/indexPendampingBpnt', $data);
-        if (in_groups('Kepala Desa')) return view('dashboard/indexKepalaDesa', $data);
+        if (in_groups('pendamping-blt')) return view('dashboard/indexPendampingBlt', $data);
+        if (in_groups('pendamping-bpnt')) return view('dashboard/indexPendampingBpnt', $data);
+        if (in_groups('kepala-desa')) return view('dashboard/indexKepalaDesa', $data);
         if (in_groups('Admin')) return view('dashboard/index', $data);
     }
 

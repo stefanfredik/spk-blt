@@ -56,6 +56,7 @@ $routes->group("user", ['filter' => 'role:Admin'], function ($r) {
     $r->get("table", "User::getTable");
 
     $r->post("/", "User::postIndex");
+    $r->post("saveedit/(:num)", "User::postSaveedit/$1");
 
     $r->put("edit/(:num)", "User::putEdit/$1");
 

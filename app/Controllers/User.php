@@ -40,7 +40,8 @@ class User extends BaseController {
         $data = [
             'title' => 'Edit Data User',
             'user'  => $this->userModel->find($id),
-            'url'   => $this->url
+            'url'   => $this->url,
+            'jabatan' =>  $this->userModel->findAllRole()
         ];
 
         return $this->respond(view('/user/edit', $data), 200);
@@ -146,6 +147,20 @@ class User extends BaseController {
 
 
         return $this->respond($id);
+    }
+
+    public function postSaveedit($id) {
+        $data = $this->request->getPost();
+        $this->userModel->update($id, $data);
+        $this->userModel->updateGroup($id, $this->request->getPost("jabatan"));
+
+        $res = [
+            'status' => 'success',
+            'msg'   => 'Data User Berhasil Diupdate.',
+            'data'  => $data
+        ];
+
+        return $this->respond($res, 200);
     }
 
     public function deleteDelete($id) {
