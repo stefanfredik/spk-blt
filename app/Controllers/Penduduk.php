@@ -155,7 +155,7 @@ class Penduduk extends BaseController {
         $spreadsheet = $reader->load(WRITEPATH . 'uploads/penduduk/' . $fileName);
 
         $dataExcel = $spreadsheet->getSheet(0)->toArray();
-        unset($dataExcel[0]);
+        array_shift($dataExcel);
 
         return $this->respond($dataExcel);
 
