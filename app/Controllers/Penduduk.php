@@ -160,8 +160,8 @@ class Penduduk extends BaseController {
         $data  = array();
 
         foreach ($dataExcel as $t) {
-            $dt["nik"] = $t[0];
-            $dt["no_kk"] = $t[1];
+            $dt["no_kk"] = $t[0];
+            $dt["nik"] = $t[1];
             $dt["nama_lengkap"] = $t[2];
             $dt["tempat_lahir"] = $t[3];
             $dt["tanggal_lahir"] = $t[4];
