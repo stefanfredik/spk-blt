@@ -19,19 +19,22 @@
             <?php $no = 1;
             // dd($dataPeserta);
             foreach ($dataPeserta as $dt) : ?>
-                <tr>
-                    <td class="text-center"><?= $no++; ?></td>
-                    <td><?= $dt['nik']; ?></td>
-                    <td><?= $dt['nama_lengkap']; ?></td>
-                    <td><?= $dt['jenis_kelamin'] ?></td>
-                    <td><?= $dt['tanggal_lahir']; ?></td>
-                    <td><?= $dt['tempat_lahir']; ?></td>
-                    <td><?= $dt['alamat']; ?></td>
-                    <td><?= $dt['rt']; ?></td>
-                    <td><?= $dt['rw']; ?></td>
-                    <td><?= $dt['desa']; ?></td>
-                    <td>1</td>
-                </tr>
+                <?php if ($dt['status_layak'] != 'Kurang Layak') : ?>
+                    <tr>
+                        <td class="text-center"><?= $no++; ?></td>
+                        <td><?= $dt['nik']; ?></td>
+                        <td><?= $dt['nama_lengkap']; ?></td>
+                        <td><?= $dt['jenis_kelamin'] ?></td>
+                        <td><?= $dt['tanggal_lahir']; ?></td>
+                        <td><?= $dt['tempat_lahir']; ?></td>
+                        <td><?= $dt['alamat']; ?></td>
+                        <td><?= $dt['rt']; ?></td>
+                        <td><?= $dt['rw']; ?></td>
+                        <td><?= $dt['desa']; ?></td>
+                        <td>1</td>
+                    </tr>
+
+                <?php endif; ?>
             <?php endforeach; ?>
         </tbody>
     </table>

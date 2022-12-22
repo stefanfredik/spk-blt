@@ -9,6 +9,8 @@ use App\Models\KriteriaModel;
 use App\Models\SubkriteriaModel;
 use CodeIgniter\API\ResponseTrait;
 use Dompdf\Dompdf;
+use App\Libraries\Moora;
+use App\Models\KelayakanModel;
 
 class Laporan extends BaseController {
     use ResponseTrait;
@@ -23,12 +25,13 @@ class Laporan extends BaseController {
         $this->bpntModel  = new BpntModel();
         $this->kriteriaModel = new KriteriaModel();
         $this->subkriteriaModel = new SubkriteriaModel();
+        $this->kelayakanModel = new KelayakanModel();
     }
 
     public function getIndex() {
         $data = [
             'title' => $this->title,
-            'dataPeserta' => $this->bpntModel->findAllDataBpnt(),
+            'dataPeserta' => $this->getPeserta(),
             'dataKriteria' => $this->kriteriaModel->where('jenis_bantuan', $this->jenisBantuan)->findAll(),
             'dataSubkriteria' => $this->subkriteriaModel->where('jenis_bantuan', $this->jenisBantuan)->findAll(),
             'url'   => $this->url,
@@ -53,7 +56,7 @@ class Laporan extends BaseController {
     private function cetakBpnt() {
         $data = [
             'title' => 'Laporan',
-            'dataPeserta' => $this->bpntModel->findAllDataBpnt(),
+            'dataPeserta' => $this->getPeserta(),
             'dataKriteria' => $this->kriteriaModel->where('jenis_bantuan', $this->jenisBantuan)->findAll(),
             'dataSubkriteria' => $this->subkriteriaModel->where('jenis_bantuan', $this->jenisBantuan)->findAll(),
             'url'   => $this->url
@@ -64,7 +67,7 @@ class Laporan extends BaseController {
         $html = view("/bantuan/laporan/cetakBpnt", $data);
 
         $pdf->loadHtml($html);
-        $pdf->setPaper('A4', 'potrait');
+        $pdf->setPaper('A4', 'landscape');
         $pdf->render();
         return $pdf->stream();
     }
@@ -72,7 +75,7 @@ class Laporan extends BaseController {
     private function cetakPenduduk() {
         $data = [
             'title' => 'Laporan',
-            'dataPeserta' => $this->bpntModel->findAllDataBlt(),
+            'dataPeserta' => $this->getPeserta(),
             'dataKriteria' => $this->kriteriaModel->where('jenis_bantuan', $this->jenisBantuan)->findAll(),
             'dataSubkriteria' => $this->subkriteriaModel->where('jenis_bantuan', $this->jenisBantuan)->findAll(),
             'url'   => $this->url
@@ -83,8 +86,22 @@ class Laporan extends BaseController {
         $html = view("/bantuan/laporan/cetakPenduduk", $data);
 
         $pdf->loadHtml($html);
-        $pdf->setPaper('A4', 'potrait');
+        $pdf->setPaper('A4', 'landscape');
         $pdf->render();
         return $pdf->stream();
+    }
+
+    private function getPeserta(): array {
+        $kriteria       = $this->kriteriaModel->where('jenis_bantuan', $this->jenisBantuan)->findAll();
+        $subkriteria    = $this->subkriteriaModel->where('jenis_bantuan', $this->jenisBantuan)->findAll();
+        $peserta        = $this->bpntModel->findAllDataBpnt();
+        $kelayakan      = $this->kelayakanModel->where('jenis_bantuan', $this->jenisBantuan)->findAll();
+
+        helper('Check');
+        $check = checkdata($peserta, $kriteria, $subkriteria, $kelayakan);
+        if ($check) return view('/error/index', ['title' => 'Error', 'listError' => $check]);
+
+        $moora = new Moora($peserta, $kriteria, $subkriteria, $kelayakan);
+        return $moora->getAllPeserta();
     }
 }
