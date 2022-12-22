@@ -22,7 +22,7 @@ class Kelayakan extends Migration {
             ],
             'keterangan' => [
                 'type'  => 'ENUM',
-                'constraint' => ['Layak', 'Cukup Layak', 'Kurang Layak']
+                'constraint' => ['Layak', 'Cukup Layak', 'Tidak Layak']
             ],
         ];
 

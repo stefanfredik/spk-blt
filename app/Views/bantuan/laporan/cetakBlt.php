@@ -50,7 +50,7 @@
                 <?php $no = 1;
                 // dd($dataPeserta);
                 foreach ($dataPeserta as $dt) : ?>
-                    <?php if ($dt['status_layak'] != 'Kurang Layak') : ?>
+                    <?php if ($dt['status_layak'] != 'Tidak Layak') : ?>
                         <tr>
                             <td style="text-align: center;"><?= $no++; ?></td>
                             <td><?= $dt['nik']; ?></td>

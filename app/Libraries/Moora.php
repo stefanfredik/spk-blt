@@ -190,7 +190,7 @@ class Moora {
                 $c2 = $kl['nilai'];
             }
 
-            if ($kl['keterangan'] == 'Kurang Layak') {
+            if ($kl['keterangan'] == 'Tidak Layak') {
                 $c3 = $kl['nilai'];
             }
         }
@@ -202,7 +202,7 @@ class Moora {
             } else if ($nilai >= $c2 && $nilai < $c1) {
                 $status = 'Cukup Layak';
             } else {
-                $status = 'Kurang Layak';
+                $status = 'Tidak Layak';
             }
 
             $this->peserta[$i]['status_layak'] = $status;
