@@ -179,6 +179,13 @@ class Moora {
 
             $this->peserta[$i]['status_layak'] = $status;
         }
+
+
+        // $layak = $nilaiKelayakan['']
+        // foreach ($this->peserta as $i => $ps) {
+        //     if($ps['kriteria_nilai'];
+
+        // }
     }
 
 

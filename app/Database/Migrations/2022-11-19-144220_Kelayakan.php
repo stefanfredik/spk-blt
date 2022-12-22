@@ -14,13 +14,15 @@ class Kelayakan extends Migration {
             'jenis_bantuan' => [
                 'type'  => 'VARCHAR',
                 'constraint'    => '32',
+
             ],
             'nilai' => [
                 'type'  => 'FLOAT',
+                'default' => 0
             ],
             'keterangan' => [
-                'type'  => 'VARCHAR',
-                'constraint' => 64
+                'type'  => 'ENUM',
+                'constraint' => ['Layak', 'Tidak Layak', 'Cukup Layak']
             ],
         ];
 

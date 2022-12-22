@@ -9,6 +9,15 @@
                 <div class="modal-body">
                     <div class="row mb-2">
                         <div class="col-md-4">
+                            <label class="form-label">Keterangan</label>
+                        </div>
+                        <div class="col-md-8">
+                            <p class="fw-bold"><?= $kelayakan['keterangan']; ?></p>
+                        </div>
+                    </div>
+
+                    <div class="row mb-2">
+                        <div class="col-md-4">
                             <label class="form-label">Nilai</label>
                         </div>
                         <div class="col-md-8">
@@ -17,15 +26,7 @@
                     </div>
 
 
-                    <div class="row mb-2">
-                        <div class="col-md-4">
-                            <label class="form-label">Keterangan</label>
-                        </div>
-                        <div class="col-md-8">
-                            <input value="<?= $kelayakan['keterangan']; ?>" name="keterangan" type="text" class="form-control" required>
-                            <div id="" class="invalid-feedback"></div>
-                        </div>
-                    </div>
+
 
                 </div>
                 <div class="modal-footer">
