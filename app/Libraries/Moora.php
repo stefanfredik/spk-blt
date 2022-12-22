@@ -166,26 +166,47 @@ class Moora {
 
         // Kelayakan
         $status = "";
-        foreach ($this->peserta as $i => $ps) {
-            $n = (float)$ps['kriteria_nilai'];
-            $max = 0;
+        // foreach ($this->peserta as $i => $ps) {
+        //     $n = (float)$ps['kriteria_nilai'];
+        //     $max = 0;
 
-            foreach ($this->nilaiKelayakan as $kl) {
-                if ($n >= $kl['nilai'] && $kl['nilai'] >= $max) {
-                    $max = $kl['nilai'];
-                    $status = $kl['keterangan'];
-                }
+        //     foreach ($this->nilaiKelayakan as $kl) {
+        //         if ($n >= $kl['nilai'] && $kl['nilai'] >= $max) {
+        //             $max = $kl['nilai'];
+        //             $status = $kl['keterangan'];
+        //         }
+        //     }
+
+        //     $this->peserta[$i]['status_layak'] = $status;
+        // }
+
+
+        foreach ($this->nilaiKelayakan as $kl) {
+            if ($kl['keterangan'] == 'Layak') {
+                $c1 = $kl['nilai'];
+            }
+
+            if ($kl['keterangan'] == 'Cukup Layak') {
+                $c2 = $kl['nilai'];
+            }
+
+            if ($kl['keterangan'] == 'Kurang Layak') {
+                $c3 = $kl['nilai'];
+            }
+        }
+
+        foreach ($this->peserta as $i => $ps) {
+            $nilai = $ps['kriteria_nilai'];
+            if ($nilai >= $c1) {
+                $status = 'Layak';
+            } else if ($nilai >= $c2 && $nilai < $c1) {
+                $status = 'Cukup Layak';
+            } else if ($nilai >= $c3 && $nilai < $c2) {
+                $status = 'Kurang Layak';
             }
 
             $this->peserta[$i]['status_layak'] = $status;
         }
-
-
-        // $layak = $nilaiKelayakan['']
-        // foreach ($this->peserta as $i => $ps) {
-        //     if($ps['kriteria_nilai'];
-
-        // }
     }
 
 
