@@ -201,10 +201,8 @@ class Moora {
                 $status = 'Layak';
             } else if ($nilai >= $c2 && $nilai < $c1) {
                 $status = 'Cukup Layak';
-            } else if ($nilai >= $c3 && $nilai < $c2) {
-                $status = 'Kurang Layak';
             } else {
-                $status = 'Tidak Layak';
+                $status = 'Kurang Layak';
             }
 
             $this->peserta[$i]['status_layak'] = $status;
