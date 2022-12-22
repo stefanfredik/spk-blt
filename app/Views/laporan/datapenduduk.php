@@ -7,8 +7,8 @@
                 <th class="text-center align-middle">NIK</th>
                 <th class="text-center align-middle">Nama</th>
                 <th class="text-center align-middle">Jenis Kelamin</th>
+                <th class="text-center align-middle">Tempat Lahir</th>
                 <th class="text-center align-middle">Tanggal Lahir</th>
-                <th class="text-center align-middle">Desa</th>
                 <th class="text-center align-middle">Alamat</th>
                 <th class="text-center align-middle">RT</th>
                 <th class="text-center align-middle">RW</th>
@@ -24,8 +24,8 @@
                     <td><?= $dt['nik']; ?></td>
                     <td><?= $dt['nama_lengkap']; ?></td>
                     <td><?= $dt['jenis_kelamin']; ?></td>
-                    <td><?= $dt['tanggal_lahir']; ?></td>
                     <td><?= $dt['tempat_lahir']; ?></td>
+                    <td><?= $dt['tanggal_lahir']; ?></td>
                     <td><?= $dt['alamat']; ?></td>
                     <td><?= $dt['rt']; ?></td>
                     <td><?= $dt['rw']; ?></td>
