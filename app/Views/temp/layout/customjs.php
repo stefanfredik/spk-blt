@@ -1,5 +1,5 @@
 <script>
-    const isDebug = true;
+    const isDebug = false;
 
     function debug(a) {
         if (isDebug) {
@@ -28,7 +28,8 @@
         let url = form.getAttribute("action");
         const data = new FormData(form);
         const modal = $("#modal");
-        axios.post(`/${url}/`, data).then(res => {
+
+        axios.post(`/${url}`, data).then(res => {
             debug(res);
             if (res.data.status == "success") {
                 Toast.fire({

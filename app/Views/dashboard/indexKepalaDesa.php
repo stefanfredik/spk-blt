@@ -3,12 +3,13 @@
 <div class="body flex-grow-1 px-3">
     <div class="container-lg">
         <div class="row mb-5">
-            <div class="display-6 text-center text-white">
-                Hallo <?= user()->nama_user; ?>,
-            </div>
-            <div class="display-5 text-center text-white">
+            <h3 class="text-center text-white">
+                Hallo <span class="fw-bold"><?= user()->nama_user; ?></span>,
+            </h3>
+
+            <h4 class="text-center text-white">
                 Selamat datang di <?= WEBTITLE; ?>
-            </div>
+            </h4>
         </div>
 
         <div class="row">

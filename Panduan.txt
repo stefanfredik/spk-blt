@@ -1,0 +1,15 @@
+CARA MENJALANKAN PROJECT :
+
+
+1. Hidupkan laptop :D
+2. Buka browser
+3. buka alamat fania.stiki atau localhost juga boleh.
+
+
+CARA MELAKUKAN UPDATE JIKA ADA UPDATE/PERBAIKAN DARI SAYA
+
+1. Pastikan internet terhubung.
+2. BUka Folder Project
+3. Cari File REQUEST UPDATE.cmd
+4. Buka file tersebut.
+5. Update Selesai.
