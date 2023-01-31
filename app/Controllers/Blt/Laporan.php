@@ -12,7 +12,8 @@ use Dompdf\Dompdf;
 use App\Libraries\Moora;
 use App\Models\KelayakanModel;
 
-class Laporan extends BaseController {
+class Laporan extends BaseController
+{
     use ResponseTrait;
 
     private $url = 'blt/laporan';
@@ -21,14 +22,16 @@ class Laporan extends BaseController {
     private $jenisBantuan = 'blt';
 
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->bltModel  = new BltModel();
         $this->kriteriaModel = new KriteriaModel();
         $this->subkriteriaModel = new SubkriteriaModel();
         $this->kelayakanModel = new KelayakanModel();
     }
 
-    public function getIndex() {
+    public function getIndex()
+    {
         $data = [
             'title' => $this->title,
             'dataPeserta' => $this->getPeserta(),
@@ -42,7 +45,8 @@ class Laporan extends BaseController {
         return view('bantuan/laporan/index', $data);
     }
 
-    public function getCetak($bantuan) {
+    public function getCetak($bantuan)
+    {
         if ($bantuan == 'blt') {
             return $this->cetakBlt();
         } else if ($bantuan == 'penduduk') {
@@ -53,14 +57,14 @@ class Laporan extends BaseController {
     }
 
 
-    private function cetakBlt() {
+    private function cetakBlt()
+    {
         $data = [
             'title' => 'Laporan',
-            'dataPeserta' => $this->bltModel->findAllDataBlt(),
+            'dataPeserta' => $this->getPeserta(),
             'dataKriteria' => $this->kriteriaModel->where('jenis_bantuan', $this->jenisBantuan)->findAll(),
             'dataSubkriteria' => $this->subkriteriaModel->where('jenis_bantuan', $this->jenisBantuan)->findAll(),
             'url'   => $this->url,
-            'jenisBantuan' => $this->jenisBantuan
         ];
 
         $pdf = new Dompdf;
@@ -68,19 +72,40 @@ class Laporan extends BaseController {
         $html = view("/bantuan/laporan/cetakBlt", $data);
 
         $pdf->loadHtml($html);
-        $pdf->setPaper('A4', 'potrait');
+        $pdf->setPaper('A4', 'landscape');
         $pdf->render();
         return $pdf->stream();
     }
 
-    private function cetakPenduduk() {
+    // private function cetakPenduduk()
+    // {
+    //     $data = [
+    //         'title' => 'Laporan',
+    //         'dataPeserta' => $this->bltModel->findAllDataBlt(),
+    //         'dataKriteria' => $this->kriteriaModel->where('jenis_bantuan', $this->jenisBantuan)->findAll(),
+    //         'dataSubkriteria' => $this->subkriteriaModel->where('jenis_bantuan', $this->jenisBantuan)->findAll(),
+    //         'url'   => $this->url,
+    //         'jenisBantuan' => $this->jenisBantuan
+    //     ];
+
+    //     $pdf = new Dompdf;
+
+    //     $html = view("/bantuan/laporan/cetakPenduduk", $data);
+
+    //     $pdf->loadHtml($html);
+    //     $pdf->setPaper('A4', 'potrait');
+    //     $pdf->render();
+    //     return $pdf->stream();
+    // }
+
+    private function cetakPenduduk()
+    {
         $data = [
             'title' => 'Laporan',
-            'dataPeserta' => $this->bltModel->findAllDataBlt(),
+            'dataPeserta' => $this->getPeserta(),
             'dataKriteria' => $this->kriteriaModel->where('jenis_bantuan', $this->jenisBantuan)->findAll(),
             'dataSubkriteria' => $this->subkriteriaModel->where('jenis_bantuan', $this->jenisBantuan)->findAll(),
-            'url'   => $this->url,
-            'jenisBantuan' => $this->jenisBantuan
+            'url'   => $this->url
         ];
 
         $pdf = new Dompdf;
@@ -88,16 +113,17 @@ class Laporan extends BaseController {
         $html = view("/bantuan/laporan/cetakPenduduk", $data);
 
         $pdf->loadHtml($html);
-        $pdf->setPaper('A4', 'potrait');
+        $pdf->setPaper('A4', 'landscape');
         $pdf->render();
         return $pdf->stream();
     }
 
-    private function getPeserta(): array {
+
+
+    private function getPeserta(): array
+    {
         $kriteria       = $this->kriteriaModel->where('jenis_bantuan', $this->jenisBantuan)->findAll();
         $subkriteria    = $this->subkriteriaModel->where('jenis_bantuan', $this->jenisBantuan)->findAll();
-        if ($this->jenisBantuan == 'blt') {
-        }
         $peserta        = $this->bltModel->findAllDataBlt();
         $kelayakan      = $this->kelayakanModel->where('jenis_bantuan', $this->jenisBantuan)->findAll();
 

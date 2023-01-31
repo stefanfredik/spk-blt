@@ -12,7 +12,8 @@ use Dompdf\Dompdf;
 use App\Libraries\Moora;
 use App\Models\KelayakanModel;
 
-class Laporan extends BaseController {
+class Laporan extends BaseController
+{
     use ResponseTrait;
 
     private $url = 'bpnt/laporan';
@@ -21,14 +22,16 @@ class Laporan extends BaseController {
     private $jenisBantuan = 'bpnt';
 
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->bpntModel  = new BpntModel();
         $this->kriteriaModel = new KriteriaModel();
         $this->subkriteriaModel = new SubkriteriaModel();
         $this->kelayakanModel = new KelayakanModel();
     }
 
-    public function getIndex() {
+    public function getIndex()
+    {
         $data = [
             'title' => $this->title,
             'dataPeserta' => $this->getPeserta(),
@@ -42,7 +45,8 @@ class Laporan extends BaseController {
         return view('bantuan/laporan/index', $data);
     }
 
-    public function getCetak($bantuan) {
+    public function getCetak($bantuan)
+    {
         if ($bantuan == 'bpnt') {
             return $this->cetakBpnt();
         } else if ($bantuan == 'penduduk') {
@@ -53,7 +57,8 @@ class Laporan extends BaseController {
     }
 
 
-    private function cetakBpnt() {
+    private function cetakBpnt()
+    {
         $data = [
             'title' => 'Laporan',
             'dataPeserta' => $this->getPeserta(),
@@ -72,7 +77,8 @@ class Laporan extends BaseController {
         return $pdf->stream();
     }
 
-    private function cetakPenduduk() {
+    private function cetakPenduduk()
+    {
         $data = [
             'title' => 'Laporan',
             'dataPeserta' => $this->getPeserta(),
@@ -91,7 +97,8 @@ class Laporan extends BaseController {
         return $pdf->stream();
     }
 
-    private function getPeserta(): array {
+    private function getPeserta(): array
+    {
         $kriteria       = $this->kriteriaModel->where('jenis_bantuan', $this->jenisBantuan)->findAll();
         $subkriteria    = $this->subkriteriaModel->where('jenis_bantuan', $this->jenisBantuan)->findAll();
         $peserta        = $this->bpntModel->findAllDataBpnt();
