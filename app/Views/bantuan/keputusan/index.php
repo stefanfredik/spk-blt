@@ -31,7 +31,6 @@
                     <table id="table" class="table table-bordered" width="100%" colspacing="0">
                         <thead>
                             <tr class="align-middle">
-                                <th>No</th>
                                 <th class="text-center">Rangking</th>
                                 <th>No. KK</td>
                                 <th>NIK</td>
@@ -44,12 +43,10 @@
                         </thead>
                         <tbody>
                             <?php
-                            $no = 1;
                             $rank = 1;
                             foreach ($peserta as $ps) :
                             ?>
                                 <tr>
-                                    <td><?= $no++; ?></td>
                                     <td class="text-center"><?= $rank++; ?></td>
                                     <td><?= $ps['no_kk'] ?></td>
                                     <td><?= $ps['nik'] ?></td>
