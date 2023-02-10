@@ -7,6 +7,7 @@ use App\Controllers\BaseController;
 use App\Libraries\Moora;
 use App\Models\BltModel;
 use App\Models\KelayakanModel;
+use App\Models\KeputusanModel;
 use App\Models\KriteriaModel;
 use App\Models\NilaiKelayakanModel;
 use App\Models\PendudukModel;
@@ -24,6 +25,7 @@ class Keputusan extends BaseController {
         $this->nilaiKelayakanModel = new NilaiKelayakanModel();
         $this->jumlahKriteria = $this->kriteriaModel->where('jenis_bantuan', $this->jenisBantuan)->countAllResults();
         $this->kelayakanModel = new KelayakanModel();
+        $this->keputusanModel = new KeputusanModel();
     }
 
     public function getIndex() {
@@ -46,6 +48,24 @@ class Keputusan extends BaseController {
             'peserta'       => $moora->getAllPeserta(),
             'kelayakan'     => $kelayakan
         ];
+
+        $peserta = [];
+
+        foreach ($data['peserta'] as $key => $ps) {
+            $peserta[$key]['nama_lengkap'] = $ps['nama_lengkap'];
+            $peserta[$key]['no_kk'] = $ps['no_kk'];
+            $peserta[$key]['tempat_lahir'] = $ps['tempat_lahir'];
+            $peserta[$key]['tanggal_lahir'] = $ps['tanggal_lahir'];
+            $peserta[$key]['jenis_kelamin'] = $ps['jenis_kelamin'];
+            $peserta[$key]['kriteria_nilai'] = $ps['kriteria_nilai'];
+            $peserta[$key]['status_layak'] = $ps['status_layak'];
+            $peserta[$key]['jenis_bantuan'] = $this->jenisBantuan;
+        }
+
+        $this->keputusanModel->where('jenis_bantuan', $this->jenisBantuan)->delete();
+        $this->keputusanModel->insertBatch($peserta);
+
+
         return view('/bantuan/keputusan/index', $data);
     }
 }

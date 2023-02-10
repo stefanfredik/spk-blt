@@ -4,23 +4,25 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class KriteriaMigration extends Migration
-{
-    public function up()
-    {
+class KriteriaMigration extends Migration {
+    public function up() {
         $data = [
+
             'id' => [
                 'type'  => 'INT',
                 'auto_increment'    => TRUE
             ],
+
             'kriteria' => [
                 'type'  => 'VARCHAR',
                 'constraint'    => '32',
             ],
+
             'keterangan' => [
                 'type'  => 'VARCHAR',
                 'constraint'    => '64'
             ],
+
             'nilai' => [
                 'type'  => 'FLOAT',
             ],
@@ -28,6 +30,7 @@ class KriteriaMigration extends Migration
                 'type'       => 'ENUM',
                 'constraint' => ['cost', 'benefit']
             ],
+
             'jenis_bantuan' => [
                 'type' => 'VARCHAR',
                 'constraint' => '64'
@@ -39,8 +42,7 @@ class KriteriaMigration extends Migration
         $this->forge->createTable('kriteria');
     }
 
-    public function down()
-    {
+    public function down() {
         $this->forge->dropTable('kriteria');
     }
 }

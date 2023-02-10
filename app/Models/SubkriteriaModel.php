@@ -15,7 +15,6 @@ class SubkriteriaModel extends Model {
     protected $protectFields    = true;
     protected $allowedFields    = ['id', 'id_kriteria', 'subkriteria', 'nilai', 'jenis_bantuan'];
 
-
     public function findAllSubkriteria($jenisBantuan) {
         $this->select('subkriteria.*');
         $this->select('kriteria.kriteria');
