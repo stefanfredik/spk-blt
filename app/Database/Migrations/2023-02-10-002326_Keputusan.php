@@ -31,14 +31,10 @@ class Keputusan extends Migration {
                 'type'  => 'VARCHAR',
                 'constraint'    => '32',
             ],
-            'kriteria_nilai' => [
+            'nilai' => [
                 'type'  => 'FLOAT',
             ],
             'status_layak' => [
-                'type'  => 'VARCHAR',
-                'constraint'    => '128',
-            ],
-            'jenis_bantuan' => [
                 'type'  => 'VARCHAR',
                 'constraint'    => '128',
             ],
@@ -47,10 +43,15 @@ class Keputusan extends Migration {
 
         $this->forge->addField($data);
         $this->forge->addKey('id', true);
-        $this->forge->createTable('keputusan');
+        $this->forge->createTable('keputusan_blt');
+
+        $this->forge->addField($data);
+        $this->forge->addKey('id', true);
+        $this->forge->createTable('keputusan_bpnt');
     }
 
     public function down() {
-        $this->forge->dropTable('keputusan');
+        $this->forge->dropTable('keputusan_blt');
+        $this->forge->dropTable('keputusan_bpnt');
     }
 }
